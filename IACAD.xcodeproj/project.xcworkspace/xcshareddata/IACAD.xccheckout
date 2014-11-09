@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>86C5A39F-7F91-4E2B-B171-E581EA09B097</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IACAD</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C7855D47-4963-4810-B4A8-00D8156788E3</key>
+		<string>https://github.com/minamalak/IACAD-iPhone.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IACAD.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C7855D47-4963-4810-B4A8-00D8156788E3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/minamalak/IACAD-iPhone.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C7855D47-4963-4810-B4A8-00D8156788E3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C7855D47-4963-4810-B4A8-00D8156788E3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IACAD-iPhone</string>
+		</dict>
+	</array>
+</dict>
+</plist>

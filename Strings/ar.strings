@@ -1,0 +1,163 @@
+/*
+ Arabic.strings
+ 
+ */
+
+///SideMenu
+"side_main" = "القائمة الرئسية";
+"side_about" = "من نحن";
+"side_contact" = "إتصل بنا";
+"side_language" = "اللغة";
+"side_history" = "تاريخ التبرعات";
+
+"noconnection_lbl" = "عذراً لا يوجد إتصال حالياً بشبكة الانترنت ، جاري إعادة الإتصال ...";
+
+
+///FirstView
+"browse_lbl" = "تصفح";
+"donate_lbl" = "تبرع";
+"event_lbl" = "فعاليات";
+"general_lbl" = "تبرع عام";
+"rescue_lbl" = "إغاثة";
+
+
+////About
+"zakat_lbl" = "عن مكتب الزكاة";
+"gate_lbl" = "عن بوابة الامارات";
+
+
+////Login
+"register_title_lbl" = "التسجيل";
+"login_title_lbl" = "التسجيل";
+"register_or_login_lbl" = "برجاء الدخول أو التسجيل";
+"register_new_user_lbl" = "تسجيل عضو جديد";
+"required_lbl" = " إلزامي";
+"username_lbl" = "إسم المستخدم";
+"password_lbl" = "كلمة السر";
+"oldpassword_lbl" = "كلمة السر القديمة";
+"newpassword_lbl" = "كلمة السر الجديدة";
+"forgot_password_lbl" = "نسيت كلمة السر؟";
+"email_lbl" = "البريد الالكتروني";
+"firstname_lbl" = "الاسم الاول";
+"lastname_lbl" = "إسم العائلة";
+"mobile_lbl" = "رقم المحمول";
+"country_lbl" = "البلد";
+"city_lbl" = "المدينة";
+"edit_lbl" = "تعديل البيانات الشخصية";
+"forgot_lbl" = "نسيت كلمة السر؟";
+"question_lbl" = "السؤال السري";
+"answer_lbl" = "الجواب السري";
+
+////Message box
+"done_lbl" = "تم";
+"enter_username" = "أدخل إسم المستخدم";
+"enter_password" = "أدخل كلمة السر";
+"enter_oldpassword" = "أدخل كلمة السر القديمة";
+"message_title" = "إمارات الخير";
+"enter_question" = "أدخل السؤال السري";
+"enter_answer" = "أدخل الجواب السري";
+"enter_email" = "أدخل البريد الالكتروني";
+"enter_correct_email" = "أدخل البريد الالكتروني بشكل صحيح";
+"enter_firstname" = "أدخل الاسم الاول";
+"enter_familyname" = "أدخل إسم العائلة";
+"enter_mobile" = "أدخل رقم المحمول";
+"select_country" = "إختار البلد";
+"select_city" = "إختار المدينة";
+"complex_password" = " لابد أن تحتوي كلمة السر على حروف صغيرة و حروف كبيرة و أرقام و رموز و لا تقل عن سبعة أحرف";
+"enter_donation" = "أدخل قيمة التبرع";
+"remaining_share_message" = "أسهم قمت بإدخال أكثر من الأسهم المتبقية";
+"project_name_msg" = "أدخل اسم المشروع";
+"project_note_msg" = "أدخل مذكرة المشروع";
+
+"value_more_remaining_lbl" = "أدخل قيمة أقل من الأسهم المتبقية";
+
+"registrationdone_msg" = "لقد تم تسجيلك بنجاح";
+
+
+///Browse
+"charities_lbl" = "الجمعيات الخيرية";
+"statistics_lbl" = "الإحصائيات";
+"asembly_lbl" = "إسم الجمعية :";
+"desc_lbl" = "الوصف :";
+"activites_lbl" = "الانشطة :";
+"desc2_lbl" = "التفاصيل :";
+"telephone_lbl" = "هاتف :";
+"fax_lbl" = "الفاكس :";
+"website_lbl" = "الموقع :";
+"email_lbl" = "البريد الإلكتروني :";
+
+
+////General Donatation
+"total_donation_lbl" = "مجموع التبرعات";
+"dirham_lbl" = " د.ا ";
+"dirham_lbl2" = "د.ا";
+"shares_lbl" = "الأسهم";
+
+////Donatation
+"donate_title" = "دليل التبرعات";
+"all_charities" = "كل الجمعيات";
+"all_Countries" = "كل البلاد";
+"asembly_name" = "الجمعية";
+"cost_lbl" = "التكلفة :";
+"project_type_lbl" = "نوع المشروع :";
+"area_lbl" = "المساحة :";
+"capacity_lbl" = "السعة :";
+"remain_share_lbl" = "الاسهم المتبقية :";
+"total_share_lbl" = "إجمالي الاسهم :";
+"share_price_lbl" = "سعر السهم :";
+"confirm_donate_lbl" = "تأكيد التبرع";
+"enter_number_units" = "من فضلك أدخل عدد الوحدات التي تريد التبرع بها";
+"enter_value" = "من فضلك أدخل قيمة التبرع التي تريد التبرع بها";
+"enter_stock" = "الرجاء إدخال عدد الأسهم التي ترغب في التبرع";
+"total_value" = "إجمالي القيمة :";
+"units_lbl" = "وحدات";
+"project_name_lbl" = "اسم المشروع";
+"project_note_lbl" = "مذكرة المشروع";
+
+
+
+///Events
+"no_info_lbl" = "لا يوجد بيانات";
+
+
+///personal details
+"months_lbl"="الأشهر";
+"enter_number_months"="أدخل عدد الأشهر";
+"AgeMonthFormat"="%d شهر";
+"AgeYearFormat"="%d سنة";
+"name_lbl"="الاسم";
+"Nationality_lbl"="الجنسية";
+"Cost_lbl"="التكلفة";
+"Gender_lbl"="الجنس";
+"Age_lbl"="العمر";
+"donationType_lbl"="نوع التبرع";
+
+////->PoorFamilies
+"FamilyMembers_lbl"="عدد افراد الأسرة";
+"SonsNumber_lbl"="عدد الأولاد";
+"DaughtersNumber_lbl"="عدد البنات";
+"MonthlyIncome_lbl"="الدخل الشهري";
+
+////->Students
+"StudentMaritalStatus_lbl"="الحالة الإجتماعية";
+"StudentWork_lbl"="الوظيفه";
+"StudentCertificateCertificateName_lbl"="اخر شهادة تم الحصول عليها";
+"StudentCertificateDate_lbl"="تاريخ الحصول علي اخر شهادة";
+"StudentsSponsorshipTypeName_lbl"="نوع الكفالة المطلوبة";
+"StudentScholarshipGradeName_lbl"="درجة المنحة الدراسية";
+
+"CityName_lbl" = "المدينة";
+"InstitutionAddress_lbl"="المؤسسة";
+"EducationCost_lbl"="تكلفة التعليم";
+"UniversityName_lbl"="الجامعة";
+////->Orphans
+"Health_lbl"="حالة اليتيم الصحية";
+"StudyLevel_lbl"="المرحلة الدراسية";
+
+////->Teacher
+"TeacherMaritalStatus_lbl"="الحالة الإجتماعية";
+"TeacherEducationType_lbl"="طبيعة الدراسة";
+"TeacherEducatinoPlace_lbl"="مكان الدراسة";
+"TeacherChildrenCount_lbl"="عدد الأولاد";
+
+////->GeneralPersons

@@ -1,0 +1,161 @@
+/*
+ English.strings
+ 
+ */
+
+///SideMenu
+"side_main" = "Main Menu";
+"side_about" = "About Us";
+"side_contact" = "Contact Us";
+"side_language" = "Language";
+"side_history" = "Donation History";
+
+"noconnection_lbl" = "Sorry, no internet connection; please try again later....";
+
+
+///FirstView
+"browse_lbl" = "Browse";
+"donate_lbl" = "Donation";
+"event_lbl" = "Events";
+"general_lbl" = "General Donation";
+"rescue_lbl" = "Rescue";
+
+
+////About
+"zakat_lbl" = "About Zakat Office";
+"gate_lbl" = "About Emirates Gate";
+
+
+////Login
+"register_title_lbl" = "Registration";
+"login_title_lbl" = "Login";
+"register_or_login_lbl" = "Please Login or Register";
+"register_new_user_lbl" = "New User Registration";
+"required_lbl" = "Required ";
+"username_lbl" = "Username";
+"password_lbl" = "Password";
+"oldpassword_lbl" = "Old Password";
+"newpassword_lbl" = "New Password";
+"forgot_password_lbl" = "Forgot password?";
+"email_lbl" = "Email";
+"firstname_lbl" = "First Name";
+"lastname_lbl" = "Family Name";
+"mobile_lbl" = "Mobile Number";
+"country_lbl" = "Country";
+"city_lbl" = "City";
+"edit_lbl" = "Edit Profile";
+"question_lbl" = "Secret Question";
+"answer_lbl" = "Secret Answer";
+
+
+
+////Message box
+"done_lbl" = "Done";
+"enter_username" = "Enter your username";
+"enter_password" = "Enter your password";
+"enter_oldpassword" = "Enter old password";
+"message_title" = "Emirates Charity";
+"enter_email" = "Enter your email address";
+"enter_correct_email" = "Enter your e-mail correctly";
+"enter_firstname" = "Enter your first name";
+"enter_familyname" = "Enter your family name";
+"enter_mobile" = "Enter your mobile phone number";
+"enter_question" = "Enter secret question";
+"enter_answer" = "Enter secret answer";
+"select_country" = "Select Country";
+"select_city" = "Select City";
+"complex_password" = "Your password must contains lowercase letters, uppercase letters, numbers, symbols and must be 7 characters or more";
+"enter_donation" = "Enter the the donation value";
+"remaining_share_message" = "Stocks you have entered are more than remaining stocks";
+"project_name_msg" = "Enter project name";
+"project_note_msg" = "Enter project note";
+"value_more_remaining_lbl" = "Enter value less than remaining stock";
+
+"registrationdone_msg" = "You have been successfully registered";
+
+
+///Browse
+"charities_lbl" = "Charities";
+"statistics_lbl" = "Statistics";
+"asembly_lbl" = "Name:";
+"desc_lbl" = "Description:";
+"desc2_lbl" = "Description:";
+"activites_lbl" = "Activities:";
+"telephone_lbl" = "Telephone:";
+"fax_lbl" = "Fax:";
+"website_lbl" = "Website:";
+"email_lbl" = "Email:";
+
+////General Donatation
+"total_donation_lbl" = "Total Donations";
+"dirham_lbl" = " AED ";
+"dirham_lbl2" = "AED";
+"shares_lbl" = "Stocks";
+
+
+////Donatation
+"donate_title" = "Donations Guide";
+"all_charities" = "All Associations";
+"all_Countries" = "All Countries";
+"asembly_name" = "Charity name";
+"cost_lbl" = "Cost:";
+"project_type_lbl" = "Project type:";
+"area_lbl" = "Area:";
+"capacity_lbl" = "Capacity:";
+"remain_share_lbl" = "Remaining Stocks:";
+"total_share_lbl" = "Total Stocks:";
+"share_price_lbl" = "Stock Price:";
+"confirm_donate_lbl" = "Confirm Donation";
+"enter_number_units" = "Please enter the number of units that you want to donate them";
+"enter_value" = "Please enter a value that you want to donate";
+"enter_stock" = "Please enter number of stocks that you want to donate";
+"total_value" = "Total Value:";
+"units_lbl" = "Units";
+"project_name_lbl" = "Project name";
+"project_note_lbl" = "Project note";
+
+///Events
+"no_info_lbl" = "No Data";
+
+///personal details
+"months_lbl"="Months";
+"enter_number_months"="Enter number of months";
+"AgeMonthFormat"="%d Months";
+"AgeYearFormat"="%d Years";
+"name_lbl"="Name";
+"Nationality_lbl"="Nationality";
+"Cost_lbl"="Cost";
+"Gender_lbl"="Gender";
+"Age_lbl"="Age";
+"donationType_lbl"="Donation Type";
+
+////->PoorFamilies
+"FamilyMembers_lbl"="Family Members";
+"SonsNumber_lbl"="Number of boys";
+"DaughtersNumber_lbl"="Number of girls";
+"MonthlyIncome_lbl"="Income";
+
+////->Students
+"StudentMaritalStatus_lbl"="Marital Status";
+"StudentWork_lbl"="Work";
+"StudentCertificateCertificateName_lbl"="Latest Certificate";
+"StudentCertificateDate_lbl"="Latest Certificate Date";
+"StudentsSponsorshipTypeName_lbl"="Sponsorship Type";
+"StudentScholarshipGradeName_lbl"="Scholarship Grade";
+
+"CityName_lbl" = "City";
+"InstitutionAddress_lbl"="Institution";
+"EducationCost_lbl"="Education";
+"UniversityName_lbl"="University";
+
+////->Orphans
+"Health_lbl"="Health Status";
+"StudyLevel_lbl"="Study Level";
+
+////->Teacher
+"TeacherMaritalStatus_lbl"="Marital Status";
+"TeacherEducationType_lbl"="Education Type";
+"TeacherEducatinoPlace_lbl"="Education Place";
+"TeacherChildrenCount_lbl"="Number of kids";
+
+////->GeneralPersons
