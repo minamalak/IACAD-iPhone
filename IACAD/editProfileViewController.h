@@ -12,7 +12,7 @@
 #import "CustomizedACView.h"
 @class AppDelegate;
 @class CustomizedACView;
-@interface editProfileViewController : UIViewController <IACADServiceClientCaller>
+@interface editProfileViewController : UIViewController <IACADServiceClientCaller, UIAlertViewDelegate>
 {
     AppDelegate * appDelegate;
      CustomizedACView * AC;

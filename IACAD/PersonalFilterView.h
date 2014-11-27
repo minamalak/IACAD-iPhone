@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "IACADServiceClient.h"
-#import "donateDetailsListViewController.h"
-#import "AppDelegate.h"
+#import "donateGridListViewController.h"
+//#import "AppDelegate.h"
 
 @class AppDelegate;
+
 @interface PersonalFilterView : UIView <UITableViewDelegate,UITableViewDataSource,IACADServiceClientCaller>
 {
     id delegate;
@@ -20,7 +21,7 @@
     NSString * filterType;
     UIImageView * firstcellImage;
     int charityID;
-    int countryID;
+    NSMutableArray *countryID;
     int donateID;
     UIImageView * arrowleft;
     UIImageView * arrowright;
@@ -32,8 +33,13 @@
     NSString * countryName;
     AppDelegate * appDelegate;
  
+    UIView *viewFiltersButtons;
+    NSMutableArray *arraySelected;
+    
+    int charID;
+    NSMutableArray * counID;
 }
 
-- (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(int)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex;
+- (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(NSMutableArray *)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex;
 
 @end

@@ -20,7 +20,7 @@
     NSString * filterType;
     UIImageView * firstcellImage;
     int charityID;
-    int countryID;
+    NSMutableArray *countryID;
     int donateID;
     UIImageView * arrowleft;
     UIImageView * arrowright;
@@ -31,9 +31,14 @@
     NSString * charityName;
     NSString * countryName;
     AppDelegate * appDelegate;
+    
+    UIView *viewFiltersButtons;
+    NSMutableArray *arraySelected;
+    int charID;
+    NSMutableArray * counID;
  
 }
 
-- (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(int)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex;
+- (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(NSMutableArray *)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex;
 
 @end

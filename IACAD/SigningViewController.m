@@ -104,7 +104,7 @@
         
         self.closeButton.frame = CGRectMake(7, self.closeButton.frame.origin.y, self.closeButton.frame.size.width, self.closeButton.frame.size.height);
         [self.closeButton setImage:[UIImage imageNamed:@"closeButton_en.png"] forState:UIControlStateNormal];
-   
+        
         
     }
     
@@ -146,7 +146,7 @@
     [super viewDidUnload];
 }
 - (IBAction)loginMethod:(id)sender {
-   
+    
     [self dismissKeyboard];
     
     if ([self.viewDeckController isAnySideOpen])
@@ -155,7 +155,7 @@
         [self.viewDeckController closeLeftView];
     }
     else
-        {
+    {
         
         NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
         NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
@@ -163,22 +163,28 @@
         
         if ([self.emailTF.text isEqualToString:@""])
         {
-            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_username",appDelegate.culture, @"")];
-            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_username",appDelegate.culture, @"")];
+            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+            //            [alert show];
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_username",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
-      /*  else if ([emailTest evaluateWithObject:self.emailTF.text] == NO)
-        {
-            BlockAlertView * alert = [BlockAlertView alertWithTitle:@"إمارات الخير" message:@"أدخل البريد الالكتروني بشكل صحيح"];
-            [alert setCancelButtonWithTitle:@"تم" block:nil];
-            [alert show];
-            
-            
-        } */
+        /*  else if ([emailTest evaluateWithObject:self.emailTF.text] == NO)
+         {
+         BlockAlertView * alert = [BlockAlertView alertWithTitle:@"إمارات الخير" message:@"أدخل البريد الالكتروني بشكل صحيح"];
+         [alert setCancelButtonWithTitle:@"تم" block:nil];
+         [alert show];
+         
+         
+         } */
         else if ([self.passwordTF.text isEqualToString:@""])
         {
-            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_password",appDelegate.culture, @"")];
-            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_password",appDelegate.culture, @"")];
+            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+            //            [alert show];
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -196,9 +202,6 @@
             
             IACADServiceClient * client = [[IACADServiceClient alloc]init];
             [client LoginAsyncIsPost:YES input:request caller:self];
-            
-     
-        
         }
     }
 }
@@ -239,9 +242,12 @@
     }
     else
     {
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:loginResult.FailureMessage];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:loginResult.FailureMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"message_ok",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
+        
+        //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:loginResult.FailureMessage];
+        //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        [alert show];
     }
 }
 
@@ -250,15 +256,15 @@
         [self.viewDeckController closeRightView];
     else
     {
-    
-    appDelegate.countViews = appDelegate.countViews -1;
-    
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.type = kCATransitionReveal;
-    transition.subtype = kCATransitionFromBottom;
-    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-    [self.navigationController popViewControllerAnimated:NO];
+        
+        appDelegate.countViews = appDelegate.countViews -1;
+        
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionReveal;
+        transition.subtype = kCATransitionFromBottom;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController popViewControllerAnimated:NO];
     }
 }
 
@@ -303,7 +309,7 @@
 
 
 - (IBAction)forgetpassMethod:(id)sender {
-   
+    
 }
 - (IBAction)forgotPassMethod:(id)sender {
     
@@ -318,19 +324,22 @@
     {
         if ([self.emailTF.text isEqualToString:@""])
         {
-            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_username",appDelegate.culture, @"")];
-            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_username",appDelegate.culture, @"")];
+            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+            //            [alert show];
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_username",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
         else
         {
-         [AC startLoading];
-        IACADSendMailForgotPassword * request = [[IACADSendMailForgotPassword alloc]init];
-        request.UserName = self.emailTF.text;
-        request.language = appDelegate.culture;
-        
-        IACADServiceClient * client = [[IACADServiceClient alloc]init];
-        [client SendMailForgotPasswordAsyncIsPost:YES input:request caller:self];
+            [AC startLoading];
+            IACADSendMailForgotPassword * request = [[IACADSendMailForgotPassword alloc]init];
+            request.UserName = self.emailTF.text;
+            request.language = appDelegate.culture;
+            
+            IACADServiceClient * client = [[IACADServiceClient alloc]init];
+            [client SendMailForgotPasswordAsyncIsPost:YES input:request caller:self];
         }
         
     }
@@ -343,17 +352,23 @@
     
     if (forgotPassword.Success == TRUE)
     {
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:forgotPassword.FailureMessage];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:forgotPassword.FailureMessage];
+        //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:forgotPassword.FailureMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:forgotPassword.FailureMessage];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:forgotPassword.FailureMessage];
+        //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:forgotPassword.FailureMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
- 
+    
 }
 
 

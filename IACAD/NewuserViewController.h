@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 @class AppDelegate;
 @class CustomizedACView;
-@interface NewuserViewController : UIViewController <IACADServiceClientCaller,UITextFieldDelegate,UITextViewDelegate>
+@interface NewuserViewController : UIViewController <IACADServiceClientCaller,UITextFieldDelegate,UITextViewDelegate, UIAlertViewDelegate>
 {
     int countryID;
     int countryIsSelected;

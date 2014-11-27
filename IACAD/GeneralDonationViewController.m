@@ -136,12 +136,12 @@
         UIFont *boldFont2;
         if ([appDelegate.culture isEqualToString:@"ar"])
         {
-            boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:16];
+            boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:14];
             boldFont2=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:14];
         }
         else
         {
-            boldFont=[UIFont systemFontOfSize:16];
+            boldFont=[UIFont systemFontOfSize:14];
             boldFont2=[UIFont systemFontOfSize:14];
         }
         
@@ -157,16 +157,17 @@
         [self.scrollView addSubview:bgBarImage];
         
         UILabel * itemLbl = [[UILabel alloc]init];
-        
+        itemLbl.numberOfLines = 2;
         if ([appDelegate.culture isEqualToString:@"ar"])
         {
-            itemLbl.frame = CGRectMake(120, y+23, 170, 20);
+            // Mina
+            itemLbl.frame = CGRectMake(120, y+0, 170, 60);
              itemLbl.textAlignment = NSTextAlignmentRight;
             itemLbl.text = [converter convertArabic: donationType.Name];
         }
         else
         {
-            itemLbl.frame = CGRectMake(10, y+23, 170, 20);
+            itemLbl.frame = CGRectMake(10, y+0, 170, 60);
             itemLbl.textAlignment = NSTextAlignmentLeft;
             itemLbl.text = donationType.Name;
         }
@@ -200,20 +201,21 @@
                                             green:137/255.f
                                              blue:137/255.f
                                             alpha:1.0];
-        [self.scrollView addSubview:drhmLbl];
+//        [self.scrollView addSubview:drhmLbl];
        
        UITextField * amoutTF = [[UITextField alloc] init];
+        [amoutTF setTextAlignment:NSTextAlignmentCenter];
         if ([appDelegate.culture isEqualToString:@"ar"])
         {
             amoutTF.text = [converter convertArabic: @""];
             amoutTF.placeholder=[converter convertArabic:@"0"];
-            amoutTF.frame=CGRectMake(50,y+23,55,20);
+            amoutTF.frame=CGRectMake(20,y+23,75,20);
         }
         else
         {
             amoutTF.text = @"";
             amoutTF.placeholder=@"0";
-            amoutTF.frame=CGRectMake(210,y+23,55,20);
+            amoutTF.frame=CGRectMake(180,y+23,75,20);
         }
         
         amoutTF.textAlignment = UITextAlignmentCenter;
@@ -350,8 +352,11 @@
     else
     {
         NSString * textString = NSLocalizedStringFromTable(@"enter_donation",appDelegate.culture, @"");
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"")  message:textString];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"")  message:textString];
+//        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
         
     }

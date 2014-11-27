@@ -34,9 +34,9 @@
 {
     [super viewDidLoad];
     
-     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-  
+    
     
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
@@ -66,10 +66,10 @@
         self.activityString.text = text1;
         self.activityString.font = boldFont2;
         
-      /*  if ([text1 isEqualToString:@""])
-            self.activityLbl.alpha = 0;
-        else
-            self.activityLbl.alpha = 1; */
+        /*  if ([text1 isEqualToString:@""])
+         self.activityLbl.alpha = 0;
+         else
+         self.activityLbl.alpha = 1; */
         self.activityLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"activites_lbl",appDelegate.culture, @"")];
         self.activityLbl.font = boldFont2;
         
@@ -98,12 +98,12 @@
         self.emailLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"email_lbl",appDelegate.culture, @"")];
         self.emailLbl.font = boldFont2;
         
-        self.emailLbl.frame = CGRectMake(self.emailLbl.frame.origin.x, self.websiteLbl.frame.origin.y+60, self.emailLbl.frame.size.width, self.emailLbl.frame.size.height);
+        //        self.emailLbl.frame = CGRectMake(self.emailLbl.frame.origin.x, self.websiteLbl.frame.origin.y+60, self.emailLbl.frame.size.width, self.emailLbl.frame.size.height);
         
         self.emailString.text = [converter convertArabic:itemDetails.Email];
         self.emailString.font = boldFont2;
         
-        self.emailString.frame = CGRectMake(self.emailString.frame.origin.x, self.websiteString.frame.origin.y+60, self.emailString.frame.size.width, self.emailString.frame.size.height);
+        //        self.emailString.frame = CGRectMake(self.emailString.frame.origin.x, self.websiteString.frame.origin.y+60, self.emailString.frame.size.width, self.emailString.frame.size.height);
         
         
     }
@@ -112,7 +112,7 @@
         self.backButton.frame = CGRectMake(5, self.backButton.frame.origin.y, self.backButton.frame.size.width, self.backButton.frame.size.height);
         UIImage *buttonImage = [UIImage imageNamed:@"back_enButton.png"];
         [self.backButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-       
+        
         self.titleLbl.text = NSLocalizedStringFromTable(@"charities_lbl",appDelegate.culture, @"");
         
         
@@ -128,7 +128,7 @@
         
         self.descLbl.text = NSLocalizedStringFromTable(@"desc_lbl",appDelegate.culture, @"");
         self.descLbl.textAlignment = NSTextAlignmentLeft;
-        self.descLbl.frame = CGRectMake(5, self.descLbl.frame.origin.y, self.descLbl.frame.size.width, self.descLbl.frame.size.height);
+        self.descLbl.frame = CGRectMake(5, self.descLbl.frame.origin.y, self.descLbl.frame.size.width + 30, self.descLbl.frame.size.height);
         
         self.descString.text = itemDetails.Description;
         self.descString.textAlignment = NSTextAlignmentLeft;
@@ -140,10 +140,10 @@
         self.activityString.textAlignment = NSTextAlignmentLeft;
         self.activityString.frame = CGRectMake(75, self.activityString.frame.origin.y, self.activityString.frame.size.width, self.activityString.frame.size.height);
         
-      /*  if ([text1 isEqualToString:@""])
-            self.activityLbl.alpha = 0;
-        else
-            self.activityLbl.alpha = 1; */
+        /*  if ([text1 isEqualToString:@""])
+         self.activityLbl.alpha = 0;
+         else
+         self.activityLbl.alpha = 1; */
         self.activityLbl.text = NSLocalizedStringFromTable(@"activites_lbl",appDelegate.culture, @"");
         self.activityLbl.textAlignment = NSTextAlignmentLeft;
         self.activityLbl.frame = CGRectMake(5, self.activityLbl.frame.origin.y, self.activityLbl.frame.size.width, self.activityLbl.frame.size.height);
@@ -152,7 +152,7 @@
         
         self.phoneLbl.text = NSLocalizedStringFromTable(@"telephone_lbl",appDelegate.culture, @"");
         self.phoneLbl.textAlignment = NSTextAlignmentLeft;
-        self.phoneLbl.frame = CGRectMake(5, self.phoneLbl.frame.origin.y, self.phoneLbl.frame.size.width, self.phoneLbl.frame.size.height);
+        self.phoneLbl.frame = CGRectMake(5, self.phoneLbl.frame.origin.y, self.phoneLbl.frame.size.width + 30, self.phoneLbl.frame.size.height);
         
         self.phoneString.text = itemDetails.Phone;
         self.phoneString.textAlignment = NSTextAlignmentLeft;
@@ -178,13 +178,19 @@
         
         self.emailLbl.text = NSLocalizedStringFromTable(@"email_lbl",appDelegate.culture, @"");
         self.emailLbl.textAlignment = NSTextAlignmentLeft;
-        self.emailLbl.frame = CGRectMake(5, self.websiteLbl.frame.origin.y+60, self.emailLbl.frame.size.width, self.emailLbl.frame.size.height);
+        self.emailLbl.frame = CGRectMake(5, self.emailLbl.frame.origin.y, self.emailLbl.frame.size.width, self.emailLbl.frame.size.height);
         
         self.emailString.text = itemDetails.Email;
         self.emailString.textAlignment = NSTextAlignmentLeft;
-        self.emailString.frame = CGRectMake(50, self.websiteString.frame.origin.y+60, self.emailString.frame.size.width, self.emailString.frame.size.height);
+        self.emailString.frame = CGRectMake(50, self.emailString.frame.origin.y, self.emailString.frame.size.width + 50, self.emailString.frame.size.height);
+        
+//        self.phoneButton.frame = CGRectMake(self.phoneString.frame.origin.x, self.phoneString.frame.origin.y, self.phoneString.frame.size.width, self.phoneString.frame.size.height);
+        
+//        self.websiteButton.frame = CGRectMake(self.websiteString.frame.origin.x, self.websiteString.frame.origin.y, self.websiteString.frame.size.width, self.websiteString.frame.size.height);
+        
+//        self.emailButton.frame = CGRectMake(self.emailString.frame.origin.x, self.emailString.frame.origin.y, self.emailString.frame.size.width, self.emailString.frame.size.height);
     }
-   
+    
     NSMutableAttributedString *mat = [self.phoneString.attributedText mutableCopy];
     [mat addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:NSMakeRange (0, mat.length)];
     self.phoneString.attributedText = mat;
@@ -197,25 +203,25 @@
     [mat3 addAttributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)} range:NSMakeRange (0, mat3.length)];
     self.emailString.attributedText = mat3;
     
-    self.phoneButton.frame = CGRectMake(self.phoneString.frame.origin.x, self.phoneString.frame.origin.y, self.phoneString.frame.size.width, self.phoneString.frame.size.height);
+    //    self.phoneButton.frame = CGRectMake(self.phoneString.frame.origin.x, self.phoneString.frame.origin.y, self.phoneString.frame.size.width, self.phoneString.frame.size.height);
     
-    self.websiteButton.frame = CGRectMake(self.websiteString.frame.origin.x, self.websiteString.frame.origin.y, self.websiteString.frame.size.width, self.websiteString.frame.size.height);
+    //    self.websiteButton.frame = CGRectMake(self.websiteString.frame.origin.x, self.websiteString.frame.origin.y, self.websiteString.frame.size.width, self.websiteString.frame.size.height);
     
-    self.emailButton.frame = CGRectMake(self.emailString.frame.origin.x, self.emailString.frame.origin.y, self.emailString.frame.size.width, self.emailString.frame.size.height);
-    
-    
+    //    self.emailButton.frame = CGRectMake(self.emailString.frame.origin.x, self.emailString.frame.origin.y, self.emailString.frame.size.width, self.emailString.frame.size.height);
     
     
- /*   CGSize labelsize;
-    labelsize=[itemDetails.DepartmentsCombined sizeWithFont:self.activityString.font constrainedToSize:CGSizeMake(206, 160) lineBreakMode:UILineBreakModeWordWrap];
+    
+    
+    /*   CGSize labelsize;
+     labelsize=[itemDetails.DepartmentsCombined sizeWithFont:self.activityString.font constrainedToSize:CGSizeMake(206, 160) lineBreakMode:UILineBreakModeWordWrap];
      self.activityString.frame=CGRectMake(20,364, 206, labelsize.height);
-    self.activityString.numberOfLines = 3;
-    self.activityString.text = [converter convertArabic:itemDetails.DepartmentsCombined]; */
+     self.activityString.numberOfLines = 3;
+     self.activityString.text = [converter convertArabic:itemDetails.DepartmentsCombined]; */
     
     
     AsyncImageView * asyncImageView = [[AsyncImageView alloc] init];
     asyncImageView.frame = CGRectMake(33,66,251,134);
-    NSString *  imageURL = [NSString stringWithFormat:@"http://www.ecp.ae/Handlers/ShowImage.ashx?Guidid=%@&objectType=charity",itemDetails.ImageId];
+    NSString *  imageURL = [NSString stringWithFormat:@"http://iacadcld.linkdev.com/Handlers/ShowImage.ashx?Guidid=%@&objectType=charity",itemDetails.ImageId];
     NSURL *url = [NSURL URLWithString:imageURL];
     asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
     asyncImageView.backgroundColor=[UIColor clearColor];
@@ -230,7 +236,7 @@
     [self.view addGestureRecognizer:tap];
     
     
-    [self.scrollView setContentSize:CGSizeMake(293,425)];
+//    [self.scrollView setContentSize:CGSizeMake(293,425)];
     
 }
 
@@ -258,15 +264,15 @@
     }
     else
     {
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.type = kCATransitionPush;
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionPush;
         if ([appDelegate.culture isEqualToString:@"ar"])
             transition.subtype = kCATransitionFromRight;
         else
             transition.subtype = kCATransitionFromLeft;
-    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-    [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController popViewControllerAnimated:NO];
     }
 }
 
@@ -277,13 +283,12 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
     float currentVersion = 7.0;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
         self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
         self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
     }
+    [super viewDidAppear:animated];
 }
 
 -(void)detectTapGesture {
@@ -292,8 +297,8 @@
         [self.viewDeckController closeRightView];
         [self.viewDeckController closeLeftView];
     }
-    
 }
+
 - (IBAction)phoneMethod:(id)sender {
     
     if ([self.viewDeckController isAnySideOpen])
@@ -323,7 +328,7 @@
     {
         if (![itemDetails.Phone isEqualToString:@""])
         {
-              [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itemDetails.WebSite]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itemDetails.WebSite]];
         }
     }
 }

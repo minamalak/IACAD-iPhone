@@ -17,6 +17,8 @@
 @class IACADGetCharitiesByDonationTypeResponse;
 @class IACADGetDonationItemsByCharityAndDonationType;
 @class IACADGetDonationItemsByCharityAndDonationTypeResponse;
+@class IACADGetDonationItemsByCharityAndDonationTypeAndContries;
+@class IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse;
 @class IACADGetDonationItemDetails;
 @class IACADGetDonationItemDetailsResponse;
 @class IACADLogin;
@@ -25,8 +27,12 @@
 @class IACADRegisterResponse;
 @class IACADGetMobileContent;
 @class IACADGetMobileContentResponse;
+@class IACADGetRegex;
+@class IACADGetRegexResponse;
 @class IACADGetEvents;
 @class IACADGetEventsResponse;
+@class IACADGetIPADImages;
+@class IACADGetIPADImagesResponse;
 @class IACADGetEventDetails;
 @class IACADGetEventDetailsResponse;
 @class IACADGetCountries;
@@ -51,10 +57,24 @@
 @class IACADGetCatalogPersonCountriesResponse;
 @class IACADGetPersonsByCharityAndDonationType;
 @class IACADGetPersonsByCharityAndDonationTypeResponse;
+@class IACADGetPersonsByCharityAndDonationTypeAndContries;
+@class IACADGetPersonsByCharityAndDonationTypeAndContriesResponse;
 @class IACADGetCatalogPersonDetails;
 @class IACADGetCatalogPersonDetailsResponse;
 @class IACADDonateToCatalogPerson;
 @class IACADDonateToCatalogPersonResponse;
+@class IACADGetDonorProjects;
+@class IACADGetDonorProjectsResponse;
+@class IACADGetProject;
+@class IACADGetProjectResponse;
+@class IACADGetReliefCharities;
+@class IACADGetReliefCharitiesResponse;
+@class IACADGetReliefDisasterForCharity;
+@class IACADGetReliefDisasterForCharityResponse;
+@class IACADGetReliefNeedForDisaster;
+@class IACADGetReliefNeedForDisasterResponse;
+@class IACADAddReliefDonation;
+@class IACADAddReliefDonationResponse;
 
 @protocol IACADServiceClientCaller <NSObject>
 
@@ -85,35 +105,56 @@
 - (void)GetPersonsByCharityAndDonationTypeCallback:(IACADGetPersonsByCharityAndDonationTypeResponse *)response error:(NSError *)error;
 - (void)GetCatalogPersonDetailsCallback:(IACADGetCatalogPersonDetailsResponse *)response error:(NSError *)error;
 - (void)DonateToCatalogPersonCallback:(IACADDonateToCatalogPersonResponse *)response error:(NSError *)error;
+- (void)GetIPADImagesCallback:(IACADGetIPADImagesResponse *)response error:(NSError *)error;
+- (void)GetDonorProjectsCallback:(IACADGetDonorProjectsResponse *)response error:(NSError *)error;
+- (void)GetProjectCallback:(IACADGetProjectResponse *)response error:(NSError *)error;
+- (void)GetDonationItemsByCharityAndDonationTypeAndContriesCallback:(IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *)response error:(NSError *)error;
+- (void)GetPersonsByCharityAndDonationTypeAndContriesCallback:(IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *)response error:(NSError *)error;
+- (void)GetRegexCallback:(IACADGetRegexResponse *)response error:(NSError *)error;
+- (void)GetReliefCharitiesCallback:(IACADGetReliefCharitiesResponse *)response error:(NSError *)error;
+- (void)GetReliefDisasterForCharityCallback:(IACADGetReliefDisasterForCharityResponse *)response error:(NSError *)error;
+- (void)GetReliefNeedForDisasterCallback:(IACADGetReliefNeedForDisasterResponse *)response error:(NSError *)error;
+- (void)AddReliefDonationCallback:(IACADAddReliefDonationResponse *)response error:(NSError *)error;
+
 @end
 
 typedef enum IACADMethodCall {
-	IACADMethodCallGetAllDonationTypes = 1,
-	IACADMethodCallGetAnonymousDonationTypes = 2,
-	IACADMethodCallListCharities = 3,
-	IACADMethodCallListCharitiesForAnonymousDonation = 4,
-	IACADMethodCallGetCharityDetails = 5,
-	IACADMethodCallGetCharitiesByDonationType = 6,
-	IACADMethodCallGetDonationItemsByCharityAndDonationType = 7,
-	IACADMethodCallGetDonationItemDetails = 8,
-	IACADMethodCallLogin = 9,
-	IACADMethodCallRegister = 10,
-	IACADMethodCallGetMobileContent = 11,
-	IACADMethodCallGetEvents = 12,
-	IACADMethodCallGetEventDetails = 13,
-	IACADMethodCallGetCountries = 14,
-	IACADMethodCallGetCitiesByCountry = 15,
-	IACADMethodCallAddAnonymiousDonation = 16,
-	IACADMethodCallGetCharityName = 17,
-	IACADMethodCallGetCatalogCountries = 18,
-	IACADMethodCallDonateToCatalogProject = 19,
-	IACADMethodCallSendMailForgotPassword = 20,
-	IACADMethodCallGetProfile = 21,
-	IACADMethodCallEditProfile = 22,
-	IACADMethodCallGetCatalogPersonCountries = 23,
-	IACADMethodCallGetPersonsByCharityAndDonationType = 24,
-	IACADMethodCallGetCatalogPersonDetails = 25,
-	IACADMethodCallDonateToCatalogPerson = 26,
+    IACADMethodCallGetAllDonationTypes = 1,
+    IACADMethodCallGetAnonymousDonationTypes = 2,
+    IACADMethodCallListCharities = 3,
+    IACADMethodCallListCharitiesForAnonymousDonation = 4,
+    IACADMethodCallGetCharityDetails = 5,
+    IACADMethodCallGetCharitiesByDonationType = 6,
+    IACADMethodCallGetDonationItemsByCharityAndDonationType = 7,
+    IACADMethodCallGetDonationItemsByCharityAndDonationTypeAndContries = 8,
+    IACADMethodCallGetDonationItemDetails = 9,
+    IACADMethodCallLogin = 10,
+    IACADMethodCallRegister = 11,
+    IACADMethodCallGetMobileContent = 12,
+    IACADMethodCallGetRegex = 13,
+    IACADMethodCallGetEvents = 14,
+    IACADMethodCallGetIPADImages = 15,
+    IACADMethodCallGetEventDetails = 16,
+    IACADMethodCallGetCountries = 17,
+    IACADMethodCallGetCitiesByCountry = 18,
+    IACADMethodCallAddAnonymiousDonation = 19,
+    IACADMethodCallGetCharityName = 20,
+    IACADMethodCallGetCatalogCountries = 21,
+    IACADMethodCallDonateToCatalogProject = 22,
+    IACADMethodCallSendMailForgotPassword = 23,
+    IACADMethodCallGetProfile = 24,
+    IACADMethodCallEditProfile = 25,
+    IACADMethodCallGetCatalogPersonCountries = 26,
+    IACADMethodCallGetPersonsByCharityAndDonationType = 27,
+    IACADMethodCallGetPersonsByCharityAndDonationTypeAndContries = 28,
+    IACADMethodCallGetCatalogPersonDetails = 29,
+    IACADMethodCallDonateToCatalogPerson = 30,
+    IACADMethodCallGetDonorProjects = 31,
+    IACADMethodCallGetProject = 32,
+    IACADMethodCallGetReliefCharities = 33,
+    IACADMethodCallGetReliefDisasterForCharity = 34,
+    IACADMethodCallGetReliefNeedForDisaster = 35,
+    IACADMethodCallAddReliefDonation = 36,
 } IACADMethodCall;
 
 @interface IACADServiceClient : NSObject<WebServiceCaller> {
@@ -144,6 +185,8 @@ typedef enum IACADMethodCall {
 - (void)GetMobileContentAsyncIsPost:(BOOL)isPost input: (IACADGetMobileContent *)input caller:(id<IACADServiceClientCaller>)caller;
 - (IACADGetEventsResponse *)GetEventsIsPost:(BOOL)isPost input: (IACADGetEvents *)input error:(NSError **)error;
 - (void)GetEventsAsyncIsPost:(BOOL)isPost input: (IACADGetEvents *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetIPADImagesResponse *)GetIPADImagesIsPost:(BOOL)isPost input: (IACADGetIPADImages *)input error:(NSError **)error;
+- (void)GetIPADImagesAsyncIsPost:(BOOL)isPost input: (IACADGetIPADImages *)input caller:(id<IACADServiceClientCaller>)caller;
 - (IACADGetEventDetailsResponse *)GetEventDetailsIsPost:(BOOL)isPost input: (IACADGetEventDetails *)input error:(NSError **)error;
 - (void)GetEventDetailsAsyncIsPost:(BOOL)isPost input: (IACADGetEventDetails *)input caller:(id<IACADServiceClientCaller>)caller;
 - (IACADGetCountriesResponse *)GetCountriesIsPost:(BOOL)isPost input: (IACADGetCountries *)input error:(NSError **)error;
@@ -172,5 +215,23 @@ typedef enum IACADMethodCall {
 - (void)GetCatalogPersonDetailsAsyncIsPost:(BOOL)isPost input: (IACADGetCatalogPersonDetails *)input caller:(id<IACADServiceClientCaller>)caller;
 - (IACADDonateToCatalogPersonResponse *)DonateToCatalogPersonIsPost:(BOOL)isPost input: (IACADDonateToCatalogPerson *)input error:(NSError **)error;
 - (void)DonateToCatalogPersonAsyncIsPost:(BOOL)isPost input: (IACADDonateToCatalogPerson *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetDonorProjectsResponse *)GetDonorProjectsIsPost:(BOOL)isPost input: (IACADGetDonorProjects *)input error:(NSError **)error;
+- (void)GetDonorProjectsAsyncIsPost:(BOOL)isPost input: (IACADGetDonorProjects *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetProjectResponse *)GetProjectIsPost:(BOOL)isPost input: (IACADGetProject *)input error:(NSError **)error;
+- (void)GetProjectAsyncIsPost:(BOOL)isPost input: (IACADGetProject *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *)GetDonationItemsByCharityAndDonationTypeAndContriesIsPost:(BOOL)isPost input: (IACADGetDonationItemsByCharityAndDonationTypeAndContries *)input error:(NSError **)error;
+- (void)GetDonationItemsByCharityAndDonationTypeAndContriesAsyncIsPost:(BOOL)isPost input: (IACADGetDonationItemsByCharityAndDonationTypeAndContries *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *)GetPersonsByCharityAndDonationTypeAndContriesIsPost:(BOOL)isPost input: (IACADGetPersonsByCharityAndDonationTypeAndContries *)input error:(NSError **)error;
+- (void)GetPersonsByCharityAndDonationTypeAndContriesAsyncIsPost:(BOOL)isPost input: (IACADGetPersonsByCharityAndDonationTypeAndContries *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetRegexResponse *)GetRegexIsPost:(BOOL)isPost input: (IACADGetRegex *)input error:(NSError **)error;
+- (void)GetRegexAsyncIsPost:(BOOL)isPost input: (IACADGetRegex *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetReliefCharitiesResponse *)GetReliefCharitiesIsPost:(BOOL)isPost input: (IACADGetReliefCharities *)input error:(NSError **)error;
+- (void)GetReliefCharitiesAsyncIsPost:(BOOL)isPost input: (IACADGetReliefCharities *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetReliefDisasterForCharityResponse *)GetReliefDisasterForCharityIsPost:(BOOL)isPost input: (IACADGetReliefDisasterForCharity *)input error:(NSError **)error;
+- (void)GetReliefDisasterForCharityAsyncIsPost:(BOOL)isPost input: (IACADGetReliefDisasterForCharity *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADGetReliefNeedForDisasterResponse *)GetReliefNeedForDisasterIsPost:(BOOL)isPost input: (IACADGetReliefNeedForDisaster *)input error:(NSError **)error;
+- (void)GetReliefNeedForDisasterAsyncIsPost:(BOOL)isPost input: (IACADGetReliefNeedForDisaster *)input caller:(id<IACADServiceClientCaller>)caller;
+- (IACADAddReliefDonationResponse *)AddReliefDonationIsPost:(BOOL)isPost input: (IACADAddReliefDonation *)input error:(NSError **)error;
+- (void)AddReliefDonationAsyncIsPost:(BOOL)isPost input: (IACADAddReliefDonation *)input caller:(id<IACADServiceClientCaller>)caller;
 
 @end

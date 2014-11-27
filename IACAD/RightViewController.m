@@ -16,6 +16,7 @@
 #import "aboutViewController.h"
 #import "languageViewController.h"
 #import "contactViewController.h"
+#import "DonationHistoryListingViewController.h"
 
 @interface RightViewController () <IIViewDeckControllerDelegate>
 
@@ -113,6 +114,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+     [self updateSideMenu];
     [self addLog:@"view will appear"];
 }
 
@@ -137,8 +139,6 @@
 #pragma mark - view deck delegate
 
 - (void)addLog:(NSString*)line {
-    
-    
     
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
@@ -200,7 +200,7 @@
     [self addLog:[NSString stringWithFormat:@"did preview bounce %@ view", NSStringFromIIViewDeckSide(viewDeckSide)]];
 }
 
-#pragma mark - Table view
+//#pragma mark - Table view
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 //{
@@ -286,6 +286,7 @@
     [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+    [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
     
    
      appDelegate.countViews = 0;
@@ -316,13 +317,13 @@
     
     appDelegate.lastView = 5;
     appDelegate.countViews = 0;
-//    [appDelegate.navControl popToRootViewControllerAnimated:NO];
-//    languageViewController * langView = [[languageViewController alloc]init];
-//    [appDelegate.navControl pushViewController:langView animated:NO];
-//    if ([appDelegate.culture isEqualToString:@"ar"])
-//        [self.viewDeckController closeRightViewAnimated:YES];
-//    else
-//        [self.viewDeckController closeLeftViewAnimated:YES];
+    [appDelegate.navControl popToRootViewControllerAnimated:NO];
+    DonationHistoryListingViewController * history = [[DonationHistoryListingViewController alloc]init];
+    [appDelegate.navControl pushViewController:history animated:NO];
+    if ([appDelegate.culture isEqualToString:@"ar"])
+        [self.viewDeckController closeRightViewAnimated:YES];
+    else
+        [self.viewDeckController closeLeftViewAnimated:YES];
 }
 
 - (IBAction)langMethod:(id)sender {
@@ -335,6 +336,7 @@
     [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.langButton setBackgroundImage:greenImg forState:UIControlStateNormal];
+    [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
     
     appDelegate.lastView = 4;
     appDelegate.countViews = 0;
@@ -357,6 +359,7 @@
     [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.contactButton setBackgroundImage:greenImg forState:UIControlStateNormal];
     [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+    [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
 
      appDelegate.countViews = 0;
     appDelegate.lastView = 3;
@@ -381,6 +384,7 @@
     [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
     [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+    [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
 
    
     appDelegate.lastView = 0;
@@ -393,8 +397,8 @@
 
 -(void) updateSideMenu
 {
-  //  if (appDelegate.login == 0)
-  //  {
+    if (appDelegate.login == 0)
+    {
         if ([appDelegate.culture isEqualToString:@"ar"])
             [self.loginButton setImage:[UIImage imageNamed:@"loginReg_btn.png"] forState:UIControlStateNormal];
         else
@@ -403,64 +407,66 @@
         self.welcomeLbl.alpha = 0;
         self.welcomeString.alpha = 0;
         
- /*   }
+    }
     else
     {
-        UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:16];
-        ArabicConverter *converter = [[ArabicConverter alloc] init];
+//        UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:16];
+//        ArabicConverter *converter = [[ArabicConverter alloc] init];
         if ([appDelegate.culture isEqualToString:@"ar"])
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton.png"] forState:UIControlStateNormal];
         else
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton_en.png"] forState:UIControlStateNormal];
-        self.welcomeLbl.alpha = 1;
-        self.welcomeString.alpha = 1;
+//        self.welcomeLbl.alpha = 1;
+//        self.welcomeString.alpha = 1;
        
         
-        if ([appDelegate.culture isEqualToString:@"ar"])
-        {
-            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
-            welcome = [welcome stringByAppendingString:appDelegate.lastName];
-            self.welcomeLbl.text = [converter convertArabic:welcome];
-            self.welcomeLbl.font = boldFont;
-            self.welcomeString.text = [converter convertArabic:@"مرحبا، "];
-            self.welcomeString.font = boldFont;
-            
-            self.welcomeString.frame = CGRectMake(239, self.welcomeString.frame.origin.y, 61, self.welcomeString.frame.size.height);
-            self.welcomeString.textAlignment = NSTextAlignmentRight;
-            
-            self.welcomeLbl.frame = CGRectMake(58, self.welcomeLbl.frame.origin.y, self.welcomeLbl.frame.size.width, self.welcomeLbl.frame.size.height);
-            self.welcomeLbl.textAlignment = NSTextAlignmentRight;
-        }
-        else
-        {
-            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
-            welcome = [welcome stringByAppendingString:appDelegate.lastName];
-            self.welcomeLbl.text = welcome;
-            self.welcomeLbl.font = [UIFont systemFontOfSize:16];
-            self.welcomeString.text = @"Welcome, ";
-            self.welcomeString.font = [UIFont systemFontOfSize:16];
-            
-            self.welcomeString.frame = CGRectMake(20, self.welcomeString.frame.origin.y, 81, self.welcomeString.frame.size.height);
-            self.welcomeString.textAlignment = NSTextAlignmentLeft;
-            
-            self.welcomeLbl.frame = CGRectMake(100, self.welcomeLbl.frame.origin.y, self.welcomeLbl.frame.size.width, self.welcomeLbl.frame.size.height);
-            self.welcomeLbl.textAlignment = NSTextAlignmentLeft;
-        }
-        */
+//        if ([appDelegate.culture isEqualToString:@"ar"])
+//        {
+//            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
+//            welcome = [welcome stringByAppendingString:appDelegate.lastName];
+//            self.welcomeLbl.text = [converter convertArabic:welcome];
+//            self.welcomeLbl.font = boldFont;
+//            self.welcomeString.text = [converter convertArabic:@"مرحبا، "];
+//            self.welcomeString.font = boldFont;
+//            
+//            self.welcomeString.frame = CGRectMake(239, self.welcomeString.frame.origin.y, 61, self.welcomeString.frame.size.height);
+//            self.welcomeString.textAlignment = NSTextAlignmentRight;
+//            
+//            self.welcomeLbl.frame = CGRectMake(58, self.welcomeLbl.frame.origin.y, self.welcomeLbl.frame.size.width, self.welcomeLbl.frame.size.height);
+//            self.welcomeLbl.textAlignment = NSTextAlignmentRight;
+//        }
+//        else
+//        {
+//            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
+//            welcome = [welcome stringByAppendingString:appDelegate.lastName];
+//            self.welcomeLbl.text = welcome;
+//            self.welcomeLbl.font = [UIFont systemFontOfSize:16];
+//            self.welcomeString.text = @"Welcome, ";
+//            self.welcomeString.font = [UIFont systemFontOfSize:16];
+//            
+//            self.welcomeString.frame = CGRectMake(20, self.welcomeString.frame.origin.y, 81, self.welcomeString.frame.size.height);
+//            self.welcomeString.textAlignment = NSTextAlignmentLeft;
+//            
+//            self.welcomeLbl.frame = CGRectMake(100, self.welcomeLbl.frame.origin.y, self.welcomeLbl.frame.size.width, self.welcomeLbl.frame.size.height);
+//            self.welcomeLbl.textAlignment = NSTextAlignmentLeft;
+//        }
+  
         [self updateGreenBar];
-   // }
+    }
 }
 
 -(void) updateGreenBar
 {
     UIImage *greenImg= [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"greenButton" ofType:@"png"]];
     UIImage *transImage= [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trans" ofType:@"png"]];
+    
     if (appDelegate.lastView == 1)
     {
         [self.mainmenuButton setBackgroundImage:greenImg forState:UIControlStateNormal];
         [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
         [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
         [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
     }
     if (appDelegate.lastView == 2)
     {
@@ -468,6 +474,7 @@
         [self.aboutButton setBackgroundImage:greenImg forState:UIControlStateNormal];
         [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
         [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
     }
     if (appDelegate.lastView == 3)
     {
@@ -475,6 +482,7 @@
         [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
         [self.contactButton setBackgroundImage:greenImg forState:UIControlStateNormal];
         [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
     }
     if (appDelegate.lastView == 4)
     {
@@ -482,6 +490,15 @@
         [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
         [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
         [self.langButton setBackgroundImage:greenImg forState:UIControlStateNormal];
+        [self.btnDonationHistory setBackgroundImage:transImage forState:UIControlStateNormal];
+    }
+    if (appDelegate.lastView == 5)
+    {
+        [self.mainmenuButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.aboutButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.contactButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
+        [self.btnDonationHistory setBackgroundImage:greenImg forState:UIControlStateNormal];
     }
 }
 

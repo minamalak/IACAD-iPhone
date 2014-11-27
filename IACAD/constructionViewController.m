@@ -48,7 +48,7 @@
     AsyncImageView * asyncImageView = [[AsyncImageView alloc] init];
     asyncImageView.frame = CGRectMake(26,16, 251,132);
     NSString * imageURL;
-    imageURL = [NSString stringWithFormat:@"http://www.ecp.ae/Handlers/ShowImage.ashx?Guidid=%@&objectType=donationitem",itemDetails.ImageId];
+    imageURL = [NSString stringWithFormat:@"http://iacadcld.linkdev.com/Handlers/ShowImage.ashx?Guidid=%@&objectType=donationitem",itemDetails.ImageId];
     NSURL *url = [NSURL URLWithString:imageURL];
     asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
     [asyncImageView setImageURL:url];
@@ -150,8 +150,6 @@
     {
         [self showStockData:height];
     }
-    
-  
 }
 
 -(void) GetCharityNameCallback:(IACADGetCharityNameResponse *)response error:(NSError *)error
@@ -165,7 +163,6 @@
         ArabicConverter *converter = [[ArabicConverter alloc] init];
         self.orgString.text = [converter convertArabic:charityName];
         self.orgString.font = boldFont2;
-        
     }
     else
     {
@@ -173,7 +170,6 @@
         self.orgString.text = charityName;
         self.orgString.font = boldFont2;
     }
-    
 }
 
 -(float) categoryType3
@@ -265,15 +261,15 @@
         if (itemDetails.IsContribution == TRUE)
             self.costString.frame = CGRectMake(29-35, 280, 192, 29);
         else
-        self.costString.frame = CGRectMake(29,280,192, 29);
+        self.costString.frame = CGRectMake(29,280,162, 29);
     }
     else
     {
         self.costString.text = [[NSNumber numberWithInt:itemDetails.Cost] stringValue];
         if (itemDetails.IsContribution == FALSE)
-            self.costString.frame= CGRectMake(70, 280, 192, 29);
+            self.costString.frame= CGRectMake(100, 280, 192, 29);
         else
-            self.costString.frame= CGRectMake(115, 280, 192, 29);
+            self.costString.frame= CGRectMake(145, 280, 192, 29);
         self.costString.textAlignment = NSTextAlignmentLeft;
     }
     self.costString.font = boldFont2;
@@ -380,7 +376,8 @@
     {
         self.spaceString.text = [[NSNumber numberWithInt:itemDetails.Area] stringValue];
         self.spaceString.textAlignment = NSTextAlignmentLeft;
-        self.spaceString.frame = CGRectMake(70,self.spaceString.frame.origin.y , self.spaceString.frame.size.width, self.spaceString.frame.size.height);
+        // X = 70
+        self.spaceString.frame = CGRectMake(self.spaceLbl.frame.size.width + 20,self.spaceString.frame.origin.y , self.spaceString.frame.size.width, self.spaceString.frame.size.height);
     }
     self.spaceString.font = boldFont2;
     self.spaceString.alpha = 1;
@@ -443,7 +440,7 @@
         self.costString.text = [[NSNumber numberWithInt:itemDetails.Cost] stringValue];
         self.costString.textAlignment = NSTextAlignmentLeft;
         if (itemDetails.IsContribution == FALSE)
-        self.costString.frame= CGRectMake(70, self.costString.frame.origin.y, self.costString.frame.size.width, self.costString.frame.size.height);
+        self.costString.frame= CGRectMake(self.costLbl.frame.size.width + 20, self.costString.frame.origin.y, self.costString.frame.size.width, self.costString.frame.size.height);
         else
             self.costString.frame= CGRectMake(115, self.costString.frame.origin.y, self.costString.frame.size.width, self.costString.frame.size.height);
     }
@@ -705,9 +702,7 @@
     else
     {
         [self showConfrimPopover];
-    } 
-    
-    
+    }
 }
 
 -(void)showConfrimPopover {
@@ -715,7 +710,7 @@
     {
         BOOL quant = isQant;
         
-        if (itemDetails.CategoryId == 1)
+        if (itemDetails.CategoryId == 1 || itemDetails.CategoryId == 4)
         {
             int numberofStocks = 0;
             if (itemDetails.IsContribution == TRUE)
@@ -811,11 +806,13 @@
     else
     {
         remainingStock = returnResponse.RemainingStock;
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:returnResponse.ErrorMessage];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:returnResponse.ErrorMessage];
+//        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:returnResponse.ErrorMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
-   
 }
 
 -(void) viewWebview: (NSString *)htmlString
@@ -840,7 +837,6 @@
     }
     //  [self.webView loadHTMLString:htmlString baseURL:nil];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlString]]];
-    
 }
 
 - (void)makeBodyBackgoundTransparent {
@@ -858,7 +854,6 @@
     //  [AC stopLoading];
 }
 
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -874,9 +869,5 @@
 {
     return ! ([touch.view isKindOfClass:[UIControl class]]);
 }
-
-
-
-
 
 @end

@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-   self.view.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    self.view.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
     
     if (type == 0)
     {
@@ -66,8 +66,11 @@
         ArabicConverter *converter = [[ArabicConverter alloc] init];
         self.titleLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"register_title_lbl",appDelegate.culture, @"")];
         self.titleLbl.font = boldFont;
-       
-       
+        
+        if (appDelegate.login == 1) {
+            self.titleLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"registered_title_lbl",appDelegate.culture, @"")];
+        }
+        
     }
     else
     {
@@ -80,13 +83,17 @@
         
         [self.closeButton setImage:[UIImage imageNamed:@"closeButton_en.png"] forState:UIControlStateNormal];
         
+        if (appDelegate.login == 1) {
+            self.titleLbl.text = NSLocalizedStringFromTable(@"registered_title_lbl",appDelegate.culture, @"");
+        }
+        
     }
     
     
-  /*  self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.view.layer.shadowOffset = CGSizeMake(5.0f, 3.0f);
-    self.view.layer.shadowOpacity = 30.0f;
-    self.view.layer.shadowRadius = 10.0f; */
+    /*  self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+     self.view.layer.shadowOffset = CGSizeMake(5.0f, 3.0f);
+     self.view.layer.shadowOpacity = 30.0f;
+     self.view.layer.shadowRadius = 10.0f; */
     
     int x = 1;
     
@@ -101,15 +108,15 @@
         self.loginButton.alpha = 1;
     }
     
-UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                      action:@selector(detectTapGesture)];
-      [self updateView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(detectTapGesture)];
+    [self updateView];
     
-tap.numberOfTapsRequired = 1;
-tap.numberOfTouchesRequired = 1;
-tap.delegate = self;
-[self.view addGestureRecognizer:tap];
-
+    tap.numberOfTapsRequired = 1;
+    tap.numberOfTouchesRequired = 1;
+    tap.delegate = self;
+    [self.view addGestureRecognizer:tap];
+    
 }
 
 
@@ -125,7 +132,7 @@ tap.delegate = self;
         
         if (appDelegate.login == 0)
         {
-                self.labelLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"register_or_login_lbl",appDelegate.culture, @"")];
+            self.labelLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"register_or_login_lbl",appDelegate.culture, @"")];
             
             
             [self.loginButton setImage:[UIImage imageNamed:@"loginbutton.png"] forState:UIControlStateNormal];
@@ -137,17 +144,20 @@ tap.delegate = self;
         }
         else
         {
-            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
-            welcome = [welcome stringByAppendingString:appDelegate.lastName];
-            welcome = [welcome stringByAppendingString:@" ،مرحبا "];
-            self.labelLbl.text = [converter convertArabic:welcome];
+            NSString * welcome;
+//            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
+//            welcome = [welcome stringByAppendingString:appDelegate.lastName];
+//            welcome = [welcome stringByAppendingString:@" ،مرحبا "];
+            welcome = [NSString stringWithFormat:@"مرحبا، %@ %@", appDelegate.firstName, appDelegate.lastName];
+//            self.labelLbl.text = [converter convertArabic:welcome];
+            _titleLbl.text = [converter convertArabic:welcome];
             
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton.png"] forState:UIControlStateNormal];
             
             self.newuserLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"edit_lbl",appDelegate.culture, @"")];
             
         }
-       
+        
     }
     else
     {
@@ -164,13 +174,13 @@ tap.delegate = self;
             NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
             welcome = [welcome stringByAppendingString:appDelegate.lastName];
             welcome = [@"Welcome, " stringByAppendingString:welcome];
-            self.labelLbl.text = welcome;
+//            self.labelLbl.text = welcome;
+            _titleLbl.text = welcome;
             
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton_en.png"] forState:UIControlStateNormal];
             
             self.newuserLbl.text = NSLocalizedStringFromTable(@"edit_lbl",appDelegate.culture, @"");
         }
-      
     }
 }
 
@@ -206,32 +216,41 @@ tap.delegate = self;
     }
     else
     {
-    if (appDelegate.login == 0)
-    {
-        SigningViewController * signView = [[SigningViewController alloc]init];
-        CATransition* transition = [CATransition animation];
-        transition.duration = 0.3;
-        transition.type = kCATransitionReveal;
-        transition.subtype = kCATransitionFromTop;
-        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-        [self.navigationController pushViewController:signView animated:NO];
-    }
-    else
-    {
-        appDelegate.userName = @"";
-        appDelegate.firstName = @"";
-        appDelegate.lastName = @"";
-        appDelegate.login = 0;
-        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        [prefs setObject:@"" forKey:@"userName"];
-        [prefs setObject:@"" forKey:@"firstName"];
-        [prefs setObject:@"" forKey:@"lastName"];
-        [prefs synchronize];
+        if (appDelegate.login == 0)
+        {
+            SigningViewController * signView = [[SigningViewController alloc]init];
+            CATransition* transition = [CATransition animation];
+            transition.duration = 0.3;
+            transition.type = kCATransitionReveal;
+            transition.subtype = kCATransitionFromTop;
+            [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+            [self.navigationController pushViewController:signView animated:NO];
+        }
+        else
+        {
+            appDelegate.userName = @"";
+            appDelegate.firstName = @"";
+            appDelegate.lastName = @"";
+            appDelegate.login = 0;
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            [prefs setObject:@"" forKey:@"userName"];
+            [prefs setObject:@"" forKey:@"firstName"];
+            [prefs setObject:@"" forKey:@"lastName"];
+            [prefs synchronize];
+            
+            
+            // Mina
+            [appDelegate.navControl popToRootViewControllerAnimated:NO];
+            if ([appDelegate.culture isEqualToString:@"ar"])
+                [self.viewDeckController closeRightViewAnimated:YES];
+            else
+                [self.viewDeckController closeLeftViewAnimated:YES];
+            //
+            
+            [self updateView];
+        }
         
-        [self updateView];
-    }
-    
-    
+        
     }
 }
 - (IBAction)logoutMethod:(id)sender {
@@ -246,16 +265,16 @@ tap.delegate = self;
     }
     else
     {
-    if (appDelegate.login == 0)
-    {
-        NewuserViewController * newuser = [[NewuserViewController alloc]init];
-        CATransition* transition = [CATransition animation];
-        transition.duration = 0.3;
-        transition.type = kCATransitionReveal;
-        transition.subtype = kCATransitionFromTop;
-        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-        [self.navigationController pushViewController:newuser animated:NO];
-    }
+        if (appDelegate.login == 0)
+        {
+            NewuserViewController * newuser = [[NewuserViewController alloc]init];
+            CATransition* transition = [CATransition animation];
+            transition.duration = 0.3;
+            transition.type = kCATransitionReveal;
+            transition.subtype = kCATransitionFromTop;
+            [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+            [self.navigationController pushViewController:newuser animated:NO];
+        }
         else
         {
             editProfileViewController * editprofile = [[editProfileViewController alloc]init];
@@ -267,7 +286,7 @@ tap.delegate = self;
             [self.navigationController pushViewController:editprofile animated:NO];
         }
         
-   
+        
     }
 }
 
@@ -279,14 +298,14 @@ tap.delegate = self;
     }
     else
     {
-    appDelegate.countViews = appDelegate.countViews -1;
-    
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.type = kCATransitionReveal;
-    transition.subtype = kCATransitionFromBottom;
-    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-    [self.navigationController popViewControllerAnimated:NO];
+        appDelegate.countViews = appDelegate.countViews -1;
+        
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionReveal;
+        transition.subtype = kCATransitionFromBottom;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController popViewControllerAnimated:NO];
     }
 }
 

@@ -20,11 +20,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         delegate = del;
-//        quant = qua;
-//        cont = con;
+        //        quant = qua;
+        //        cont = con;
         cost = cot;
-//        remainingStocks = numofSt;
-//        categoryID = catID;
+        //        remainingStocks = numofSt;
+        //        categoryID = catID;
         self.backgroundColor = [UIColor clearColor];
         
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -39,7 +39,7 @@
         
         
         UIImage *confirmImage= [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"donate-confirm_btn" ofType:@"png"]];
-        UIButton * cofirmButton =[[UIButton alloc]initWithFrame:CGRectMake(5,85,294,52)];
+        UIButton * cofirmButton =[[UIButton alloc]initWithFrame:CGRectMake(5,95,294,39)];
         [cofirmButton setBackgroundImage:confirmImage forState:UIControlStateNormal];
         [cofirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cofirmButton];
@@ -49,7 +49,7 @@
         else
             boldFont=[UIFont systemFontOfSize:16];
         ArabicConverter *converter = [[ArabicConverter alloc] init];
-        UILabel * buttonLbl = [[UILabel alloc]initWithFrame:CGRectMake(5,85,295,52)];
+        UILabel * buttonLbl = [[UILabel alloc]initWithFrame:CGRectMake(5,95,294,39)];
         if ([appDelegate.culture isEqualToString:@"ar"])
             buttonLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"confirm_donate_lbl",appDelegate.culture, @"")];
         else
@@ -61,14 +61,14 @@
         [self addSubview:buttonLbl];
         
         
-//        if (categoryID == 1)
-//        {
-//            [self catid1];
-//        }
-//        else
-//        {
-            [self AnotherCatID];
-//        }
+        //        if (categoryID == 1)
+        //        {
+        //            [self catid1];
+        //        }
+        //        else
+        //        {
+        [self AnotherCatID];
+        //        }
         
         
         
@@ -94,12 +94,12 @@
         boldFont3=[UIFont systemFontOfSize:14];
     
     NSString * textString = NSLocalizedStringFromTable(@"enter_number_months",appDelegate.culture, @"");
-//    if (quant == TRUE)
-//        textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
-//    else if (cont == TRUE)
-//        textString = NSLocalizedStringFromTable(@"enter_stock",appDelegate.culture, @"");
-//    else
-//        textString = @"";
+    //    if (quant == TRUE)
+    //        textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
+    //    else if (cont == TRUE)
+    //        textString = NSLocalizedStringFromTable(@"enter_stock",appDelegate.culture, @"");
+    //    else
+    //        textString = @"";
     
     UILabel * textLbl = [[UILabel alloc]init];
     if([appDelegate.culture isEqualToString:@"ar"])
@@ -120,70 +120,70 @@
     textLbl.font = boldFont3;
     [self addSubview:textLbl];
     
-//    if (quant == TRUE)
-//    {
-        UIFont * boldFont6;
-        if([appDelegate.culture isEqualToString:@"ar"])
-            boldFont6=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:12];
-        else
-            boldFont6=[UIFont systemFontOfSize:12];
-        UILabel *  totalLbl = [[UILabel alloc]init];
-        if ([appDelegate.culture isEqualToString:@"ar"])
-        {
-            totalLbl.frame = CGRectMake(190,65,85,15);
-            totalLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"total_value",appDelegate.culture, @"")];
-            totalLbl.textAlignment = UITextAlignmentRight;
-        }
-        else
-        {
-            totalLbl.frame = CGRectMake(10,70,85,15);
-            totalLbl.text = NSLocalizedStringFromTable(@"total_value",appDelegate.culture, @"");
-            totalLbl.textAlignment = NSTextAlignmentLeft;
-        }
-        totalLbl.backgroundColor=[UIColor clearColor];
-        totalLbl.textColor=[UIColor whiteColor];
-        totalLbl.font = boldFont6;
-        [self addSubview:totalLbl];
-        
-        NSString * temp = [@"0" stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
-        
-        totalAmount = [[UILabel alloc]init];
-        if ([appDelegate.culture isEqualToString:@"ar"])
-        {
-            totalAmount.frame = CGRectMake(100,65,90,15);
-            totalAmount.text = [converter convertArabic:temp];
-            totalAmount.textAlignment = UITextAlignmentRight;
-        }
-        else
-        {
-            totalAmount.frame = CGRectMake(75,70,90,15);
-            totalAmount.text = temp;
-            totalAmount.textAlignment = NSTextAlignmentLeft;
-        }
-        totalAmount.tag = 10;
-        totalAmount.backgroundColor=[UIColor clearColor];
-        totalAmount.textColor=[UIColor whiteColor];
-        totalAmount.font = boldFont6;
-        [self addSubview:totalAmount];
-//    }
-    
-    
-    UIImageView * fieldImage = [[UIImageView alloc] init];
-    if ([appDelegate.culture isEqualToString:@"ar"])
-        fieldImage.frame = CGRectMake(10,25,82,41);
+    //    if (quant == TRUE)
+    //    {
+    UIFont * boldFont6;
+    if([appDelegate.culture isEqualToString:@"ar"])
+        boldFont6=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:12];
     else
-        fieldImage.frame = CGRectMake(210,25,82,41);
-    [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
-    [self addSubview:fieldImage];
+        boldFont6=[UIFont systemFontOfSize:12];
+    UILabel *  totalLbl = [[UILabel alloc]init];
+    if ([appDelegate.culture isEqualToString:@"ar"])
+    {
+        totalLbl.frame = CGRectMake(190,65,85,15);
+        totalLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"total_value",appDelegate.culture, @"")];
+        totalLbl.textAlignment = NSTextAlignmentRight;
+    }
+    else
+    {
+        totalLbl.frame = CGRectMake(10,70,85,15);
+        totalLbl.text = NSLocalizedStringFromTable(@"total_value",appDelegate.culture, @"");
+        totalLbl.textAlignment = NSTextAlignmentLeft;
+    }
+    totalLbl.backgroundColor=[UIColor clearColor];
+    totalLbl.textColor=[UIColor whiteColor];
+    totalLbl.font = boldFont6;
+    [self addSubview:totalLbl];
+    
+    NSString * temp = [@"0" stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
+    
+    totalAmount = [[UILabel alloc]init];
+    if ([appDelegate.culture isEqualToString:@"ar"])
+    {
+        totalAmount.frame = CGRectMake(100,65,90,15);
+        totalAmount.text = [converter convertArabic:temp];
+        totalAmount.textAlignment = UITextAlignmentRight;
+    }
+    else
+    {
+        totalAmount.frame = CGRectMake(75,70,90,15);
+        totalAmount.text = temp;
+        totalAmount.textAlignment = NSTextAlignmentLeft;
+    }
+    totalAmount.tag = 10;
+    totalAmount.backgroundColor=[UIColor clearColor];
+    totalAmount.textColor=[UIColor whiteColor];
+    totalAmount.font = boldFont6;
+    [self addSubview:totalAmount];
+    //    }
+    
+    
+//    UIImageView * fieldImage = [[UIImageView alloc] init];
+//    if ([appDelegate.culture isEqualToString:@"ar"])
+//        fieldImage.frame = CGRectMake(10,25,82,41);
+//    else
+//        fieldImage.frame = CGRectMake(210,25,82,41);
+//    [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
+//    [self addSubview:fieldImage];
     
     NSString * placeholder = NSLocalizedStringFromTable(@"months_lbl",appDelegate.culture, @"");
     
-//    if (quant == TRUE)
-//        placeholder = NSLocalizedStringFromTable(@"units_lbl",appDelegate.culture, @"");
-//    else if (cont == TRUE)
-//        placeholder = NSLocalizedStringFromTable(@"shares_lbl",appDelegate.culture, @"");
-//    else
-//        placeholder = @"";
+    //    if (quant == TRUE)
+    //        placeholder = NSLocalizedStringFromTable(@"units_lbl",appDelegate.culture, @"");
+    //    else if (cont == TRUE)
+    //        placeholder = NSLocalizedStringFromTable(@"shares_lbl",appDelegate.culture, @"");
+    //    else
+    //        placeholder = @"";
     
     UIFont * boldFont2;
     if([appDelegate.culture isEqualToString:@"ar"])
@@ -196,21 +196,22 @@
     {
         amoutTF.text = [converter convertArabic: @""];
         amoutTF.placeholder=[converter convertArabic:placeholder];
-        amoutTF.frame=CGRectMake(10,33,82,41);
+        amoutTF.frame=CGRectMake(10,30,280,30);
+        amoutTF.textAlignment = NSTextAlignmentRight;
     }
     else
     {
         amoutTF.text = @"";
         amoutTF.placeholder=placeholder;
-        amoutTF.frame=CGRectMake(210,33,82,41);
+        amoutTF.frame=CGRectMake(10,30,280,30);
+        amoutTF.textAlignment = NSTextAlignmentLeft;
     }
-    amoutTF.textAlignment = UITextAlignmentCenter;
     amoutTF.returnKeyType=UIReturnKeyDefault;
-    amoutTF.borderStyle = UITextBorderStyleNone;
+    amoutTF.borderStyle = UITextBorderStyleLine;
     amoutTF.textColor=[UIColor blackColor];
     amoutTF.keyboardType = UIKeyboardTypeNumberPad;
     amoutTF.autocorrectionType = UITextAutocorrectionTypeNo;
-    amoutTF.backgroundColor=[UIColor clearColor];
+    amoutTF.backgroundColor=[UIColor whiteColor];
     amoutTF.delegate = self;
     [amoutTF addTarget:self action:@selector(updateLabelUsingContentsOfTextField:) forControlEvents:UIControlEventEditingChanged];
     amoutTF.keyboardAppearance = UIBarStyleBlack;
@@ -226,10 +227,10 @@
 //        boldFont3=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:14];
 //    else
 //        boldFont3=[UIFont systemFontOfSize:14];
-//    
-//    
-//    
-//    
+//
+//
+//
+//
 //    //    projectNameTF = [[UITextField alloc] init];
 //    //    projectNameTF.font = boldFont3;
 //    //    if ([appDelegate.culture isEqualToString:@"ar"])
@@ -261,8 +262,8 @@
 //    //    projectNameTF.delegate = self;
 //    //    projectNameTF.keyboardAppearance = UIBarStyleBlack;
 //    //    [self addSubview:projectNameTF];
-//    
-//    
+//
+//
 //    //    projectNoteTF = [[UITextField alloc] init];
 //    //    projectNoteTF.font = boldFont3;
 //    //    if ([appDelegate.culture isEqualToString:@"ar"])
@@ -295,7 +296,7 @@
 //    //    projectNoteTF.delegate = self;
 //    //    projectNoteTF.keyboardAppearance = UIBarStyleBlack;
 //    //    [self addSubview:projectNoteTF];
-//    
+//
 //    if (cont == TRUE)
 //    {
 //        UIImageView * fieldImage = [[UIImageView alloc] init];
@@ -305,8 +306,8 @@
 //            fieldImage.frame = CGRectMake(215,25,82,41);
 //        [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
 //        [self addSubview:fieldImage];
-//        
-//        
+//
+//
 //        NSString * placeholder = @"";
 //        if (quant == TRUE)
 //            placeholder = NSLocalizedStringFromTable(@"units_lbl",appDelegate.culture, @"");
@@ -314,7 +315,7 @@
 //            placeholder = NSLocalizedStringFromTable(@"shares_lbl",appDelegate.culture, @"");
 //        else
 //            placeholder = @"";
-//        
+//
 //        UIFont * boldFont2;
 //        if([appDelegate.culture isEqualToString:@"ar"])
 //            boldFont2=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:20];
@@ -346,33 +347,35 @@
 //        amoutTF.keyboardAppearance = UIBarStyleBlack;
 //        [self addSubview:amoutTF];
 //    }
-//    
-//    
+//
+//
 //}
 
 
 - (void)updateLabelUsingContentsOfTextField:(id)sender {
-//    
-//    if (quant == TRUE)
-//    {
-        ArabicConverter *converter = [[ArabicConverter alloc] init];
-        int value = [((UITextField *)sender).text intValue];
-        int total = value * cost;
-        NSString* myNewString = [NSString stringWithFormat:@"%i", total];
-        NSString * temp = [myNewString stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
-        if ([appDelegate.culture isEqualToString:@"ar"])
-            totalAmount.text = [converter convertArabic:temp];
-        else
-            totalAmount.text = temp;
-//    }
+    //
+    //    if (quant == TRUE)
+    //    {
+    ArabicConverter *converter = [[ArabicConverter alloc] init];
+    int value = [((UITextField *)sender).text intValue];
+    int total = value * cost;
+    NSString* myNewString = [NSString stringWithFormat:@"%i", total];
+    NSString * temp = [myNewString stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
+    if ([appDelegate.culture isEqualToString:@"ar"]) {
+        totalAmount.text = [converter convertArabic:temp];
+    }
+    else {
+        totalAmount.text = temp;
+    }
+    //    }
 }
 
 -(void) confirmAction
 {
-//    if (categoryID == 1)
-//        [self confirmCat1];
-//    else
-        [self confirmOtherCat];
+    //    if (categoryID == 1)
+    //        [self confirmCat1];
+    //    else
+    [self confirmOtherCat];
     
 }
 
@@ -394,7 +397,7 @@
 //                textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
 //            else if (cont == TRUE)
 //                textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
-//            
+//
 //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
 //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
 //            [alert show];
@@ -422,7 +425,7 @@
 //        }
 //        else
 //        {
-//            
+//
 //            [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
 //        }
 //    }
@@ -433,38 +436,41 @@
     if ([amoutTF.text isEqualToString:@""])
     {
         NSString * textString = NSLocalizedStringFromTable(@"enter_number_months",appDelegate.culture, @"");
-//        if (quant == TRUE)
-//            textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
-//        else if (cont == TRUE)
-//            textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
+        //        if (quant == TRUE)
+        //            textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
+        //        else if (cont == TRUE)
+        //            textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
         
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
+//        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
-//        if (cont == TRUE)
-//        {
-//            int totalstock = [amoutTF.text intValue];
-//            if (totalstock > remainingStocks)
-//            {
-//                //remaining_share_message
-//                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"remaining_share_message",appDelegate.culture, @"")];
-//                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//                [alert show];
-//            }
-//            else
-//            {
-//                int value = [amoutTF.text intValue];
-//                [delegate getTotalAmount:value:@"":@""];
-//            }
-//        }
-//        else
-//        {
-            int value = [amoutTF.text intValue];
-            [delegate getTotalAmount:value:@"":@""];
-//        }
+        //        if (cont == TRUE)
+        //        {
+        //            int totalstock = [amoutTF.text intValue];
+        //            if (totalstock > remainingStocks)
+        //            {
+        //                //remaining_share_message
+        //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"remaining_share_message",appDelegate.culture, @"")];
+        //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //                [alert show];
+        //            }
+        //            else
+        //            {
+        //                int value = [amoutTF.text intValue];
+        //                [delegate getTotalAmount:value:@"":@""];
+        //            }
+        //        }
+        //        else
+        //        {
+        int value = [amoutTF.text intValue];
+        [delegate getTotalAmount:value:@"":@""];
+        //        }
     }
 }
 
@@ -473,12 +479,12 @@
     if (amoutTF.isFirstResponder) {
         [amoutTF resignFirstResponder];
     }
-//    if (projectNameTF.isFirstResponder) {
-//        [projectNameTF resignFirstResponder];
-//    }
-//    if (projectNoteTF.isFirstResponder) {
-//        [projectNoteTF resignFirstResponder];
-//    }
+    //    if (projectNameTF.isFirstResponder) {
+    //        [projectNameTF resignFirstResponder];
+    //    }
+    //    if (projectNoteTF.isFirstResponder) {
+    //        [projectNoteTF resignFirstResponder];
+    //    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch

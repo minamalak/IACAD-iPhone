@@ -15,6 +15,7 @@
     UITextField * amoutTF;
     UITextField * projectNameTF;
     UITextField * projectNoteTF;
+    UILabel *lblTotal;
     BOOL quant;
     BOOL cont;
     UILabel * totalAmount;

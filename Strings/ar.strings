@@ -3,6 +3,10 @@
  
  */
 
+//AlertView
+"message_ok" = "تم";
+
+
 ///SideMenu
 "side_main" = "القائمة الرئسية";
 "side_about" = "من نحن";
@@ -18,6 +22,7 @@
 "donate_lbl" = "تبرع";
 "event_lbl" = "فعاليات";
 "general_lbl" = "تبرع عام";
+"special_donate_lbl" = "تبرع خاص";
 "rescue_lbl" = "إغاثة";
 
 
@@ -47,6 +52,7 @@
 "forgot_lbl" = "نسيت كلمة السر؟";
 "question_lbl" = "السؤال السري";
 "answer_lbl" = "الجواب السري";
+"registered_title_lbl" = "";
 
 ////Message box
 "done_lbl" = "تم";
@@ -89,7 +95,7 @@
 
 ////General Donatation
 "total_donation_lbl" = "مجموع التبرعات";
-"dirham_lbl" = " د.ا ";
+"dirham_lbl" = " درهم اماراتي ";
 "dirham_lbl2" = "د.ا";
 "shares_lbl" = "الأسهم";
 
@@ -98,9 +104,9 @@
 "all_charities" = "كل الجمعيات";
 "all_Countries" = "كل البلاد";
 "asembly_name" = "الجمعية";
-"cost_lbl" = "التكلفة :";
+"cost_lbl" = "التكلفة (د.ا.)";
 "project_type_lbl" = "نوع المشروع :";
-"area_lbl" = "المساحة :";
+"area_lbl" = "المساحة (م٢): ";
 "capacity_lbl" = "السعة :";
 "remain_share_lbl" = "الاسهم المتبقية :";
 "total_share_lbl" = "إجمالي الاسهم :";
@@ -127,7 +133,7 @@
 "AgeYearFormat"="%d سنة";
 "name_lbl"="الاسم";
 "Nationality_lbl"="الجنسية";
-"Cost_lbl"="التكلفة";
+"Cost_lbl"="التكلفة (د.ا.)";
 "Gender_lbl"="الجنس";
 "Age_lbl"="العمر";
 "donationType_lbl"="نوع التبرع";

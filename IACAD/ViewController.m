@@ -10,6 +10,7 @@
 #import "browseViewController.h"
 #import "eventListViewController.h"
 #import "charitiesListViewController.h"
+#import "ReliefCharitiesViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface ViewController () {
@@ -107,25 +108,27 @@
     
     
     /*Vertical spacing of icons*/
-    CGSize mainScreenSize = self.theScrollview.frame.size;
-    int verticalMargin = (mainScreenSize.height - (157 * 2) - 10) / 2;
-    verticalMargin -= 12;
+//    CGSize mainScreenSize = self.theScrollview.frame.size;
+//    int verticalMargin = (mainScreenSize.height - (157 * 2) - 10) / 2;
+//    verticalMargin -= 12;
+//    
+//    CGRect oldFrame = _vwBrowse.frame;
+//    _vwBrowse.frame = CGRectMake(oldFrame.origin.x, verticalMargin, oldFrame.size.width, oldFrame.size.height);
+//    
+//    oldFrame = _vwSpecialDonation.frame;
+//    _vwSpecialDonation.frame = CGRectMake(oldFrame.origin.x, verticalMargin, oldFrame.size.width, oldFrame.size.height);
+//    
+//    
+//    
+//    int secondLineY = _vwBrowse.frame.origin.y + _vwBrowse.frame.size.height + 10;
+//    
+//    oldFrame = _vwEvents.frame;
+//    _vwEvents.frame = CGRectMake(oldFrame.origin.x, secondLineY, oldFrame.size.width, oldFrame.size.height);
+//    
+//    oldFrame = _vwGeneralDonation.frame;
+//    _vwGeneralDonation.frame = CGRectMake(oldFrame.origin.x, secondLineY, oldFrame.size.width, oldFrame.size.height);
     
-    CGRect oldFrame = _vwBrowse.frame;
-    _vwBrowse.frame = CGRectMake(oldFrame.origin.x, verticalMargin, oldFrame.size.width, oldFrame.size.height);
-    
-    oldFrame = _vwSpecialDonation.frame;
-    _vwSpecialDonation.frame = CGRectMake(oldFrame.origin.x, verticalMargin, oldFrame.size.width, oldFrame.size.height);
-    
-    
-    
-    int secondLineY = _vwBrowse.frame.origin.y + _vwBrowse.frame.size.height + 10;
-    
-    oldFrame = _vwEvents.frame;
-    _vwEvents.frame = CGRectMake(oldFrame.origin.x, secondLineY, oldFrame.size.width, oldFrame.size.height);
-    
-    oldFrame = _vwGeneralDonation.frame;
-    _vwGeneralDonation.frame = CGRectMake(oldFrame.origin.x, secondLineY, oldFrame.size.width, oldFrame.size.height);
+    [_theScrollview setContentSize:CGSizeMake(320, 524)];
     
     /*End vertical spacing of icons*/
 }
@@ -162,13 +165,13 @@
     self.browseLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"browse_lbl",appDelegate.culture, @"")];
     self.browseLbl.font = boldFont;
     
-    self.donateLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"donate_lbl",appDelegate.culture, @"")];
+    self.donateLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"special_donate_lbl",appDelegate.culture, @"")];
     self.donateLbl.font = boldFont;
     
     self.eventLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"event_lbl",appDelegate.culture, @"")];
     self.eventLbl.font = boldFont;
     
-    self.donate2Lbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"general_lbl",appDelegate.culture, @"")];
+    self.donate2Lbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"donate_lbl",appDelegate.culture, @"")];
     self.donate2Lbl.font = boldFont;
     
     self.rescueLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"rescue_lbl",appDelegate.culture, @"")];
@@ -332,7 +335,16 @@
     }
     else
     {
-        
+        ReliefCharitiesViewController * relief = [[ReliefCharitiesViewController alloc]init:1];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionPush;
+        if ([appDelegate.culture isEqualToString:@"ar"])
+            transition.subtype = kCATransitionFromLeft;
+        else
+            transition.subtype = kCATransitionFromRight;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController pushViewController:relief animated:NO];
     }
 }
 

@@ -113,17 +113,17 @@
     self.theScrollview.delegate = self;
 }
 
-- (void)GetPersonsByCharityAndDonationTypeCallback:(IACADGetPersonsByCharityAndDonationTypeResponse *)response error:(NSError *)error {
-    
-    isLoading = false;
-    
-    [AC stopLoading];
-    [projectsList addObjectsFromArray:response.GetPersonsByCharityAndDonationTypeResult];
-    
-    [self fillScrollview];
-    
-    itemsCount = response.count;
-}
+//- (void)GetPersonsByCharityAndDonationTypeCallback:(IACADGetPersonsByCharityAndDonationTypeResponse *)response error:(NSError *)error {
+//    
+//    isLoading = false;
+//    
+//    [AC stopLoading];
+//    [projectsList addObjectsFromArray:response.GetPersonsByCharityAndDonationTypeResult];
+//    
+//    [self fillScrollview];
+//    
+//    itemsCount = response.count;
+//}
 
 -(void) fillScrollview
 {
@@ -180,7 +180,7 @@
                 itemLbl.text = catalogProject.FullName;
             }
             itemLbl.font = boldFont;
-            itemLbl.textAlignment = UITextAlignmentCenter;
+            itemLbl.textAlignment = NSTextAlignmentCenter;
             itemLbl.backgroundColor=[UIColor clearColor];
             itemLbl.textColor=[UIColor blackColor];
             [scrollViewControls addObject:itemLbl];
@@ -189,7 +189,7 @@
             AsyncImageView * asyncImageView = [[AsyncImageView alloc] init];
             asyncImageView.frame = CGRectMake(x+2,y+2, 143, 143);
             NSString * imageURL;
-            imageURL = [@"http://www.ecp.ae/Handlers/ShowImage.ashx?objectType=generalpersonfile&Guidid=" stringByAppendingString:catalogProject.GenrealPersonsPhotoFileID];
+            imageURL = [@"http://iacadcld.linkdev.com/Handlers/ShowImage.ashx?objectType=generalpersonfile&Guidid=" stringByAppendingString:catalogProject.GenrealPersonsPhotoFileID];
             NSURL *url = [NSURL URLWithString:imageURL];
             asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
             [asyncImageView setImageURL:url];
@@ -226,7 +226,8 @@
     {
         if (charityID == 0)
             charityName = NSLocalizedStringFromTable(@"all_charities",appDelegate.culture, @"");
-        if (countryID == 0)
+//        if (countryID == 0)
+        if ([countryID objectAtIndex:0] == [NSNumber numberWithInt:0])
             CountryName = NSLocalizedStringFromTable(@"all_Countries",appDelegate.culture, @"");
         
         filterView = [[PersonalFilterView alloc] initWithFrame:CGRectMake(7,40,304,self.view.frame.size.height-70) :self:charityID:countryID:donationTypeId:charityName:CountryName];
@@ -239,9 +240,6 @@
         [filterView removeFromSuperview];
         filterView = nil;
     }
-    
-    
-    
 }
 
 -(void)hideFilterView
@@ -269,7 +267,7 @@
     [projectsList removeAllObjects];
 }
 
--(void)reloadTableview: (int) charID :(int) counID :(NSString *)charindex :(NSString *)counindex
+-(void)reloadPersonalTableview: (int) charID counID:(NSMutableArray *) counID charindex:(NSString *)charindex counindex:(NSString *)counindex
 {
     charityID = charID;
     countryID = counID;
@@ -289,16 +287,46 @@
     [AC startLoading];
     [self.view addSubview:AC];
     
-    IACADGetPersonsByCharityAndDonationType *request = [[IACADGetPersonsByCharityAndDonationType alloc]init];
+//    IACADGetPersonsByCharityAndDonationType *request = [[IACADGetPersonsByCharityAndDonationType alloc]init];
+//    request.culture = appDelegate.culture;
+//    request.donationTypeId = donationTypeId;
+//    request.charityId = charityID;
+//    request.countryId = countryID;
+//    request.pageSize = pagesize;
+//    request.pageIndex = pageIndex;
+//    
+//    IACADServiceClient *client = [[IACADServiceClient alloc] init];
+//    [client GetPersonsByCharityAndDonationTypeAsyncIsPost:YES input:request caller:self];
+    
+    
+    IACADGetPersonsByCharityAndDonationTypeAndContries *request = [[IACADGetPersonsByCharityAndDonationTypeAndContries alloc]init];
     request.culture = appDelegate.culture;
-    request.donationTypeId = donationTypeId;
-    request.charityId = charityID;
+    request.donationTypeId = [NSNumber numberWithInt:donationTypeId];
+    request.charityId = [NSNumber numberWithInt:charityID];
     request.countryId = countryID;
-    request.pageSize = pagesize;
-    request.pageIndex = pageIndex;
+    request.pageSize = [NSNumber numberWithInt:pagesize];
+    request.pageIndex = [NSNumber numberWithInt:pageIndex];
+    
+    if (!countryID) {
+        countryID = [NSMutableArray new];
+        [countryID addObject:[NSNumber numberWithInt:0]];
+        request.countryId = countryID;
+    }
     
     IACADServiceClient *client = [[IACADServiceClient alloc] init];
-    [client GetPersonsByCharityAndDonationTypeAsyncIsPost:YES input:request caller:self];
+    [client GetPersonsByCharityAndDonationTypeAndContriesAsyncIsPost:YES input:request caller:self];
+}
+
+-(void)GetPersonsByCharityAndDonationTypeAndContriesCallback:(IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *)response error:(NSError *)error
+{
+    isLoading = false;
+    
+    [AC stopLoading];
+    [projectsList addObjectsFromArray:response.GetPersonsByCharityAndDonationTypeAndContriesResult];
+    
+    [self fillScrollview];
+    
+    itemsCount = response.GetPersonsByCharityAndDonationTypeAndContriesResult.count;
 }
 
 - (void)loadMore {

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "IACADServiceClient.h"
 #import "AppDelegate.h"
+#import "IACADGetPersonsByCharityAndDonationTypeAndContries.h"
+#import "IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.h"
+#import "IACADCatalogPerson.h"
 
 @class PersonalFilterView;
 @class CustomizedACView;
@@ -21,10 +24,9 @@
     CustomizedACView * AC;
     PersonalFilterView * filterView;
     
-    
     int donationTypeId;
     int charityID;
-    int countryID;
+    NSMutableArray *countryID;
     int pageIndex;
     int pagesize;
     int newdata;
@@ -50,6 +52,8 @@
 
 -(id)init:(int)did :(NSString *)dname;
 -(void)reloadTableview;
+-(void)reloadPersonalTableview: (int) charID counID:(NSMutableArray *) counID charindex:(NSString *)charindex counindex:(NSString *)counindex;
+-(void)hideFilterView;
 - (IBAction)menuMethod:(id)sender;
 - (IBAction)backMethod:(id)sender;
 @end

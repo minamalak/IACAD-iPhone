@@ -158,7 +158,7 @@
         AsyncImageView * asyncImageView = [[AsyncImageView alloc] init];
         asyncImageView.frame = CGRectMake(26,16, 251,132);
         NSString * imageURL;
-        imageURL = [NSString stringWithFormat:@"http://www.ecp.ae/Handlers/ShowImage.ashx?Guidid=%@&objectType=generalpersonfile", _itemDetails.GenrealPersonsPhotoFileID];
+        imageURL = [NSString stringWithFormat:@"http://iacadcld.linkdev.com/Handlers/ShowImage.ashx?Guidid=%@&objectType=generalpersonfile", _itemDetails.GenrealPersonsPhotoFileID];
         NSURL *url = [NSURL URLWithString:imageURL];
         asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
         [asyncImageView setImageURL:url];
@@ -1290,8 +1290,11 @@
     else
     {
 //        remainingStock = returnResponse.RemainingStock;
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:returnResponse.ErrorMessage];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:returnResponse.ErrorMessage];
+//        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:returnResponse.ErrorMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
     

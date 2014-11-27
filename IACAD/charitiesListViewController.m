@@ -186,7 +186,7 @@
     lbl5.text = [converter convertArabic: item.Name];
     
     
-    NSString *  imageURL = [NSString stringWithFormat:@"http://www.ecp.ae/Handlers/ShowImage.ashx?Guidid=%@&objectType=charity",item.ImageId];
+    NSString *  imageURL = [NSString stringWithFormat:@"http://iacadcld.linkdev.com/Handlers/ShowImage.ashx?Guidid=%@&objectType=charity",item.ImageId];
     
     NSURL *url = [NSURL URLWithString:imageURL];
     

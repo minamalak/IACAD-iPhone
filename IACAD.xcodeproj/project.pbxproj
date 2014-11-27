@@ -7,6 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3135A4EB1A11495C00586C69 /* listtablecellWithoutImage_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */; };
+		3135A4EC1A11495C00586C69 /* listtablecellWithoutImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */; };
+		316FA8C41A12312100EDD8E6 /* green_one_text_field_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 316FA8C21A12312100EDD8E6 /* green_one_text_field_en.png */; };
+		316FA8C51A12312100EDD8E6 /* green_one_text_field.png in Resources */ = {isa = PBXBuildFile; fileRef = 316FA8C31A12312100EDD8E6 /* green_one_text_field.png */; };
+		317347261A1A1A5A00DA178C /* AppSettingCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 317347251A1A1A5A00DA178C /* AppSettingCache.m */; };
+		319C7D401A14EBFC00629529 /* DonationHistoryDetailsEN.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */; };
+		319E4C351A0FD9B600DF3D21 /* IACADGetDonorProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */; };
+		319E4C361A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C341A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m */; };
+		319E4C3A1A0FDA3200DF3D21 /* DonationHistoryListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C381A0FDA3200DF3D21 /* DonationHistoryListingViewController.m */; };
+		319E4C3B1A0FDA3200DF3D21 /* DonationHistoryListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319E4C391A0FDA3200DF3D21 /* DonationHistoryListingViewController.xib */; };
+		319E4C3F1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C3D1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.m */; };
+		319E4C401A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319E4C3E1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.xib */; };
+		319E4C431A0FDBE600DF3D21 /* IACADDonorProjectsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C421A0FDBE600DF3D21 /* IACADDonorProjectsData.m */; };
+		319E4C481A0FDD0100DF3D21 /* IACADGetProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C451A0FDD0100DF3D21 /* IACADGetProject.m */; };
+		319E4C491A0FDD0100DF3D21 /* IACADGetProjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C471A0FDD0100DF3D21 /* IACADGetProjectResponse.m */; };
+		319E4C4E1A0FDD1000DF3D21 /* IACADGetRegexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C4A1A0FDD1000DF3D21 /* IACADGetRegexResponse.m */; };
+		319E4C4F1A0FDD1000DF3D21 /* IACADGetRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C4C1A0FDD1000DF3D21 /* IACADGetRegex.m */; };
+		319E4C521A0FDDAD00DF3D21 /* IACADProjectsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C511A0FDDAD00DF3D21 /* IACADProjectsData.m */; };
+		31A588371A23525F00A228B9 /* IACADGetReliefCharities.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5882C1A23525F00A228B9 /* IACADGetReliefCharities.m */; };
+		31A588381A23525F00A228B9 /* IACADGetReliefCharitiesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5882E1A23525F00A228B9 /* IACADGetReliefCharitiesResponse.m */; };
+		31A588391A23525F00A228B9 /* IACADGetReliefDisasterForCharity.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588301A23525F00A228B9 /* IACADGetReliefDisasterForCharity.m */; };
+		31A5883A1A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588321A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.m */; };
+		31A5883B1A23525F00A228B9 /* IACADGetReliefNeedForDisaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588341A23525F00A228B9 /* IACADGetReliefNeedForDisaster.m */; };
+		31A5883C1A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588361A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.m */; };
+		31A588431A23527100A228B9 /* IACADReliefCharityDisasterOnSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5883E1A23527100A228B9 /* IACADReliefCharityDisasterOnSite.m */; };
+		31A588441A23527100A228B9 /* IACADReliefDonationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588401A23527100A228B9 /* IACADReliefDonationItem.m */; };
+		31A588451A23527100A228B9 /* IACADReliefNeeds.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588421A23527100A228B9 /* IACADReliefNeeds.m */; };
+		31A5884A1A23541500A228B9 /* ReliefCharitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588481A23541500A228B9 /* ReliefCharitiesViewController.m */; };
+		31A5884B1A23541500A228B9 /* ReliefCharitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A588491A23541500A228B9 /* ReliefCharitiesViewController.xib */; };
+		31A588541A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5884D1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.m */; };
+		31A588551A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5884F1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.m */; };
+		31A588561A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588511A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.m */; };
+		31A588571A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588531A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m */; };
+		31A5885C1A235BA900A228B9 /* IACADAddReliefDonation.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A588591A235BA900A228B9 /* IACADAddReliefDonation.m */; };
+		31A5885D1A235BA900A228B9 /* IACADAddReliefDonationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5885B1A235BA900A228B9 /* IACADAddReliefDonationResponse.m */; };
+		31A588611A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A5885F1A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.m */; };
+		31A588621A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A588601A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.xib */; };
+		31A87B041A25F7B00083DFC5 /* GreenTickMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A87B031A25F7B00083DFC5 /* GreenTickMark.png */; };
+		31E604191A237617007CB2EF /* ReliefNeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E604171A237617007CB2EF /* ReliefNeedsViewController.m */; };
+		31E6041A1A237617007CB2EF /* ReliefNeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E604181A237617007CB2EF /* ReliefNeedsViewController.xib */; };
 		5038FDA2199A8B550088EB0C /* 144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5038FDA1199A8B550088EB0C /* 144.png */; };
 		5038FDA4199A8C7A0088EB0C /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5038FDA3199A8C7A0088EB0C /* 120.png */; };
 		503CCFF918E9BCFB0040E998 /* libFlurry_4.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 503CCFF818E9BCFB0040E998 /* libFlurry_4.4.0.a */; };
@@ -285,6 +325,75 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listtablecellWithoutImage_en.png; sourceTree = "<group>"; };
+		3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listtablecellWithoutImage.png; sourceTree = "<group>"; };
+		316FA8C21A12312100EDD8E6 /* green_one_text_field_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_one_text_field_en.png; sourceTree = "<group>"; };
+		316FA8C31A12312100EDD8E6 /* green_one_text_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_one_text_field.png; sourceTree = "<group>"; };
+		317347241A1A1A5A00DA178C /* AppSettingCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingCache.h; sourceTree = "<group>"; };
+		317347251A1A1A5A00DA178C /* AppSettingCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingCache.m; sourceTree = "<group>"; };
+		319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHistoryDetailsEN.xib; sourceTree = "<group>"; };
+		319E4C311A0FD9B600DF3D21 /* IACADGetDonorProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetDonorProjects.h; sourceTree = "<group>"; };
+		319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetDonorProjects.m; sourceTree = "<group>"; };
+		319E4C331A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetDonorProjectsResponse.h; sourceTree = "<group>"; };
+		319E4C341A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetDonorProjectsResponse.m; sourceTree = "<group>"; };
+		319E4C371A0FDA3200DF3D21 /* DonationHistoryListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonationHistoryListingViewController.h; sourceTree = "<group>"; };
+		319E4C381A0FDA3200DF3D21 /* DonationHistoryListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonationHistoryListingViewController.m; sourceTree = "<group>"; };
+		319E4C391A0FDA3200DF3D21 /* DonationHistoryListingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHistoryListingViewController.xib; sourceTree = "<group>"; };
+		319E4C3C1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonationHistoryItemDetailsViewController.h; sourceTree = "<group>"; };
+		319E4C3D1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonationHistoryItemDetailsViewController.m; sourceTree = "<group>"; };
+		319E4C3E1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHistoryItemDetailsViewController.xib; sourceTree = "<group>"; };
+		319E4C411A0FDBE600DF3D21 /* IACADDonorProjectsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADDonorProjectsData.h; sourceTree = "<group>"; };
+		319E4C421A0FDBE600DF3D21 /* IACADDonorProjectsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADDonorProjectsData.m; sourceTree = "<group>"; };
+		319E4C441A0FDD0100DF3D21 /* IACADGetProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetProject.h; sourceTree = "<group>"; };
+		319E4C451A0FDD0100DF3D21 /* IACADGetProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetProject.m; sourceTree = "<group>"; };
+		319E4C461A0FDD0100DF3D21 /* IACADGetProjectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetProjectResponse.h; sourceTree = "<group>"; };
+		319E4C471A0FDD0100DF3D21 /* IACADGetProjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetProjectResponse.m; sourceTree = "<group>"; };
+		319E4C4A1A0FDD1000DF3D21 /* IACADGetRegexResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetRegexResponse.m; sourceTree = "<group>"; };
+		319E4C4B1A0FDD1000DF3D21 /* IACADGetRegexResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetRegexResponse.h; sourceTree = "<group>"; };
+		319E4C4C1A0FDD1000DF3D21 /* IACADGetRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetRegex.m; sourceTree = "<group>"; };
+		319E4C4D1A0FDD1000DF3D21 /* IACADGetRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetRegex.h; sourceTree = "<group>"; };
+		319E4C501A0FDDAD00DF3D21 /* IACADProjectsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADProjectsData.h; sourceTree = "<group>"; };
+		319E4C511A0FDDAD00DF3D21 /* IACADProjectsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADProjectsData.m; sourceTree = "<group>"; };
+		31A5882B1A23525F00A228B9 /* IACADGetReliefCharities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetReliefCharities.h; sourceTree = "<group>"; };
+		31A5882C1A23525F00A228B9 /* IACADGetReliefCharities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetReliefCharities.m; sourceTree = "<group>"; };
+		31A5882D1A23525F00A228B9 /* IACADGetReliefCharitiesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetReliefCharitiesResponse.h; sourceTree = "<group>"; };
+		31A5882E1A23525F00A228B9 /* IACADGetReliefCharitiesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetReliefCharitiesResponse.m; sourceTree = "<group>"; };
+		31A5882F1A23525F00A228B9 /* IACADGetReliefDisasterForCharity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetReliefDisasterForCharity.h; sourceTree = "<group>"; };
+		31A588301A23525F00A228B9 /* IACADGetReliefDisasterForCharity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetReliefDisasterForCharity.m; sourceTree = "<group>"; };
+		31A588311A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetReliefDisasterForCharityResponse.h; sourceTree = "<group>"; };
+		31A588321A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetReliefDisasterForCharityResponse.m; sourceTree = "<group>"; };
+		31A588331A23525F00A228B9 /* IACADGetReliefNeedForDisaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetReliefNeedForDisaster.h; sourceTree = "<group>"; };
+		31A588341A23525F00A228B9 /* IACADGetReliefNeedForDisaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetReliefNeedForDisaster.m; sourceTree = "<group>"; };
+		31A588351A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetReliefNeedForDisasterResponse.h; sourceTree = "<group>"; };
+		31A588361A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetReliefNeedForDisasterResponse.m; sourceTree = "<group>"; };
+		31A5883D1A23527100A228B9 /* IACADReliefCharityDisasterOnSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADReliefCharityDisasterOnSite.h; sourceTree = "<group>"; };
+		31A5883E1A23527100A228B9 /* IACADReliefCharityDisasterOnSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADReliefCharityDisasterOnSite.m; sourceTree = "<group>"; };
+		31A5883F1A23527100A228B9 /* IACADReliefDonationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADReliefDonationItem.h; sourceTree = "<group>"; };
+		31A588401A23527100A228B9 /* IACADReliefDonationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADReliefDonationItem.m; sourceTree = "<group>"; };
+		31A588411A23527100A228B9 /* IACADReliefNeeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADReliefNeeds.h; sourceTree = "<group>"; };
+		31A588421A23527100A228B9 /* IACADReliefNeeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADReliefNeeds.m; sourceTree = "<group>"; };
+		31A588471A23541500A228B9 /* ReliefCharitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReliefCharitiesViewController.h; sourceTree = "<group>"; };
+		31A588481A23541500A228B9 /* ReliefCharitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReliefCharitiesViewController.m; sourceTree = "<group>"; };
+		31A588491A23541500A228B9 /* ReliefCharitiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReliefCharitiesViewController.xib; sourceTree = "<group>"; };
+		31A5884C1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetDonationItemsByCharityAndDonationTypeAndContries.h; sourceTree = "<group>"; };
+		31A5884D1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetDonationItemsByCharityAndDonationTypeAndContries.m; sourceTree = "<group>"; };
+		31A5884E1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.h; sourceTree = "<group>"; };
+		31A5884F1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.m; sourceTree = "<group>"; };
+		31A588501A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetPersonsByCharityAndDonationTypeAndContries.h; sourceTree = "<group>"; };
+		31A588511A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetPersonsByCharityAndDonationTypeAndContries.m; sourceTree = "<group>"; };
+		31A588521A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.h; sourceTree = "<group>"; };
+		31A588531A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m; sourceTree = "<group>"; };
+		31A588581A235BA900A228B9 /* IACADAddReliefDonation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADAddReliefDonation.h; sourceTree = "<group>"; };
+		31A588591A235BA900A228B9 /* IACADAddReliefDonation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADAddReliefDonation.m; sourceTree = "<group>"; };
+		31A5885A1A235BA900A228B9 /* IACADAddReliefDonationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADAddReliefDonationResponse.h; sourceTree = "<group>"; };
+		31A5885B1A235BA900A228B9 /* IACADAddReliefDonationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADAddReliefDonationResponse.m; sourceTree = "<group>"; };
+		31A5885E1A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReliefCharityDisasterOnSiteViewController.h; sourceTree = "<group>"; };
+		31A5885F1A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReliefCharityDisasterOnSiteViewController.m; sourceTree = "<group>"; };
+		31A588601A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReliefCharityDisasterOnSiteViewController.xib; sourceTree = "<group>"; };
+		31A87B031A25F7B00083DFC5 /* GreenTickMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenTickMark.png; sourceTree = "<group>"; };
+		31E604161A237617007CB2EF /* ReliefNeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReliefNeedsViewController.h; sourceTree = "<group>"; };
+		31E604171A237617007CB2EF /* ReliefNeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReliefNeedsViewController.m; sourceTree = "<group>"; };
+		31E604181A237617007CB2EF /* ReliefNeedsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReliefNeedsViewController.xib; sourceTree = "<group>"; };
 		502FA2E4196B3C62009FF828 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
 		5038FDA1199A8B550088EB0C /* 144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144.png; sourceTree = "<group>"; };
 		5038FDA3199A8C7A0088EB0C /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
@@ -711,6 +820,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		317347231A1A1A4E00DA178C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				317347241A1A1A5A00DA178C /* AppSettingCache.h */,
+				317347251A1A1A5A00DA178C /* AppSettingCache.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		319E4C2E1A0FD4BE00DF3D21 /* Donation History */ = {
+			isa = PBXGroup;
+			children = (
+				319E4C301A0FD4DA00DF3D21 /* Donation Details */,
+				319E4C2F1A0FD4D000DF3D21 /* Donation Listing */,
+			);
+			name = "Donation History";
+			sourceTree = "<group>";
+		};
+		319E4C2F1A0FD4D000DF3D21 /* Donation Listing */ = {
+			isa = PBXGroup;
+			children = (
+				319E4C371A0FDA3200DF3D21 /* DonationHistoryListingViewController.h */,
+				319E4C381A0FDA3200DF3D21 /* DonationHistoryListingViewController.m */,
+				319E4C391A0FDA3200DF3D21 /* DonationHistoryListingViewController.xib */,
+			);
+			name = "Donation Listing";
+			sourceTree = "<group>";
+		};
+		319E4C301A0FD4DA00DF3D21 /* Donation Details */ = {
+			isa = PBXGroup;
+			children = (
+				319E4C3C1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.h */,
+				319E4C3D1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.m */,
+				319E4C3E1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.xib */,
+				319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */,
+			);
+			name = "Donation Details";
+			sourceTree = "<group>";
+		};
+		31A588461A2353BD00A228B9 /* Relief  */ = {
+			isa = PBXGroup;
+			children = (
+				31A588471A23541500A228B9 /* ReliefCharitiesViewController.h */,
+				31A588481A23541500A228B9 /* ReliefCharitiesViewController.m */,
+				31A588491A23541500A228B9 /* ReliefCharitiesViewController.xib */,
+				31A5885E1A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.h */,
+				31A5885F1A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.m */,
+				31A588601A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.xib */,
+				31E604161A237617007CB2EF /* ReliefNeedsViewController.h */,
+				31E604171A237617007CB2EF /* ReliefNeedsViewController.m */,
+				31E604181A237617007CB2EF /* ReliefNeedsViewController.xib */,
+			);
+			name = "Relief ";
+			sourceTree = "<group>";
+		};
 		F40055DA17C38D92002F0494 /* Browse */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +1076,10 @@
 			isa = PBXGroup;
 			children = (
 				F4C0CB1E17D4BB03001CFAF2 /* popover */,
+				3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */,
+				3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */,
+				316FA8C21A12312100EDD8E6 /* green_one_text_field_en.png */,
+				316FA8C31A12312100EDD8E6 /* green_one_text_field.png */,
 				F4C0CA6917CB67AD001CFAF2 /* green_text_field.png */,
 				F48529AB186C7C9D00B0AD25 /* green_text_field_en.png */,
 				F4C1BA9D17DC93A400EA408C /* Filter_icon_new.png */,
@@ -938,6 +1106,7 @@
 		F44258AD17C2234C0031674D /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				31A87B031A25F7B00083DFC5 /* GreenTickMark.png */,
 				F40055D217C28D7D002F0494 /* filter_arrow_down.png */,
 				F40055D317C28D7D002F0494 /* filter_arrow_up.png */,
 				F40055C017C23E74002F0494 /* filter_list_01.png */,
@@ -953,6 +1122,7 @@
 		F4ADFC771796E11D00439B6E = {
 			isa = PBXGroup;
 			children = (
+				317347231A1A1A4E00DA178C /* Utilities */,
 				5038FDA3199A8C7A0088EB0C /* 120.png */,
 				5038FDA1199A8B550088EB0C /* 144.png */,
 				F4E305861854BF5A00E40231 /* Strings */,
@@ -1010,6 +1180,8 @@
 		F4ADFC891796E11E00439B6E /* IACAD */ = {
 			isa = PBXGroup;
 			children = (
+				31A588461A2353BD00A228B9 /* Relief  */,
+				319E4C2E1A0FD4BE00DF3D21 /* Donation History */,
 				F4C1BA7E17D78D6200EA408C /* General Donatation */,
 				F42C9AE317C614F6007635D7 /* About */,
 				F42C9AB417C4D8BF007635D7 /* Events */,
@@ -1045,6 +1217,52 @@
 		F4ADFCB81796E2B400439B6E /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				31A588581A235BA900A228B9 /* IACADAddReliefDonation.h */,
+				31A588591A235BA900A228B9 /* IACADAddReliefDonation.m */,
+				31A5885A1A235BA900A228B9 /* IACADAddReliefDonationResponse.h */,
+				31A5885B1A235BA900A228B9 /* IACADAddReliefDonationResponse.m */,
+				31A5884C1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.h */,
+				31A5884D1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.m */,
+				31A5884E1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.h */,
+				31A5884F1A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.m */,
+				31A588501A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.h */,
+				31A588511A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.m */,
+				31A588521A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.h */,
+				31A588531A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m */,
+				31A5883D1A23527100A228B9 /* IACADReliefCharityDisasterOnSite.h */,
+				31A5883E1A23527100A228B9 /* IACADReliefCharityDisasterOnSite.m */,
+				31A5883F1A23527100A228B9 /* IACADReliefDonationItem.h */,
+				31A588401A23527100A228B9 /* IACADReliefDonationItem.m */,
+				31A588411A23527100A228B9 /* IACADReliefNeeds.h */,
+				31A588421A23527100A228B9 /* IACADReliefNeeds.m */,
+				31A5882B1A23525F00A228B9 /* IACADGetReliefCharities.h */,
+				31A5882C1A23525F00A228B9 /* IACADGetReliefCharities.m */,
+				31A5882D1A23525F00A228B9 /* IACADGetReliefCharitiesResponse.h */,
+				31A5882E1A23525F00A228B9 /* IACADGetReliefCharitiesResponse.m */,
+				31A5882F1A23525F00A228B9 /* IACADGetReliefDisasterForCharity.h */,
+				31A588301A23525F00A228B9 /* IACADGetReliefDisasterForCharity.m */,
+				31A588311A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.h */,
+				31A588321A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.m */,
+				31A588331A23525F00A228B9 /* IACADGetReliefNeedForDisaster.h */,
+				31A588341A23525F00A228B9 /* IACADGetReliefNeedForDisaster.m */,
+				31A588351A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.h */,
+				31A588361A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.m */,
+				319E4C4A1A0FDD1000DF3D21 /* IACADGetRegexResponse.m */,
+				319E4C4B1A0FDD1000DF3D21 /* IACADGetRegexResponse.h */,
+				319E4C4C1A0FDD1000DF3D21 /* IACADGetRegex.m */,
+				319E4C4D1A0FDD1000DF3D21 /* IACADGetRegex.h */,
+				319E4C501A0FDDAD00DF3D21 /* IACADProjectsData.h */,
+				319E4C511A0FDDAD00DF3D21 /* IACADProjectsData.m */,
+				319E4C441A0FDD0100DF3D21 /* IACADGetProject.h */,
+				319E4C451A0FDD0100DF3D21 /* IACADGetProject.m */,
+				319E4C461A0FDD0100DF3D21 /* IACADGetProjectResponse.h */,
+				319E4C471A0FDD0100DF3D21 /* IACADGetProjectResponse.m */,
+				319E4C411A0FDBE600DF3D21 /* IACADDonorProjectsData.h */,
+				319E4C421A0FDBE600DF3D21 /* IACADDonorProjectsData.m */,
+				319E4C311A0FD9B600DF3D21 /* IACADGetDonorProjects.h */,
+				319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */,
+				319E4C331A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.h */,
+				319E4C341A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m */,
 				507815D418F45308005531A6 /* IACADAddAnonymiousDonation.h */,
 				507815D518F45308005531A6 /* IACADAddAnonymiousDonation.m */,
 				507815D618F45308005531A6 /* IACADAddAnonymiousDonationResponse.h */,
@@ -1469,14 +1687,20 @@
 				F403D70B17AFDB39002FC37A /* menu_btn.png in Resources */,
 				F403D70C17AFDB39002FC37A /* topBar.png in Resources */,
 				F403D71117AFF5BA002FC37A /* bg.png in Resources */,
+				31E6041A1A237617007CB2EF /* ReliefNeedsViewController.xib in Resources */,
 				F4B36B95185086AA00D558F7 /* langSplashViewController.xib in Resources */,
+				316FA8C51A12312100EDD8E6 /* green_one_text_field.png in Resources */,
 				F403D71217AFF5BA002FC37A /* logo.png in Resources */,
+				319E4C3B1A0FDA3200DF3D21 /* DonationHistoryListingViewController.xib in Resources */,
+				31A588621A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.xib in Resources */,
 				F485299F1869F09700B0AD25 /* listtablecell_en.png in Resources */,
 				F403D71417AFF84A002FC37A /* loginReg_btn.png in Resources */,
 				5038FDA4199A8C7A0088EB0C /* 120.png in Resources */,
 				F403D71917AFF9C5002FC37A /* LoginViewController.xib in Resources */,
+				319C7D401A14EBFC00629529 /* DonationHistoryDetailsEN.xib in Resources */,
 				F4C9E22617B12EDB009E0AAE /* logologin.png in Resources */,
 				F4C9E22917B12F38009E0AAE /* loginbutton.png in Resources */,
+				31A5884B1A23541500A228B9 /* ReliefCharitiesViewController.xib in Resources */,
 				F4C9E22A17B12F38009E0AAE /* logoutbutton.png in Resources */,
 				F4C9E23517B150DB009E0AAE /* GESSTwoBold.otf in Resources */,
 				F4C9E23617B150DB009E0AAE /* GESSTwoLight.otf in Resources */,
@@ -1498,6 +1722,7 @@
 				F44257DC17B947320031674D /* alert-gray-button.png in Resources */,
 				F44257DD17B947320031674D /* alert-gray-button@2x.png in Resources */,
 				F44257DE17B947320031674D /* alert-red-button.png in Resources */,
+				3135A4EC1A11495C00586C69 /* listtablecellWithoutImage.png in Resources */,
 				F44257DF17B947320031674D /* alert-red-button@2x.png in Resources */,
 				F44257E417BA31B80031674D /* NewuserViewController.xib in Resources */,
 				F44257E817BA39AC0031674D /* registerButton.png in Resources */,
@@ -1518,6 +1743,7 @@
 				F442589117BEA70B0031674D /* itemImg.png in Resources */,
 				F442589317C0F3D50031674D /* listtablecell.png in Resources */,
 				F442589917C0FAF20031674D /* blackbox.png in Resources */,
+				31A87B041A25F7B00083DFC5 /* GreenTickMark.png in Resources */,
 				F4E3058E1855EE2F00E40231 /* greenarrow_en.png in Resources */,
 				503CD01C18EB19B70040E998 /* donateGridListViewController.xib in Resources */,
 				F4E9CE7718717CE300103C35 /* saveButton_en.png in Resources */,
@@ -1545,6 +1771,7 @@
 				F40055E217C38E2C002F0494 /* browseViewController.xib in Resources */,
 				F40055E517C3918A002F0494 /* greenarrow.png in Resources */,
 				F40055E717C3919C002F0494 /* browse_listbg.png in Resources */,
+				316FA8C41A12312100EDD8E6 /* green_one_text_field_en.png in Resources */,
 				F42C9AA917C394C4007635D7 /* statisticsViewController.xib in Resources */,
 				F42C9AAE17C39857007635D7 /* charitiesListViewController.xib in Resources */,
 				F42C9AB317C3AD59007635D7 /* charityDetailsViewController.xib in Resources */,
@@ -1556,8 +1783,10 @@
 				F42C9AD217C52471007635D7 /* greenButton.png in Resources */,
 				F4E9CE7818717CE300103C35 /* saveButton.png in Resources */,
 				F42C9ADB17C53BE3007635D7 /* locationIcon.png in Resources */,
+				319E4C401A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.xib in Resources */,
 				F42C9ADD17C54016007635D7 /* eventstableHeader.png in Resources */,
 				F42C9AE117C546CE007635D7 /* dateIcon.png in Resources */,
+				3135A4EB1A11495C00586C69 /* listtablecellWithoutImage_en.png in Resources */,
 				F4E9CDBF18704E8D00103C35 /* editProfileViewController.xib in Resources */,
 				F4E9CE7C1871D36300103C35 /* langButton.png in Resources */,
 				F42C9AE817C61520007635D7 /* aboutViewController.xib in Resources */,
@@ -1623,11 +1852,17 @@
 			files = (
 				F4ADFC901796E11E00439B6E /* main.m in Sources */,
 				5078167918F45309005531A6 /* IACADGetCatalogCountries.m in Sources */,
+				31A588391A23525F00A228B9 /* IACADGetReliefDisasterForCharity.m in Sources */,
 				5078166118F45309005531A6 /* IACADAddAnonymiousDonation.m in Sources */,
+				31A5885D1A235BA900A228B9 /* IACADAddReliefDonationResponse.m in Sources */,
 				F4ADFC941796E11E00439B6E /* AppDelegate.m in Sources */,
 				5078169318F45309005531A6 /* IACADGetPersonsByCharityAndDonationType.m in Sources */,
+				31A588551A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse.m in Sources */,
 				5078166B18F45309005531A6 /* IACADDonateToCatalogPerson.m in Sources */,
+				319E4C4E1A0FDD1000DF3D21 /* IACADGetRegexResponse.m in Sources */,
 				507816B218F454AA005531A6 /* WebServiceResponse.m in Sources */,
+				319E4C3F1A0FDA8D00DF3D21 /* DonationHistoryItemDetailsViewController.m in Sources */,
+				31E604191A237617007CB2EF /* ReliefNeedsViewController.m in Sources */,
 				5078168718F45309005531A6 /* IACADGetCountries.m in Sources */,
 				5078167A18F45309005531A6 /* IACADGetCatalogCountriesResponse.m in Sources */,
 				5078166218F45309005531A6 /* IACADAddAnonymiousDonationResponse.m in Sources */,
@@ -1643,6 +1878,7 @@
 				F403D6F417AFC013002FC37A /* IIWrapController.m in Sources */,
 				5078168A18F45309005531A6 /* IACADGetDonationItemDetailsResponse.m in Sources */,
 				5078167818F45309005531A6 /* IACADGetAnonymousDonationTypesResponse.m in Sources */,
+				319E4C3A1A0FDA3200DF3D21 /* DonationHistoryListingViewController.m in Sources */,
 				5078169E18F45309005531A6 /* IACADLoginResponse.m in Sources */,
 				5078169618F45309005531A6 /* IACADGetProfileResponse.m in Sources */,
 				F403D6F817AFC043002FC37A /* RightViewController.m in Sources */,
@@ -1657,6 +1893,7 @@
 				5078168018F45309005531A6 /* IACADGetCharitiesByDonationTypeResponse.m in Sources */,
 				F44257C517B9440D0031674D /* BlockAlertView.m in Sources */,
 				5078166918F45309005531A6 /* IACADCountry.m in Sources */,
+				31A588561A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContries.m in Sources */,
 				507816B418F4638B005531A6 /* PersonalFilterView.m in Sources */,
 				5078167C18F45309005531A6 /* IACADGetCatalogPersonCountriesResponse.m in Sources */,
 				5078166F18F45309005531A6 /* IACADDonationType.m in Sources */,
@@ -1665,7 +1902,11 @@
 				F44257C717B9440D0031674D /* BlockTableAlertView.m in Sources */,
 				507816A418F45309005531A6 /* IACADSendMailForgotPasswordResponse.m in Sources */,
 				5078166718F45309005531A6 /* IACADCharity.m in Sources */,
+				31A5883C1A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.m in Sources */,
+				31A588381A23525F00A228B9 /* IACADGetReliefCharitiesResponse.m in Sources */,
 				5078168D18F45309005531A6 /* IACADGetEventDetails.m in Sources */,
+				31A5884A1A23541500A228B9 /* ReliefCharitiesViewController.m in Sources */,
+				31A588571A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m in Sources */,
 				5078167618F45309005531A6 /* IACADGetAllDonationTypesResponse.m in Sources */,
 				F44257C817B9440D0031674D /* BlockTextPromptAlertView.m in Sources */,
 				F44257E317BA31B80031674D /* NewuserViewController.m in Sources */,
@@ -1685,17 +1926,25 @@
 				507816A018F45309005531A6 /* IACADRegister.m in Sources */,
 				F44258AC17C220A60031674D /* FilterView.m in Sources */,
 				5078169018F45309005531A6 /* IACADGetEventsResponse.m in Sources */,
+				317347261A1A1A5A00DA178C /* AppSettingCache.m in Sources */,
 				F40055E117C38E2C002F0494 /* browseViewController.m in Sources */,
+				319E4C4F1A0FDD1000DF3D21 /* IACADGetRegex.m in Sources */,
 				5078169718F45309005531A6 /* IACADIACADEvent.m in Sources */,
+				31A5883B1A23525F00A228B9 /* IACADGetReliefNeedForDisaster.m in Sources */,
 				F42C9AA817C394C4007635D7 /* statisticsViewController.m in Sources */,
 				F42C9AAD17C39857007635D7 /* charitiesListViewController.m in Sources */,
 				F42C9AB217C3AD59007635D7 /* charityDetailsViewController.m in Sources */,
 				F42C9AB817C4D8D9007635D7 /* eventListViewController.m in Sources */,
 				F42C9ABF17C4F2EC007635D7 /* EnToArNum.m in Sources */,
+				319E4C361A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m in Sources */,
 				F42C9ACF17C51EFC007635D7 /* eventDetailsViewController.m in Sources */,
+				31A588541A235AE000A228B9 /* IACADGetDonationItemsByCharityAndDonationTypeAndContries.m in Sources */,
 				5078169518F45309005531A6 /* IACADGetProfile.m in Sources */,
+				319E4C491A0FDD0100DF3D21 /* IACADGetProjectResponse.m in Sources */,
 				5078166D18F45309005531A6 /* IACADDonateToCatalogProject.m in Sources */,
+				31A588371A23525F00A228B9 /* IACADGetReliefCharities.m in Sources */,
 				5078169118F45309005531A6 /* IACADGetMobileContent.m in Sources */,
+				31A5883A1A23525F00A228B9 /* IACADGetReliefDisasterForCharityResponse.m in Sources */,
 				F42C9AD917C53956007635D7 /* DisplayMap.m in Sources */,
 				F42C9AE717C61520007635D7 /* aboutViewController.m in Sources */,
 				5078168118F45309005531A6 /* IACADGetCharityDetails.m in Sources */,
@@ -1707,6 +1956,7 @@
 				F42C9AF317C61E43007635D7 /* aboutOfficeViewController.m in Sources */,
 				F42C9AF817C61E55007635D7 /* aboutGateViewController.m in Sources */,
 				5078169818F45309005531A6 /* IACADListCharities.m in Sources */,
+				31A588611A235E4400A228B9 /* ReliefCharityDisasterOnSiteViewController.m in Sources */,
 				5078166618F45309005531A6 /* IACADCatalogPersonDetail.m in Sources */,
 				5078169A18F45309005531A6 /* IACADListCharitiesForAnonymousDonationResponse.m in Sources */,
 				5078167318F45309005531A6 /* IACADForgotPassword.m in Sources */,
@@ -1717,6 +1967,7 @@
 				F4C0CB1717D378C0001CFAF2 /* cityListViewController.m in Sources */,
 				5078166318F45309005531A6 /* IACADAnonymiousDonationItem.m in Sources */,
 				5078166518F45309005531A6 /* IACADCatalogPerson.m in Sources */,
+				319E4C481A0FDD0100DF3D21 /* IACADGetProject.m in Sources */,
 				F4C0CB1C17D37A0F001CFAF2 /* countrtyListViewController.m in Sources */,
 				5078168C18F45309005531A6 /* IACADGetDonationItemsByCharityAndDonationTypeResponse.m in Sources */,
 				5078167218F45309005531A6 /* IACADEditProfileResult.m in Sources */,
@@ -1724,10 +1975,14 @@
 				5078167018F45309005531A6 /* IACADEditProfile.m in Sources */,
 				5078168E18F45309005531A6 /* IACADGetEventDetailsResponse.m in Sources */,
 				5078167E18F45309005531A6 /* IACADGetCatalogPersonDetailsResponse.m in Sources */,
+				31A588441A23527100A228B9 /* IACADReliefDonationItem.m in Sources */,
 				F4C0CB2717D4BBE8001CFAF2 /* confirmDonationView.m in Sources */,
 				5078167D18F45309005531A6 /* IACADGetCatalogPersonDetails.m in Sources */,
+				319E4C521A0FDDAD00DF3D21 /* IACADProjectsData.m in Sources */,
 				5078168418F45309005531A6 /* IACADGetCharityNameResponse.m in Sources */,
+				319E4C431A0FDBE600DF3D21 /* IACADDonorProjectsData.m in Sources */,
 				507816AF18F454A9005531A6 /* WebService.m in Sources */,
+				31A588431A23527100A228B9 /* IACADReliefCharityDisasterOnSite.m in Sources */,
 				F4B36B94185086AA00D558F7 /* langSplashViewController.m in Sources */,
 				5078166418F45309005531A6 /* IACADCatalogDonationItem.m in Sources */,
 				F4E9CDBE18704E8D00103C35 /* editProfileViewController.m in Sources */,
@@ -1735,10 +1990,13 @@
 				F4C1BA9117D87BE400EA408C /* ViewController.m in Sources */,
 				507816A518F45309005531A6 /* IACADServiceClient.m in Sources */,
 				5078168B18F45309005531A6 /* IACADGetDonationItemsByCharityAndDonationType.m in Sources */,
+				319E4C351A0FD9B600DF3D21 /* IACADGetDonorProjects.m in Sources */,
+				31A588451A23527100A228B9 /* IACADReliefNeeds.m in Sources */,
 				F4C1BA9B17D8AFDE00EA408C /* TPKeyboardAvoidingScrollView.m in Sources */,
 				507816A618F45309005531A6 /* IACADUser.m in Sources */,
 				5078166818F45309005531A6 /* IACADCity.m in Sources */,
 				5078167518F45309005531A6 /* IACADGetAllDonationTypes.m in Sources */,
+				31A5885C1A235BA900A228B9 /* IACADAddReliefDonation.m in Sources */,
 				5078168918F45309005531A6 /* IACADGetDonationItemDetails.m in Sources */,
 				5078166E18F45309005531A6 /* IACADDonateToCatalogProjectResponse.m in Sources */,
 				503CD01F18EEAC110040E998 /* COKeyValuePair.m in Sources */,

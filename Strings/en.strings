@@ -3,6 +3,9 @@
  
  */
 
+//AlertView
+"message_ok" = "OK";
+
 ///SideMenu
 "side_main" = "Main Menu";
 "side_about" = "About Us";
@@ -15,9 +18,10 @@
 
 ///FirstView
 "browse_lbl" = "Browse";
-"donate_lbl" = "Donation";
+"donate_lbl" = "Special Donation";
 "event_lbl" = "Events";
-"general_lbl" = "General Donation";
+"general_lbl" = "Donation";
+"special_donate_lbl" = "Special Donation";
 "rescue_lbl" = "Rescue";
 
 
@@ -46,7 +50,7 @@
 "edit_lbl" = "Edit Profile";
 "question_lbl" = "Secret Question";
 "answer_lbl" = "Secret Answer";
-
+"registered_title_lbl" = "";
 
 
 ////Message box
@@ -65,7 +69,7 @@
 "select_country" = "Select Country";
 "select_city" = "Select City";
 "complex_password" = "Your password must contains lowercase letters, uppercase letters, numbers, symbols and must be 7 characters or more";
-"enter_donation" = "Enter the the donation value";
+"enter_donation" = "Enter the donation value";
 "remaining_share_message" = "Stocks you have entered are more than remaining stocks";
 "project_name_msg" = "Enter project name";
 "project_note_msg" = "Enter project note";
@@ -98,9 +102,9 @@
 "all_charities" = "All Associations";
 "all_Countries" = "All Countries";
 "asembly_name" = "Charity name";
-"cost_lbl" = "Cost:";
+"cost_lbl" = "Cost(AED):";
 "project_type_lbl" = "Project type:";
-"area_lbl" = "Area:";
+"area_lbl" = "Area (m2):";
 "capacity_lbl" = "Capacity:";
 "remain_share_lbl" = "Remaining Stocks:";
 "total_share_lbl" = "Total Stocks:";
@@ -124,7 +128,7 @@
 "AgeYearFormat"="%d Years";
 "name_lbl"="Name";
 "Nationality_lbl"="Nationality";
-"Cost_lbl"="Cost";
+"Cost_lbl"="Cost(AED):";
 "Gender_lbl"="Gender";
 "Age_lbl"="Age";
 "donationType_lbl"="Donation Type";

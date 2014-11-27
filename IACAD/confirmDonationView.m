@@ -39,7 +39,7 @@
         
         
         UIImage *confirmImage= [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"donate-confirm_btn" ofType:@"png"]];
-        UIButton * cofirmButton =[[UIButton alloc]initWithFrame:CGRectMake(5,85,294,52)];
+        UIButton * cofirmButton =[[UIButton alloc]initWithFrame:CGRectMake(5,95,294,39)];
         [cofirmButton setBackgroundImage:confirmImage forState:UIControlStateNormal];
         [cofirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cofirmButton];
@@ -49,19 +49,19 @@
         else
             boldFont=[UIFont systemFontOfSize:16];
         ArabicConverter *converter = [[ArabicConverter alloc] init];
-        UILabel * buttonLbl = [[UILabel alloc]initWithFrame:CGRectMake(5,85,295,52)];
+        UILabel * buttonLbl = [[UILabel alloc]initWithFrame:CGRectMake(5,95,295,39)];
         if ([appDelegate.culture isEqualToString:@"ar"])
             buttonLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"confirm_donate_lbl",appDelegate.culture, @"")];
         else
             buttonLbl.text = NSLocalizedStringFromTable(@"confirm_donate_lbl",appDelegate.culture, @"");
-        buttonLbl.textAlignment = UITextAlignmentCenter;
+        buttonLbl.textAlignment = NSTextAlignmentCenter;
         buttonLbl.backgroundColor=[UIColor clearColor];
         buttonLbl.textColor=[UIColor whiteColor];
         buttonLbl.font = boldFont;
         [self addSubview:buttonLbl];
         
         
-        if (categoryID == 1)
+        if (categoryID == 1 || categoryID == 4)
         {
             [self catid1];
         }
@@ -69,8 +69,6 @@
         {
             [self AnotherCatID];
         }
-        
-      
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(dismissKeyboard)];
@@ -167,13 +165,13 @@
     }
     
     
-    UIImageView * fieldImage = [[UIImageView alloc] init];
-    if ([appDelegate.culture isEqualToString:@"ar"])
-        fieldImage.frame = CGRectMake(10,25,82,41);
-    else
-        fieldImage.frame = CGRectMake(210,25,82,41);
-    [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
-    [self addSubview:fieldImage];
+//    UIImageView * fieldImage = [[UIImageView alloc] init];
+//    if ([appDelegate.culture isEqualToString:@"ar"])
+//        fieldImage.frame = CGRectMake(10,25,82,41);
+//    else
+//        fieldImage.frame = CGRectMake(210,25,82,41);
+//    [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
+//    [self addSubview:fieldImage];
     
     
     NSString * placeholder = @"";
@@ -195,21 +193,23 @@
     {
         amoutTF.text = [converter convertArabic: @""];
         amoutTF.placeholder=[converter convertArabic:placeholder];
-        amoutTF.frame=CGRectMake(10,33,82,41);
+        amoutTF.frame=CGRectMake(10,30,280,30);
+        amoutTF.textAlignment = NSTextAlignmentRight;
     }
     else
     {
         amoutTF.text = @"";
         amoutTF.placeholder=placeholder;
-        amoutTF.frame=CGRectMake(210,33,82,41);
+        amoutTF.frame=CGRectMake(10,30,280,30);
+        amoutTF.textAlignment = NSTextAlignmentLeft;
     }
-    amoutTF.textAlignment = UITextAlignmentCenter;
+    
     amoutTF.returnKeyType=UIReturnKeyDefault;
-    amoutTF.borderStyle = UITextBorderStyleNone;
+    amoutTF.borderStyle = UITextBorderStyleLine;
     amoutTF.textColor=[UIColor blackColor];
     amoutTF.keyboardType = UIKeyboardTypeNumberPad;
     amoutTF.autocorrectionType = UITextAutocorrectionTypeNo;
-    amoutTF.backgroundColor=[UIColor clearColor];
+    amoutTF.backgroundColor=[UIColor whiteColor];
     amoutTF.delegate = self;
     [amoutTF addTarget:self action:@selector(updateLabelUsingContentsOfTextField:) forControlEvents:UIControlEventEditingChanged];
     amoutTF.keyboardAppearance = UIBarStyleBlack;
@@ -226,9 +226,6 @@
     else
         boldFont3=[UIFont systemFontOfSize:14];
     
-    
-    
-    
     projectNameTF = [[UITextField alloc] init];
     projectNameTF.font = boldFont3;
     if ([appDelegate.culture isEqualToString:@"ar"])
@@ -236,9 +233,9 @@
         projectNameTF.text = [converter convertArabic: @""];
         projectNameTF.placeholder=[converter convertArabic:NSLocalizedStringFromTable(@"project_name_lbl",appDelegate.culture, @"")];
         if (cont == TRUE)
-            projectNameTF.frame=CGRectMake(100,20,200,25);
+            projectNameTF.frame=CGRectMake(100,20,200,30);
         else
-           projectNameTF.frame=CGRectMake(10,20,290,25);
+            projectNameTF.frame=CGRectMake(10,20,290,30);
         projectNameTF.textAlignment = NSTextAlignmentRight;
     }
     else
@@ -246,9 +243,9 @@
         projectNameTF.text = @"";
         projectNameTF.placeholder=NSLocalizedStringFromTable(@"project_name_lbl",appDelegate.culture, @"");
         if (cont == TRUE)
-            projectNameTF.frame=CGRectMake(10,20,200,25);
+            projectNameTF.frame=CGRectMake(10,20,200,30);
         else
-            projectNameTF.frame=CGRectMake(10,20,290,25);
+            projectNameTF.frame=CGRectMake(10,20,290,30);
         projectNameTF.textAlignment = NSTextAlignmentLeft;
     }
     projectNameTF.returnKeyType=UIReturnKeyDefault;
@@ -259,7 +256,9 @@
     projectNameTF.backgroundColor=[UIColor whiteColor];
     projectNameTF.delegate = self;
     projectNameTF.keyboardAppearance = UIBarStyleBlack;
-    [self addSubview:projectNameTF];
+    if (!cont) {
+        [self addSubview:projectNameTF];
+    }
     
     
     projectNoteTF = [[UITextField alloc] init];
@@ -269,9 +268,9 @@
         projectNoteTF.text = [converter convertArabic: @""];
         projectNoteTF.placeholder=[converter convertArabic:NSLocalizedStringFromTable(@"project_note_lbl",appDelegate.culture, @"")];
         if (cont == TRUE)
-            projectNoteTF.frame=CGRectMake(100,50,200,25);
+            projectNoteTF.frame=CGRectMake(100,60,200,30);
         else
-            projectNoteTF.frame=CGRectMake(10,50,290,25);
+            projectNoteTF.frame=CGRectMake(10,60,290,30);
         projectNoteTF.textAlignment = NSTextAlignmentRight;
     }
     else
@@ -279,9 +278,9 @@
         projectNoteTF.text = @"";
         projectNoteTF.placeholder=NSLocalizedStringFromTable(@"project_note_lbl",appDelegate.culture, @"");
         if (cont == TRUE)
-        projectNoteTF.frame=CGRectMake(10,50,200,25);
+            projectNoteTF.frame=CGRectMake(10,60,200,30);
         else
-            projectNoteTF.frame=CGRectMake(10,50,290,25);
+            projectNoteTF.frame=CGRectMake(10,60,290,30);
         projectNoteTF.textAlignment = NSTextAlignmentLeft;
     }
     
@@ -293,17 +292,19 @@
     projectNoteTF.backgroundColor=[UIColor whiteColor];
     projectNoteTF.delegate = self;
     projectNoteTF.keyboardAppearance = UIBarStyleBlack;
-    [self addSubview:projectNoteTF];
+    if (!cont) {
+        [self addSubview:projectNoteTF];
+    }
     
     if (cont == TRUE)
     {
-        UIImageView * fieldImage = [[UIImageView alloc] init];
-        if ([appDelegate.culture isEqualToString:@"ar"])
-            fieldImage.frame = CGRectMake(10,25,82,41);
-        else
-            fieldImage.frame = CGRectMake(215,25,82,41);
-        [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
-        [self addSubview:fieldImage];
+        //        UIImageView * fieldImage = [[UIImageView alloc] init];
+        //        if ([appDelegate.culture isEqualToString:@"ar"])
+        //            fieldImage.frame = CGRectMake(10,25,82,41);
+        //        else
+        //            fieldImage.frame = CGRectMake(215,25,82,41);
+        //        [fieldImage setImage:[UIImage imageNamed:@"donate-textfield_bg"]];
+        //        [self addSubview:fieldImage];
         
         
         NSString * placeholder = @"";
@@ -316,42 +317,54 @@
         
         UIFont * boldFont2;
         if([appDelegate.culture isEqualToString:@"ar"])
-            boldFont2=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:20];
+            boldFont2=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:14];
         else
-            boldFont2=[UIFont systemFontOfSize:20];
+            boldFont2=[UIFont systemFontOfSize:14];
         amoutTF = [[UITextField alloc] init];
         amoutTF.font = boldFont2;
         if ([appDelegate.culture isEqualToString:@"ar"])
         {
             amoutTF.text = [converter convertArabic: @""];
             amoutTF.placeholder=[converter convertArabic:placeholder];
-            amoutTF.frame=CGRectMake(10,33,82,41);
+            amoutTF.frame=CGRectMake(10,30,280,30);
+            amoutTF.textAlignment = NSTextAlignmentRight;
         }
         else
         {
             amoutTF.text = @"";
             amoutTF.placeholder=placeholder;
-            amoutTF.frame=CGRectMake(210,33,82,41);
+            amoutTF.frame=CGRectMake(10,30,280,30);
+            amoutTF.textAlignment = NSTextAlignmentLeft;
         }
-        amoutTF.textAlignment = UITextAlignmentCenter;
+        
         amoutTF.returnKeyType=UIReturnKeyDefault;
-        amoutTF.borderStyle = UITextBorderStyleNone;
+        amoutTF.borderStyle = UITextBorderStyleLine;
         amoutTF.textColor=[UIColor blackColor];
         amoutTF.keyboardType = UIKeyboardTypeNumberPad;
         amoutTF.autocorrectionType = UITextAutocorrectionTypeNo;
-        amoutTF.backgroundColor=[UIColor clearColor];
+        amoutTF.backgroundColor=[UIColor whiteColor];
         amoutTF.delegate = self;
         [amoutTF addTarget:self action:@selector(updateLabelUsingContentsOfTextField:) forControlEvents:UIControlEventEditingChanged];
         amoutTF.keyboardAppearance = UIBarStyleBlack;
         [self addSubview:amoutTF];
+        
+        lblTotal = [[UILabel alloc]initWithFrame:CGRectMake(10, 65, 280, 30)];
+        if([appDelegate.culture isEqualToString:@"ar"]) {
+            [lblTotal setText:@"مجموع: ٠"];
+        }
+        else {
+            [lblTotal setText:@"total: 0"];
+        }
+        
+        [lblTotal setFont:boldFont3];
+        [lblTotal setBackgroundColor:[UIColor clearColor]];
+        [lblTotal setTextColor:[UIColor whiteColor]];
+        [self addSubview:lblTotal];
     }
-
-    
 }
 
-
 - (void)updateLabelUsingContentsOfTextField:(id)sender {
- 
+    
     if (quant == TRUE)
     {
         ArabicConverter *converter = [[ArabicConverter alloc] init];
@@ -359,71 +372,82 @@
         int total = value * cost;
         NSString* myNewString = [NSString stringWithFormat:@"%i", total];
         NSString * temp = [myNewString stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
-        if ([appDelegate.culture isEqualToString:@"ar"])
+        if ([appDelegate.culture isEqualToString:@"ar"]) {
             totalAmount.text = [converter convertArabic:temp];
-        else
+        }
+        else {
             totalAmount.text = temp;
+        }
     }
-    
+    else if (cont) {
+        int value = [((UITextField *)sender).text intValue];
+        int total = value * cost;
+        NSString* myNewString = [NSString stringWithFormat:@"%i", total];
+        if ([appDelegate.culture isEqualToString:@"ar"]) {
+            [lblTotal setText:[NSString stringWithFormat:@"مجموع: %@", myNewString]];
+        }
+        else {
+            [lblTotal setText:[NSString stringWithFormat:@"total: %i", total]];
+        }
+    }
 }
 
 -(void) confirmAction
 {
-    if (categoryID == 1)
+    if (categoryID == 1 || categoryID == 4)
         [self confirmCat1];
     else
         [self confirmOtherCat];
-    
-   }
+}
 
 -(void) confirmCat1
 {
-   if (cont == FALSE)
-   {
-       if ([projectNameTF.text isEqualToString:@""])
-       {
-           BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"project_name_msg",appDelegate.culture, @"")];
-           [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-           [alert show];
-       }
-     else if ([amoutTF.text isEqualToString:@""])
-       {
-           NSString * textString = @"";
-           if (quant == TRUE)
-               textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
-           else if (cont == TRUE)
-               textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
-           
-           BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
-           [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-           [alert show];
-       }
-       else
-       {
-           int value = 0;
-           [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
-       }
-   }
+    if (!cont)
+    {
+        //       if ([projectNameTF.text isEqualToString:@""])
+        //       {
+        //           BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"project_name_msg",appDelegate.culture, @"")];
+        //           [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //           [alert show];
+        //       }
+        //     else if ([amoutTF.text isEqualToString:@""])
+        //       {
+        //           NSString * textString = @"";
+        //           if (quant == TRUE)
+        //               textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
+        //           else if (cont == TRUE)
+        //               textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
+        //
+        //           BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
+        //           [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //           [alert show];
+        //       }
+        //       else
+        //       {
+        int value = 0;
+        [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
+        //       }
+    }
     else
     {
         int value = [amoutTF.text intValue];
-        if ([projectNameTF.text isEqualToString:@""])
-        {
-            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"project_name_msg",appDelegate.culture, @"")];
-            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-            [alert show];
-        }
-        else if (value > remainingStocks)
-        {
-            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"value_more_remaining_lbl",appDelegate.culture, @"")];
-            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-            [alert show];
-        }
-        else
-        {
-            
-            [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
-        }
+        //        if ([projectNameTF.text isEqualToString:@""])
+        //        {
+        //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"project_name_msg",appDelegate.culture, @"")];
+        //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //            [alert show];
+        //        }
+        //        else if (value > remainingStocks)
+        //        {
+        //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"value_more_remaining_lbl",appDelegate.culture, @"")];
+        //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //            [alert show];
+        //        }
+        //        else
+        //        {
+        
+        [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
+        //        }
     }
 }
 
@@ -437,8 +461,11 @@
         else if (cont == TRUE)
             textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
         
-        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
-        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
+        //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+        //        [alert show];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -449,9 +476,16 @@
             if (totalstock > remainingStocks)
             {
                 //remaining_share_message
-                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"remaining_share_message",appDelegate.culture, @"")];
-                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"remaining_share_message",appDelegate.culture, @"")];
+                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+                //                [alert show];
+                
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"remaining_share_message",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
                 [alert show];
+                {
+                    int value = [amoutTF.text intValue];
+                    [delegate getTotalAmount:value:@"":@""];
+                }
             }
             else
             {
@@ -459,13 +493,8 @@
                 [delegate getTotalAmount:value:@"":@""];
             }
         }
-        else
-        {
-            int value = [amoutTF.text intValue];
-            [delegate getTotalAmount:value:@"":@""];
-        }
+        
     }
-
 }
 
 -(void)dismissKeyboard
@@ -487,12 +516,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end

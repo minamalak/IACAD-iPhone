@@ -12,7 +12,7 @@
 @class FilterView;
 @class CustomizedACView;
 @class AppDelegate;
-@interface donateDetailsListViewController : UIViewController <IACADServiceClientCaller,UITableViewDelegate,UITableViewDataSource>
+@interface donateDetailsListViewController : UIViewController <IACADServiceClientCaller,UITableViewDelegate,UITableViewDataSource, UIGestureRecognizerDelegate>
 {
     int donateID;
     NSString * donationName;
@@ -20,7 +20,7 @@
     CustomizedACView * AC;
     FilterView * filterView;
     int charityID;
-    int countryID;
+    NSMutableArray *countryID;
     NSString * charityName;
     NSString * CountryName;
     int pagesize;
@@ -41,7 +41,7 @@
 - (IBAction)openmenuMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UITableView *donationslistTable;
--(void) reloadTableview: (int) charID :(int) counID :(NSString *)charindex :(NSString *)counindex;
+-(void) reloadTableview: (int) charID :(NSMutableArray *) counID :(NSString *)charindex :(NSString *)counindex;
 - (IBAction)backMethod:(id)sender;
 -(id)init:(int)did :(NSString *)dname :(BOOL)isQ;
 -(void) hideFilterView;

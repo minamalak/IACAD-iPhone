@@ -142,7 +142,7 @@
         AsyncImageView * asyncImageView = [[AsyncImageView alloc] init];
         asyncImageView.frame = CGRectMake(x+2,y+2, 143, 143);
         NSString * imageURL;
-        imageURL = [@"http://www.ecp.ae/Handlers/ShowImage.ashx?Guidid=" stringByAppendingString:donationType.Image1ID];
+        imageURL = [@"http://iacadcld.linkdev.com/Handlers/ShowImage.ashx?Guidid=" stringByAppendingString:donationType.Image1ID];
         NSURL *url = [NSURL URLWithString:imageURL];
         asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
         [asyncImageView setImageURL:url];

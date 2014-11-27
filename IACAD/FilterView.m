@@ -22,28 +22,31 @@
 
 @implementation FilterView
 
-- (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(int)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex
+- (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(NSMutableArray *)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex
 {
     self = [super initWithFrame:frame];
     if (self) {
-       
         delegate = del;
         charityID = charityid;
         countryID = countryid;
         donateID = donateid;
         charityName = charIndex;
         countryName = counIndex;
+        //        counID = countryid;
+        //        [counID removeAllObjects];
+        counID = [NSMutableArray new];
         self.backgroundColor = [UIColor clearColor];
         
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        arraySelected = [NSMutableArray new];
         
         filterType = @"";
-       
+        
         UIImageView * barImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,304,70)];
         if([appDelegate.culture isEqualToString:@"ar"])
-        [barImage setImage:[UIImage imageNamed:@"filterBar.png"]];
+            [barImage setImage:[UIImage imageNamed:@"filterBar.png"]];
         else
-        [barImage setImage:[UIImage imageNamed:@"filterBar_en.png"]];
+            [barImage setImage:[UIImage imageNamed:@"filterBar_en.png"]];
         [self addSubview:barImage];
         
         arrowleft = [[UIImageView alloc] initWithFrame:CGRectMake(130,21,9,9)];
@@ -62,18 +65,18 @@
             boldFont=[UIFont systemFontOfSize:12];
         
         UILabel * charityLbl = [[UILabel alloc]initWithFrame:CGRectMake(0,8,152,35)];
-        charityLbl.textAlignment = UITextAlignmentCenter;
+        charityLbl.textAlignment = NSTextAlignmentCenter;
         charityLbl.backgroundColor=[UIColor clearColor];
         charityLbl.textColor=[UIColor whiteColor];
         charityLbl.font = boldFont;
         if ([appDelegate.culture isEqualToString:@"ar"])
-         charityLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"charities_lbl",appDelegate.culture, @"")];
+            charityLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"charities_lbl",appDelegate.culture, @"")];
         else
             charityLbl.text = NSLocalizedStringFromTable(@"charities_lbl",appDelegate.culture, @"");
         [self addSubview:charityLbl];
         
         charity2Lbl = [[UILabel alloc]initWithFrame:CGRectMake(0,35,152,35)];
-        charity2Lbl.textAlignment = UITextAlignmentCenter;
+        charity2Lbl.textAlignment = NSTextAlignmentCenter;
         charity2Lbl.backgroundColor=[UIColor clearColor];
         charity2Lbl.textColor=[UIColor colorWithRed:178/255.f
                                               green:205/255.f
@@ -81,13 +84,13 @@
                                               alpha:1.0];
         charity2Lbl.font = boldFont;
         if ([appDelegate.culture isEqualToString:@"ar"])
-        charity2Lbl.text = [converter convertArabic:charityName];
+            charity2Lbl.text = [converter convertArabic:charityName];
         else
-        charity2Lbl.text = charityName;
+            charity2Lbl.text = charityName;
         [self addSubview:charity2Lbl];
         
         UILabel * countryLbl = [[UILabel alloc]initWithFrame:CGRectMake(152,8,152,35)];
-        countryLbl.textAlignment = UITextAlignmentCenter;
+        countryLbl.textAlignment = NSTextAlignmentCenter;
         countryLbl.backgroundColor=[UIColor clearColor];
         countryLbl.textColor=[UIColor whiteColor];
         countryLbl.font = boldFont;
@@ -98,7 +101,7 @@
         [self addSubview:countryLbl];
         
         country2Lbl = [[UILabel alloc]initWithFrame:CGRectMake(152,35,152,35)];
-        country2Lbl.textAlignment = UITextAlignmentCenter;
+        country2Lbl.textAlignment = NSTextAlignmentCenter;
         country2Lbl.backgroundColor=[UIColor clearColor];
         country2Lbl.textColor=[UIColor colorWithRed:178/255.f
                                               green:205/255.f
@@ -106,7 +109,7 @@
                                               alpha:1.0];
         country2Lbl.font = boldFont;
         if ([appDelegate.culture isEqualToString:@"ar"])
-        country2Lbl.text = [converter convertArabic:countryName];
+            country2Lbl.text = [converter convertArabic:countryName];
         else
             country2Lbl.text = countryName;
         [self addSubview:country2Lbl];
@@ -132,6 +135,38 @@
         [self addSubview:firstcellImage];
         firstcellImage.alpha = 0;
         
+        
+        // Mina
+        viewFiltersButtons = [[UIView alloc]initWithFrame:CGRectMake(3, 90, 298, 60)];
+        viewFiltersButtons.backgroundColor = [UIColor colorWithRed:69/255.f
+                                                             green:68/255.f
+                                                              blue:68/255.f
+                                                             alpha:1.0];
+        [viewFiltersButtons setAlpha:0];
+        [self addSubview:viewFiltersButtons];
+        
+        UIButton * btnOK =[[UIButton alloc]init];
+        [btnOK setTitle:@"start" forState:UIControlStateNormal];
+        btnOK.frame = CGRectMake(5,0,50,30);
+        //        [btnOK setBackgroundImage:trans2 forState:UIControlStateNormal];
+        [btnOK addTarget:self action:@selector(startFilteration) forControlEvents:UIControlEventTouchUpInside];
+        [viewFiltersButtons addSubview:btnOK];
+        
+        UIButton * btnCancel =[[UIButton alloc]init];
+        [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal];
+        btnCancel.frame = CGRectMake(228,0,70,30);
+        //        [btnOK setBackgroundImage:trans2 forState:UIControlStateNormal];
+        [btnCancel addTarget:self action:@selector(cancelFilteration) forControlEvents:UIControlEventTouchUpInside];
+        [viewFiltersButtons addSubview:btnCancel];
+        
+        UILabel *lblChooseCountryHeader = [[UILabel alloc]initWithFrame:CGRectMake(55, 0, 173, 30)];
+        [lblChooseCountryHeader setText:@"Choose Country"];
+        [lblChooseCountryHeader setBackgroundColor:[UIColor clearColor]];
+        [lblChooseCountryHeader setTextColor:[UIColor whiteColor]];
+        [lblChooseCountryHeader setTextAlignment:NSTextAlignmentCenter];
+        //        [viewFiltersButtons addSubview:lblChooseCountryHeader];
+        
+        
         rtable = [[UITableView alloc] initWithFrame:CGRectMake(3,90,298,self.frame.size.height-100)];
         rtable.backgroundColor = [UIColor colorWithRed:69/255.f
                                                  green:68/255.f
@@ -139,6 +174,7 @@
                                                  alpha:1.0];
         
         rtable.showsVerticalScrollIndicator = NO;
+        [rtable setTintColor:[UIColor grayColor]];
         rtable.separatorStyle = NO;
         [self addSubview:rtable];
         rtable.alpha = 0;
@@ -151,10 +187,24 @@
         tap.numberOfTouchesRequired = 1;
         tap.delegate = (id <UIGestureRecognizerDelegate>) self;
         [self addGestureRecognizer:tap];
-        
-        
     }
     return self;
+}
+
+-(IBAction)cancelFilteration
+{
+    [delegate hideFilterView];
+}
+
+-(IBAction)startFilteration
+{
+    if (counID.count == charitiesList.count) {
+        [counID removeAllObjects];
+        [counID addObject:[NSNumber numberWithInt:0]];
+    }
+    //    [delegate reloadPersonalTableview:charID counID:counID charindex:charityName counindex:countryName];
+    
+    [delegate reloadTableview:charID :counID :charityName :countryName];
 }
 
 -(void) loadCopFilter
@@ -162,6 +212,7 @@
     filterType = @"org";
     rtable.alpha = 0;
     firstcellImage.alpha = 0;
+    viewFiltersButtons.alpha = 0;
     IACADGetCharitiesByDonationType * request = [[IACADGetCharitiesByDonationType alloc]init];
     request.culture = appDelegate.culture;
     request.donationTypeId = donateID;
@@ -182,6 +233,7 @@
     filterType = @"con";
     rtable.alpha = 0;
     firstcellImage.alpha = 0;
+    [viewFiltersButtons setAlpha:0];
     IACADGetCatalogCountries * request = [[IACADGetCatalogCountries alloc]init];
     request.culture = appDelegate.culture;
     request.donationTypeId = donateID;
@@ -192,7 +244,6 @@
     
     IACADServiceClient *client = [[IACADServiceClient alloc] init];
     [client GetCatalogCountriesAsyncIsPost:YES input:request caller:self];
-
 }
 
 -(void) GetCharitiesByDonationTypeCallback:(IACADGetCharitiesByDonationTypeResponse *)response error:(NSError *)error
@@ -228,35 +279,27 @@
         [self viewTable];
 }
 
-
-
-
 -(void) viewTable
 {
-//    if ([filterType isEqualToString:@"org"])
-//    {
-//        IACADCharity * item1 = [[IACADCharity alloc]init];
-//        item1.Name = NSLocalizedStringFromTable(@"all_charities",appDelegate.culture, @"");
-//        item1.ID = 0;
-//        [charitiesList insertObject:item1 atIndex:0];
-// 
-//    }
-//    if ([filterType isEqualToString:@"con"])
-//    {
-//        IACADCountry * item2 = [[IACADCountry alloc]init];
-//        item2.Name = NSLocalizedStringFromTable(@"all_Countries",appDelegate.culture, @"");
-//        item2.Id = 0;
-//        [charitiesList insertObject:item2 atIndex:0];
-//    }
-//    
     rtable.alpha = 1;
     firstcellImage.alpha = 1;
     rtable.dataSource = self;
     rtable.delegate = self;
-    if ([charitiesList count] < 12)
-        rtable.frame = CGRectMake(3,90,298,[charitiesList count] * 30);
-    else
-        rtable.frame = CGRectMake(3,90,298,self.frame.size.height-100);
+    
+    if ([filterType isEqualToString:@"con"]) {
+        viewFiltersButtons.alpha = 1;
+        if ([charitiesList count] < 10)
+            rtable.frame = CGRectMake(3,120,298,[charitiesList count] * 30);
+        else
+            rtable.frame = CGRectMake(3,120,298,self.frame.size.height-100);
+    }
+    else {
+        if ([charitiesList count] < 12)
+            rtable.frame = CGRectMake(3,90,298,[charitiesList count] * 30);
+        else
+            rtable.frame = CGRectMake(3,90,298,self.frame.size.height-100);
+    }
+    
     [rtable reloadData];
     
 }
@@ -266,28 +309,78 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	static NSString *MyIdentifier = @"MyIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    
     
     IACADCharity * item1;
     IACADCountry * item2;
     
+    UIImageView *imgCheckmark = (UIImageView *)[cell.contentView viewWithTag:2];
     if ([filterType isEqualToString:@"org"])
     {
         item1 = [charitiesList objectAtIndex:indexPath.row];
+        imgCheckmark.hidden = YES;
     }
     if ([filterType isEqualToString:@"con"])
     {
         item2 = [charitiesList objectAtIndex:indexPath.row];
+        
+        
+        if ([arraySelected containsObject:indexPath])
+        {
+            imgCheckmark.hidden = NO;
+        }
+        else
+        {
+            imgCheckmark.hidden = YES;
+        }
     }
     
-	
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-	
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
         
-      
         
+        if ([filterType isEqualToString:@"con"])
+        {
+            UIImageView *imageCheck;
+            if ([appDelegate.culture isEqualToString:@"ar"]) {
+                imageCheck = [[UIImageView alloc]initWithFrame:CGRectMake(5, 3, 16, 14)];
+            }
+            else {
+                imageCheck = [[UIImageView alloc]initWithFrame:CGRectMake(270, 3, 16, 14)];
+            }
+            
+            [imageCheck setImage:[UIImage imageNamed:@"GreenTickMark.png"]];
+            imageCheck.tag = 2;
+            imageCheck.hidden = YES;
+            
+            if (countryID.count == 1 && [countryID objectAtIndex:0] == [NSNumber numberWithInt:0]) {
+                if (indexPath.row == 0) {
+                    imageCheck.hidden = NO;
+                    [arraySelected addObject:indexPath];
+                    [counID addObject:[NSNumber numberWithInt:[[charitiesList objectAtIndex:indexPath.row] Id]]];
+                }
+            }
+            
+            else if ([countryID objectAtIndex:0] != [NSNumber numberWithInt:0]) {
+                for (int i = 0; i < countryID.count; i ++) {
+                    if ([countryID objectAtIndex:i] == [NSNumber numberWithInt:[[charitiesList objectAtIndex:indexPath.row] Id]]) {
+                        imageCheck.hidden = NO;
+                        [arraySelected addObject:indexPath];
+                        [counID addObject:[NSNumber numberWithInt:[[charitiesList objectAtIndex:indexPath.row] Id]]];
+                    }
+                }
+            }
+            else {
+                imageCheck.hidden = NO;
+                [arraySelected addObject:indexPath];
+                [counID addObject:[NSNumber numberWithInt:[[charitiesList objectAtIndex:indexPath.row] Id]]];
+                
+            }
+            [cell.contentView addSubview:imageCheck];
+            
+        }
         
         UILabel *donationDesc = [[UILabel alloc] init];
         if([appDelegate.culture isEqualToString:@"ar"])
@@ -305,33 +398,30 @@
         
         donationDesc.frame=CGRectMake(5, 3, 285,20);
         donationDesc.backgroundColor = [UIColor clearColor];
-        donationDesc.lineBreakMode = UILineBreakModeWordWrap;
+        //        donationDesc.lineBreakMode = UILineBreakModeWordWrap;
         donationDesc.textColor = [UIColor colorWithRed:273/255.f
                                                  green:240/255.f
                                                   blue:211/255.f
                                                  alpha:1.0];
         donationDesc.tag = 30;
         [cell.contentView addSubview:donationDesc];
-              
         
     }
     
     UILabel *lbl5 = (UILabel *)[cell.contentView viewWithTag:30];
     ArabicConverter *converter = [[ArabicConverter alloc] init];
     if ([filterType isEqualToString:@"org"])
-         lbl5.text = [converter convertArabic: item1.Name];
+        lbl5.text = [converter convertArabic: item1.Name];
     if ([filterType isEqualToString:@"con"])
-          lbl5.text = [converter convertArabic: item2.Name];
-  
+        lbl5.text = [converter convertArabic: item2.Name];
+    
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.backgroundColor = [UIColor clearColor];
     
     
 	return cell;
-	
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [charitiesList count];
@@ -339,36 +429,103 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        return 30;
-
+    return 30;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ArabicConverter *converter = [[ArabicConverter alloc] init];
-    int charID;
-    int counID;
+    //    int charID;
+    //    int counID;
     IACADCharity * item1;
     IACADCountry * item2;
     
+    
     if ([filterType isEqualToString:@"org"])
     {
-      item1 =  [charitiesList objectAtIndex:indexPath.row];
+        item1 =  [charitiesList objectAtIndex:indexPath.row];
         charID = item1.ID;
-        counID = countryID;
+        //        counID = countryID;
         charityName = item1.Name;
         charity2Lbl.text = [converter convertArabic:charityName];
         
     }
     if ([filterType isEqualToString:@"con"])
     {
-      item2 =  [charitiesList objectAtIndex:indexPath.row];
+        item2 = [charitiesList objectAtIndex:indexPath.row];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        if (indexPath.row == 0) {
+            [arraySelected removeAllObjects];
+            [counID removeAllObjects];
+            for (int i = 0; i < [charitiesList count]; i ++) {
+                NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:0] ;
+                [arraySelected addObject:index];
+                [counID addObject:[NSNumber numberWithInt:[[charitiesList objectAtIndex:i] Id]]];
+            }
+        }
+        else if ([arraySelected containsObject:indexPath])
+        {
+            if (arraySelected.count != 1) {
+                [arraySelected removeObject:indexPath];
+                NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0] ;
+                [arraySelected removeObject:index];
+                [counID removeObject:[NSNumber numberWithInt:item2.Id]];
+                item2 = [charitiesList objectAtIndex:0];
+                [counID removeObject:[NSNumber numberWithInt:item2.Id]];
+            }
+        }
+        else
+        {
+            [arraySelected addObject:indexPath];
+            [counID addObject:[NSNumber numberWithInt:item2.Id]];
+            NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0] ;
+            [arraySelected removeObject:index];
+            item2 = [charitiesList objectAtIndex:0];
+            [counID removeObject:[NSNumber numberWithInt:item2.Id]];
+            if (arraySelected.count == charitiesList.count - 1) {
+                NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+                [arraySelected addObject:index];
+            }
+        }
+        
+        
         charID = charityID;
-        counID = item2.Id;
-        countryName = item2.Name;
+        if (arraySelected.count == charitiesList.count || indexPath.row == 0) {
+            if ([appDelegate.culture isEqualToString:@"ar"]) {
+                countryName = [converter convertArabic:@"كل البلاد"];
+            }
+            else {
+                countryName = [converter convertArabic:@"All Countries"];
+            }
+        }
+        else if (indexPath.row != 0 && arraySelected.count != 1) {
+            if ([appDelegate.culture isEqualToString:@"ar"]) {
+                countryName = [NSString stringWithFormat:@"%i بلاد", arraySelected.count];                    }
+            else {
+                countryName = [NSString stringWithFormat:@"%i Countries", arraySelected.count];                    }                   }
+        else {
+            for (int i = 0; i < charitiesList.count; i ++) {
+                if ([NSNumber numberWithInt:[[charitiesList objectAtIndex:i] Id]] == [counID objectAtIndex:0]) {
+                    item2 = [charitiesList objectAtIndex:i];
+                    break;
+                }
+            }
+            countryName = item2.Name;
+        }
         country2Lbl.text = [converter convertArabic:countryName];
+        
+        [tableView reloadData];
     }
-    [delegate reloadTableview:charID:counID:charityName:countryName];
     
+    if ([filterType isEqualToString:@"org"])
+    {
+        if (counID.count == charitiesList.count) {
+            [counID removeAllObjects];
+            [counID addObject:[NSNumber numberWithInt:0]];
+        }
+        //        [delegate reloadPersonalTableview:charID counID:countryID charindex:charityName counindex:countryName];
+        
+        [delegate reloadTableview:charID :countryID :charityName :countryName];
+    }
 }
 
 
@@ -383,12 +540,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
