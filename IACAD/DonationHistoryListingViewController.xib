@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DonationHistoryListingViewController">
@@ -19,16 +19,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" image="topBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="nrh-SK-Xbq">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="topBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="nrh-SK-Xbq">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="68" id="0Af-UQ-31i"/>
                     </constraints>
                 </imageView>
-                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8n8-a4-3ce">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8n8-a4-3ce">
                     <rect key="frame" x="58" y="20" width="204" height="39"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="amT-6Y-hj7"/>
                         <constraint firstAttribute="width" constant="204" id="kQ2-pk-c5u"/>
@@ -37,14 +35,13 @@
                     <color key="textColor" red="0.60784316059999999" green="0.60784316059999999" blue="0.60784316059999999" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView appearanceType="aqua" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RfC-gb-SgC">
-                    <rect key="frame" x="4" y="66" width="312" height="502"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RfC-gb-SgC">
+                    <rect key="frame" x="4" y="66" width="312" height="497"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                 </tableView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccB-LK-vU5">
                     <rect key="frame" x="0.0" y="239" width="320" height="90"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="BHs-cC-ufA"/>
                         <constraint firstAttribute="height" constant="90" id="ocV-sV-hif"/>
@@ -53,9 +50,8 @@
                     <color key="textColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
-                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-Yu-lte">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCg-Yu-lte">
                     <rect key="frame" x="278" y="34" width="25" height="15"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="UfM-PS-JuZ"/>
                         <constraint firstAttribute="height" constant="15" id="jWU-FT-DNR"/>
@@ -76,7 +72,6 @@
             <color key="backgroundColor" red="0.76470588235294112" green="0.83529411764705885" blue="0.70980392156862748" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="nrh-SK-Xbq" secondAttribute="trailing" id="0FI-bO-dnr"/>
-                <constraint firstItem="RfC-gb-SgC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="KWI-gC-z5e"/>
                 <constraint firstAttribute="centerX" secondItem="ccB-LK-vU5" secondAttribute="centerX" id="OJ7-5t-A4Y"/>
                 <constraint firstAttribute="trailing" secondItem="BCg-Yu-lte" secondAttribute="trailing" constant="17" id="SzI-ho-TkG"/>
                 <constraint firstItem="nrh-SK-Xbq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UP2-Yz-j7Y"/>
@@ -84,18 +79,17 @@
                 <constraint firstAttribute="centerY" secondItem="ccB-LK-vU5" secondAttribute="centerY" id="bVI-JN-OY9"/>
                 <constraint firstAttribute="centerX" secondItem="8n8-a4-3ce" secondAttribute="centerX" id="cSq-QB-Io9"/>
                 <constraint firstItem="nrh-SK-Xbq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="htE-5q-lGS"/>
-                <constraint firstAttribute="bottom" secondItem="RfC-gb-SgC" secondAttribute="bottom" id="l4l-BW-b2S"/>
-                <constraint firstItem="RfC-gb-SgC" firstAttribute="top" secondItem="8n8-a4-3ce" secondAttribute="bottom" constant="7" id="miX-Eq-vFL"/>
-                <constraint firstAttribute="trailing" secondItem="RfC-gb-SgC" secondAttribute="trailing" constant="4" id="s8s-B8-ApB"/>
                 <constraint firstItem="BCg-Yu-lte" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="seF-3D-Uu8"/>
-                <constraint firstItem="RfC-gb-SgC" firstAttribute="top" secondItem="8n8-a4-3ce" secondAttribute="bottom" constant="7" id="u3E-KT-Jzs"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="menu_btn.png" width="49" height="30"/>
         <image name="topBar.png" width="640" height="92"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

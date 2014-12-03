@@ -92,7 +92,8 @@
     IACADGetDonorProjects * request = [[IACADGetDonorProjects alloc]init];
     request.culture = appDelegate.culture;
     request.donorID = [prefs objectForKey:@"userID"];;
-    request.pageSize = [[NSNumber alloc]initWithInt:pagesize];
+//    request.pageSize = [[NSNumber alloc]initWithInt:pagesize];
+    request.pageSize = [[NSNumber alloc]initWithInt:200];
     request.pageIndex = 0;
     
     IACADServiceClient *client = [[IACADServiceClient alloc] init];
@@ -192,9 +193,7 @@
     cell.backgroundColor = [UIColor clearColor];
     
 	return cell;
-	
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [donationsList count];
@@ -204,7 +203,6 @@
 {
     return 61;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
 (NSIndexPath *)indexPath {

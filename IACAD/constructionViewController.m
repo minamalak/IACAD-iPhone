@@ -314,6 +314,48 @@
     
     
     
+    UILabel * lblTime = [[UILabel alloc]init];
+    if([appDelegate.culture isEqualToString:@"ar"])
+    {
+        lblTime.frame = CGRectMake(133,330 + labelsize.height,150,29);
+        lblTime.text = [converter convertArabic:NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"")];
+        lblTime.textAlignment = NSTextAlignmentRight;
+    }
+    else
+    {
+        lblTime.frame = CGRectMake(24,330 + labelsize.height,150,29);
+        lblTime.text = NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"");
+        lblTime.textAlignment = NSTextAlignmentLeft;
+    }
+    lblTime.font = boldFont2;
+    lblTime.backgroundColor=[UIColor clearColor];
+    lblTime.textColor=[UIColor colorWithRed:28/255.f
+                                      green:153/255.f
+                                       blue:80/255.f
+                                      alpha:1.0];
+    [self.scrollView addSubview:lblTime];
+    
+    UILabel * lblTimeString = [[UILabel alloc]init];
+    if ([appDelegate.culture isEqualToString:@"ar"])
+    {
+        lblTimeString.frame = CGRectMake(24,330 + labelsize.height,120,29);
+        lblTimeString.text = [converter convertArabic:[[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue]];
+        lblTimeString.textAlignment = NSTextAlignmentRight;
+    }
+    else
+    {
+        lblTimeString.frame = CGRectMake(155,330 + labelsize.height,120,29);
+        lblTimeString.text = [[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue];
+        
+        //itemDetails.CharityName
+        lblTimeString.textAlignment = NSTextAlignmentLeft;
+    }
+    
+    lblTimeString.font = boldFont2;
+    lblTimeString.backgroundColor=[UIColor clearColor];
+    lblTimeString.textColor=[UIColor blackColor];
+    [self.scrollView addSubview:lblTimeString];
+    
     
     [self.scrollView setContentSize:CGSizeMake(307,450+labelsize.height)];
     self.bgImage.frame = CGRectMake(0,35,307, 420+labelsize.height);
@@ -522,7 +564,7 @@
         {
             stockRemainLbl.frame = CGRectMake(24,445+height+tempHeight,140,29);
             stockRemainLbl.text = NSLocalizedStringFromTable(@"remain_share_lbl",appDelegate.culture, @"");
-            stockRemainLbl.textAlignment = UITextAlignmentLeft;
+            stockRemainLbl.textAlignment = NSTextAlignmentLeft;
         }
         
         stockRemainLbl.font = boldFont2;
@@ -633,6 +675,51 @@
         stockPriceString.backgroundColor=[UIColor clearColor];
         stockPriceString.textColor=[UIColor blackColor];
         [self.scrollView addSubview:stockPriceString]; */
+        
+        
+        UILabel * lblTime = [[UILabel alloc]init];
+        if([appDelegate.culture isEqualToString:@"ar"])
+        {
+            lblTime.frame = CGRectMake(133,519+height+tempHeight,150,29);
+            lblTime.text = [converter convertArabic:NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"")];
+            lblTime.textAlignment = NSTextAlignmentRight;
+        }
+        else
+        {
+            lblTime.frame = CGRectMake(24,519+height+tempHeight,150,29);
+            lblTime.text = NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"");
+            lblTime.textAlignment = NSTextAlignmentLeft;
+        }
+        lblTime.font = boldFont2;
+        lblTime.backgroundColor=[UIColor clearColor];
+        lblTime.textColor=[UIColor colorWithRed:28/255.f
+                                                green:153/255.f
+                                                 blue:80/255.f
+                                                alpha:1.0];
+        [self.scrollView addSubview:lblTime];
+        
+        UILabel * lblTimeString = [[UILabel alloc]init];
+        if ([appDelegate.culture isEqualToString:@"ar"])
+        {
+            lblTimeString.frame = CGRectMake(24,519+height+tempHeight,120,29);
+            lblTimeString.text = [converter convertArabic:[[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue]];
+            lblTimeString.textAlignment = NSTextAlignmentRight;
+        }
+        else
+        {
+            lblTimeString.frame = CGRectMake(155,519+height+tempHeight,120,29);
+            lblTimeString.text = [[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue];
+            
+            //itemDetails.CharityName
+            lblTimeString.textAlignment = NSTextAlignmentLeft;
+        }
+        
+        lblTimeString.font = boldFont2;
+        lblTimeString.backgroundColor=[UIColor clearColor];
+        lblTimeString.textColor=[UIColor blackColor];
+        [self.scrollView addSubview:lblTimeString];
+
+        
         
         [self.scrollView setContentSize:CGSizeMake(307,560+height+tempHeight)];
         self.bgImage.frame = CGRectMake(0,35,307, 528+height+tempHeight);

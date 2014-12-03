@@ -12,7 +12,7 @@
 "side_about" = "من نحن";
 "side_contact" = "إتصل بنا";
 "side_language" = "اللغة";
-"side_history" = "تاريخ التبرعات";
+"side_history" = "عرض المشاريع";
 
 "noconnection_lbl" = "عذراً لا يوجد إتصال حالياً بشبكة الانترنت ، جاري إعادة الإتصال ...";
 
@@ -53,6 +53,7 @@
 "question_lbl" = "السؤال السري";
 "answer_lbl" = "الجواب السري";
 "registered_title_lbl" = "";
+"change_password" = "تغيير كلمة السر";
 
 ////Message box
 "done_lbl" = "تم";
@@ -107,6 +108,7 @@
 "cost_lbl" = "التكلفة (د.ا.)";
 "project_type_lbl" = "نوع المشروع :";
 "area_lbl" = "المساحة (م٢): ";
+"time_lbl" = "مدة التنفيذ (شهور): ";
 "capacity_lbl" = "السعة :";
 "remain_share_lbl" = "الاسهم المتبقية :";
 "total_share_lbl" = "إجمالي الاسهم :";
@@ -167,3 +169,4 @@
 "TeacherChildrenCount_lbl"="عدد الأولاد";
 
 ////->GeneralPersons
+"unkown_error"="هذا الطلب لم يكتمل";

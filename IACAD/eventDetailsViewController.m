@@ -124,14 +124,6 @@
         
     }
     
-    
-    
-    
-    
-    
-  
-    
-    
     [self.mapView setMapType:MKMapTypeStandard];
     [self.mapView setZoomEnabled:YES];
     [self.mapView setScrollEnabled:YES];

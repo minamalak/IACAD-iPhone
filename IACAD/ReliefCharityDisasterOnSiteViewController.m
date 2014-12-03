@@ -115,7 +115,8 @@
     
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
+//        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
         
         UIImageView * bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,312,61)];
         if ([appDelegate.culture isEqualToString:@"ar"])
@@ -253,11 +254,11 @@
 }
 
 
-- (void)viewDidUnload {
-    [self setReliefCharityTable:nil];
-    [self setTitleLbl:nil];
-    [super viewDidUnload];
-}
+//- (void)viewDidUnload {
+//    [self setReliefCharityTable:nil];
+//    [self setTitleLbl:nil];
+//    [super viewDidUnload];
+//}
 
 
 //- (IBAction)filterMethod:(id)sender {

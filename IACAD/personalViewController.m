@@ -29,7 +29,6 @@
 #import "COKeyValuePair.h"
 #import "donateGridListViewController.h"
 
-
 @interface personalViewController ()
 
 @end
@@ -1063,7 +1062,7 @@
         //28,153,80
         fieldKeyLabel.backgroundColor = [UIColor clearColor];
         fieldKeyLabel.numberOfLines = 2;
-        fieldKeyLabel.lineBreakMode = UILineBreakModeWordWrap;
+//        fieldKeyLabel.lineBreakMode = UILineBreakModeWordWrap;
         fieldKeyLabel.textColor = [UIColor colorWithRed:28/255.f
                                                  green:153/255.f
                                                   blue:80/255.f
@@ -1095,7 +1094,7 @@
         }
         fieldValueLabel.backgroundColor = [UIColor clearColor];
         fieldValueLabel.numberOfLines = 2;
-        fieldValueLabel.lineBreakMode = UILineBreakModeWordWrap;
+//        fieldValueLabel.lineBreakMode = UILineBreakModeWordWrap;
         fieldValueLabel.textColor = [UIColor colorWithRed:137/255.f
                                                  green:137/255.f
                                                   blue:137/255.f
@@ -1284,6 +1283,20 @@
     // NSLog(@"return URL %@",returnResponse);
     if (returnResponse.IsValid == YES)
     {
+        // Mina
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionPush;
+        if ([appDelegate.culture isEqualToString:@"ar"])
+            transition.subtype = kCATransitionFromRight;
+        else
+            transition.subtype = kCATransitionFromLeft;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        
+        NSArray *viewControllers = [self.navigationController viewControllers];
+        [self.navigationController popToViewController:[viewControllers objectAtIndex:viewControllers.count - 3] animated:NO];
+        
+        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:returnResponse.RedirectUrl]];
 //        [self viewWebview:returnResponse.RedirectUrl];
     }

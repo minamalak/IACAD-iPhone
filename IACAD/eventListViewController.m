@@ -143,7 +143,7 @@
     
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
         
         UIImageView * bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,316,61)];
         if ([appDelegate.culture isEqualToString:@"ar"])
@@ -171,7 +171,7 @@
         
         donationDesc.font = boldFont;
         donationDesc.backgroundColor = [UIColor clearColor];
-        donationDesc.lineBreakMode = UILineBreakModeWordWrap;
+//        donationDesc.lineBreakMode = UILineBreakModeWordWrap;
         donationDesc.textColor = [UIColor colorWithRed:137/255.f
                                                  green:137/255.f
                                                   blue:137/255.f

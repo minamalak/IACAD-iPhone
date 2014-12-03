@@ -1,9 +1,9 @@
 //
-//  editProfileViewController.h
+//  ChangePasswordViewController.h
 //  IACAD
 //
-//  Created by Ahmed Azab on 12/29/13.
-//  Copyright (c) 2013 Ahmed Azab. All rights reserved.
+//  Created by Mina Malak on 12/2/14.
+//  Copyright (c) 2014 Ahmed Azab. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,10 +12,11 @@
 #import "CustomizedACView.h"
 @class AppDelegate;
 @class CustomizedACView;
-@interface editProfileViewController : UIViewController <IACADServiceClientCaller, UIAlertViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate>
+
+@interface ChangePasswordViewController : UIViewController <IACADServiceClientCaller, UIAlertViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate>
 {
     AppDelegate * appDelegate;
-     CustomizedACView * AC;
+    CustomizedACView * AC;
     int countryID;
     NSString * userID;
     int cityID;
@@ -58,4 +59,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameTF;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+
 @end

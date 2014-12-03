@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">12F37</string>
-		<string key="IBDocument.InterfaceBuilderVersion">4510</string>
-		<string key="IBDocument.AppKitVersion">1187.39</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.SystemVersion">14B25</string>
+		<string key="IBDocument.InterfaceBuilderVersion">6250</string>
+		<string key="IBDocument.AppKitVersion">1343.16</string>
+		<string key="IBDocument.HIToolboxVersion">755.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">3742</string>
+			<string key="NS.object.0">6244</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -80,6 +80,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
 					</object>
 					<object class="IBUITableView" id="228661985">
 						<reference key="NSNextResponder" ref="105309750"/>
@@ -170,6 +171,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
 					</object>
 				</array>
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
@@ -181,6 +183,8 @@
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
 					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
+					<string key="IBUITargetRuntime">IBCocoaTouchFramework</string>
+					<string key="IBUIDisplayName">iPhone 4-inch</string>
 					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<array key="dict.sortedKeys">
@@ -192,8 +196,6 @@
 							<string>{568, 320}</string>
 						</array>
 					</object>
-					<string key="IBUITargetRuntime">IBCocoaTouchFramework</string>
-					<string key="IBUIDisplayName">Retina 4-inch Full Screen</string>
 					<int key="IBUIType">2</int>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -201,7 +203,7 @@
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<bool key="usesAutoincrementingIDs">NO</bool>
-			<array class="NSMutableArray" key="connectionRecords">
+			<array key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">eventsTable</string>
@@ -357,10 +359,6 @@
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
 			<integer value="1280" key="NS.object.0"/>
 		</object>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1280" key="NS.object.0"/>
-		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="4600" key="NS.object.0"/>
@@ -371,6 +369,5 @@
 			<string key="back_arButton.png">{101, 61}</string>
 			<string key="topBar.png">{640, 92}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">3742</string>
 	</data>
 </archive>

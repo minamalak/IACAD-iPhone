@@ -242,6 +242,9 @@
     }
     else
     {
+        if (!loginResult.FailureMessage || [loginResult.FailureMessage isEqualToString:@""]) {
+            loginResult.FailureMessage = NSLocalizedStringFromTable(@"unkown_error",appDelegate.culture, @"");
+        }
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:loginResult.FailureMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"message_ok",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
         

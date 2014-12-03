@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3135A4EB1A11495C00586C69 /* listtablecellWithoutImage_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */; };
 		3135A4EC1A11495C00586C69 /* listtablecellWithoutImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */; };
+		31616CAD1A2E54EF00CB23D4 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31616CAB1A2E54EF00CB23D4 /* ChangePasswordViewController.m */; };
+		31616CAE1A2E54EF00CB23D4 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31616CAC1A2E54EF00CB23D4 /* ChangePasswordViewController.xib */; };
+		31616CB21A2E63A800CB23D4 /* SecretQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31616CB01A2E63A800CB23D4 /* SecretQuestionViewController.m */; };
+		31616CB31A2E63A800CB23D4 /* SecretQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31616CB11A2E63A800CB23D4 /* SecretQuestionViewController.xib */; };
 		316FA8C41A12312100EDD8E6 /* green_one_text_field_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 316FA8C21A12312100EDD8E6 /* green_one_text_field_en.png */; };
 		316FA8C51A12312100EDD8E6 /* green_one_text_field.png in Resources */ = {isa = PBXBuildFile; fileRef = 316FA8C31A12312100EDD8E6 /* green_one_text_field.png */; };
 		317347261A1A1A5A00DA178C /* AppSettingCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 317347251A1A1A5A00DA178C /* AppSettingCache.m */; };
@@ -327,6 +331,12 @@
 /* Begin PBXFileReference section */
 		3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listtablecellWithoutImage_en.png; sourceTree = "<group>"; };
 		3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listtablecellWithoutImage.png; sourceTree = "<group>"; };
+		31616CAA1A2E54EF00CB23D4 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		31616CAB1A2E54EF00CB23D4 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		31616CAC1A2E54EF00CB23D4 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		31616CAF1A2E63A800CB23D4 /* SecretQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretQuestionViewController.h; sourceTree = "<group>"; };
+		31616CB01A2E63A800CB23D4 /* SecretQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretQuestionViewController.m; sourceTree = "<group>"; };
+		31616CB11A2E63A800CB23D4 /* SecretQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecretQuestionViewController.xib; sourceTree = "<group>"; };
 		316FA8C21A12312100EDD8E6 /* green_one_text_field_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_one_text_field_en.png; sourceTree = "<group>"; };
 		316FA8C31A12312100EDD8E6 /* green_one_text_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_one_text_field.png; sourceTree = "<group>"; };
 		317347241A1A1A5A00DA178C /* AppSettingCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingCache.h; sourceTree = "<group>"; };
@@ -1579,6 +1589,12 @@
 				F4E9CDBB18704E8D00103C35 /* editProfileViewController.h */,
 				F4E9CDBC18704E8D00103C35 /* editProfileViewController.m */,
 				F4E9CDBD18704E8D00103C35 /* editProfileViewController.xib */,
+				31616CAA1A2E54EF00CB23D4 /* ChangePasswordViewController.h */,
+				31616CAB1A2E54EF00CB23D4 /* ChangePasswordViewController.m */,
+				31616CAC1A2E54EF00CB23D4 /* ChangePasswordViewController.xib */,
+				31616CAF1A2E63A800CB23D4 /* SecretQuestionViewController.h */,
+				31616CB01A2E63A800CB23D4 /* SecretQuestionViewController.m */,
+				31616CB11A2E63A800CB23D4 /* SecretQuestionViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1651,7 +1667,7 @@
 				ORGANIZATIONNAME = "Ahmed Azab";
 				TargetAttributes = {
 					F4ADFC7F1796E11D00439B6E = {
-						DevelopmentTeam = CLR5FEG8W3;
+						DevelopmentTeam = EKK9M2H3G4;
 					};
 				};
 			};
@@ -1720,6 +1736,7 @@
 				F48529AA186B535800B0AD25 /* filterBar_en.png in Resources */,
 				F44257DB17B947320031674D /* alert-black-button@2x.png in Resources */,
 				F44257DC17B947320031674D /* alert-gray-button.png in Resources */,
+				31616CAE1A2E54EF00CB23D4 /* ChangePasswordViewController.xib in Resources */,
 				F44257DD17B947320031674D /* alert-gray-button@2x.png in Resources */,
 				F44257DE17B947320031674D /* alert-red-button.png in Resources */,
 				3135A4EC1A11495C00586C69 /* listtablecellWithoutImage.png in Resources */,
@@ -1779,6 +1796,7 @@
 				F4C7D1CA1882DDAD008AFBCA /* donnateButton_en2.png in Resources */,
 				F42C9ABC17C4E18C007635D7 /* eventlist_bg.png in Resources */,
 				F42C9AC117C503AB007635D7 /* timeIcon.png in Resources */,
+				31616CB31A2E63A800CB23D4 /* SecretQuestionViewController.xib in Resources */,
 				F42C9AD017C51EFC007635D7 /* eventDetailsViewController.xib in Resources */,
 				F42C9AD217C52471007635D7 /* greenButton.png in Resources */,
 				F4E9CE7818717CE300103C35 /* saveButton.png in Resources */,
@@ -1869,6 +1887,7 @@
 				507816A318F45309005531A6 /* IACADSendMailForgotPassword.m in Sources */,
 				5078169918F45309005531A6 /* IACADListCharitiesForAnonymousDonation.m in Sources */,
 				5078169C18F45309005531A6 /* IACADLocation.m in Sources */,
+				31616CAD1A2E54EF00CB23D4 /* ChangePasswordViewController.m in Sources */,
 				F4ADFD0C1798223900439B6E /* FirstViewController.m in Sources */,
 				5078169218F45309005531A6 /* IACADGetMobileContentResponse.m in Sources */,
 				F403D6F217AFC013002FC37A /* IISideController.m in Sources */,
@@ -1904,6 +1923,7 @@
 				5078166718F45309005531A6 /* IACADCharity.m in Sources */,
 				31A5883C1A23525F00A228B9 /* IACADGetReliefNeedForDisasterResponse.m in Sources */,
 				31A588381A23525F00A228B9 /* IACADGetReliefCharitiesResponse.m in Sources */,
+				31616CB21A2E63A800CB23D4 /* SecretQuestionViewController.m in Sources */,
 				5078168D18F45309005531A6 /* IACADGetEventDetails.m in Sources */,
 				31A5884A1A23541500A228B9 /* ReliefCharitiesViewController.m in Sources */,
 				31A588571A235AE000A228B9 /* IACADGetPersonsByCharityAndDonationTypeAndContriesResponse.m in Sources */,
@@ -2063,8 +2083,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "EAA24641-A3B6-4E04-B178-9A5535E14160";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EAA24641-A3B6-4E04-B178-9A5535E14160";
+				PROVISIONING_PROFILE = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2081,8 +2101,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Islamic Affairs & Charitable Activities Department (CLR5FEG8W3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Islamic Affairs & Charitable Activities Department (CLR5FEG8W3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LINK Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LINK Development";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2090,8 +2110,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "A8AA42CB-92BD-4ECF-A723-AB5F04D439FC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8AA42CB-92BD-4ECF-A723-AB5F04D439FC";
+				PROVISIONING_PROFILE = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2100,8 +2120,8 @@
 		F4ADFCB31796E11E00439B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LINK Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LINK Development";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IACAD/IACAD-Prefix.pch";
 				INFOPLIST_FILE = "IACAD/IACAD-Info.plist";
@@ -2112,8 +2132,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EAA24641-A3B6-4E04-B178-9A5535E14160";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EAA24641-A3B6-4E04-B178-9A5535E14160";
+				PROVISIONING_PROFILE = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2121,8 +2141,8 @@
 		F4ADFCB41796E11E00439B6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Islamic Affairs & Charitable Activities Department (CLR5FEG8W3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Islamic Affairs & Charitable Activities Department (CLR5FEG8W3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LINK Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LINK Development";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IACAD/IACAD-Prefix.pch";
 				INFOPLIST_FILE = "IACAD/IACAD-Info.plist";
@@ -2133,8 +2153,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A8AA42CB-92BD-4ECF-A723-AB5F04D439FC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8AA42CB-92BD-4ECF-A723-AB5F04D439FC";
+				PROVISIONING_PROFILE = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "b1e6a541-b3c7-4d7d-bb5f-63d3aa038975";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

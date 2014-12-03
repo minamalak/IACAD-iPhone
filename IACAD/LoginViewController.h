@@ -18,7 +18,8 @@
 - (IBAction)newuserMethod:(id)sender;
 - (IBAction)closeMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *tabbarImg;
-
+@property (weak, nonatomic) IBOutlet UIButton *btnChangePassword;
+@property (weak, nonatomic) IBOutlet UILabel *lblChangePassword;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UILabel *newuserLbl;
 @property (weak, nonatomic) IBOutlet UIButton *newuserButton;

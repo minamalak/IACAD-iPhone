@@ -14,6 +14,7 @@
 #import "NewuserViewController.h"
 #import "editProfileViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ChangePasswordViewController.h"
 
 @interface LoginViewController ()
 
@@ -129,6 +130,7 @@
         ArabicConverter *converter = [[ArabicConverter alloc] init];
         self.labelLbl.font = boldFont;
         self.newuserLbl.font = boldFont2;
+        _lblChangePassword.font = boldFont2;
         
         if (appDelegate.login == 0)
         {
@@ -139,23 +141,23 @@
             
             self.newuserLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"register_new_user_lbl",appDelegate.culture, @"")];
             
-            
+            [_lblChangePassword setAlpha:0];
+            [_btnChangePassword setAlpha:0];
             
         }
         else
         {
             NSString * welcome;
-//            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
-//            welcome = [welcome stringByAppendingString:appDelegate.lastName];
-//            welcome = [welcome stringByAppendingString:@" ،مرحبا "];
             welcome = [NSString stringWithFormat:@"مرحبا، %@ %@", appDelegate.firstName, appDelegate.lastName];
-//            self.labelLbl.text = [converter convertArabic:welcome];
             _titleLbl.text = [converter convertArabic:welcome];
             
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton.png"] forState:UIControlStateNormal];
             
             self.newuserLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"edit_lbl",appDelegate.culture, @"")];
             
+            _lblChangePassword.text = [converter convertArabic:NSLocalizedStringFromTable(@"change_password", appDelegate.culture, @"")];
+            [_lblChangePassword setAlpha:1];
+            [_btnChangePassword setAlpha:1];
         }
         
     }
@@ -168,18 +170,24 @@
             self.newuserLbl.text = NSLocalizedStringFromTable(@"register_new_user_lbl",appDelegate.culture, @"");
             
             [self.loginButton setImage:[UIImage imageNamed:@"loginbutton_en.png"] forState:UIControlStateNormal];
+            
+            [_lblChangePassword setAlpha:0];
+            [_btnChangePassword setAlpha:0];
         }
         else
         {
             NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
             welcome = [welcome stringByAppendingString:appDelegate.lastName];
             welcome = [@"Welcome, " stringByAppendingString:welcome];
-//            self.labelLbl.text = welcome;
             _titleLbl.text = welcome;
             
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton_en.png"] forState:UIControlStateNormal];
             
             self.newuserLbl.text = NSLocalizedStringFromTable(@"edit_lbl",appDelegate.culture, @"");
+            
+            _lblChangePassword.text = NSLocalizedStringFromTable(@"change_password", appDelegate.culture, @"");
+            [_lblChangePassword setAlpha:1];
+            [_btnChangePassword setAlpha:1];
         }
     }
 }
@@ -245,14 +253,23 @@
                 [self.viewDeckController closeRightViewAnimated:YES];
             else
                 [self.viewDeckController closeLeftViewAnimated:YES];
-            //
             
             [self updateView];
         }
-        
-        
     }
 }
+
+-(IBAction)changePasswordAction
+{
+    ChangePasswordViewController * changePassword = [[ChangePasswordViewController alloc]init];
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController pushViewController:changePassword animated:NO];
+}
+
 - (IBAction)logoutMethod:(id)sender {
     
     NSLog(@"logout");

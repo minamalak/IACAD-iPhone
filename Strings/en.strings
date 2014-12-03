@@ -11,7 +11,7 @@
 "side_about" = "About Us";
 "side_contact" = "Contact Us";
 "side_language" = "Language";
-"side_history" = "Donation History";
+"side_history" = "Browse Project";
 
 "noconnection_lbl" = "Sorry, no internet connection; please try again later....";
 
@@ -51,6 +51,7 @@
 "question_lbl" = "Secret Question";
 "answer_lbl" = "Secret Answer";
 "registered_title_lbl" = "";
+"change_password" = "Change Password";
 
 
 ////Message box
@@ -105,6 +106,7 @@
 "cost_lbl" = "Cost(AED):";
 "project_type_lbl" = "Project type:";
 "area_lbl" = "Area (m2):";
+"time_lbl" = "Durations (months): ";
 "capacity_lbl" = "Capacity:";
 "remain_share_lbl" = "Remaining Stocks:";
 "total_share_lbl" = "Total Stocks:";
@@ -163,3 +165,4 @@
 "TeacherChildrenCount_lbl"="Number of kids";
 
 ////->GeneralPersons
+"unkown_error"="This request cannot be completed";

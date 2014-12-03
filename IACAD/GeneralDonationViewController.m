@@ -162,7 +162,7 @@
         {
             // Mina
             itemLbl.frame = CGRectMake(120, y+0, 170, 60);
-             itemLbl.textAlignment = NSTextAlignmentRight;
+            itemLbl.textAlignment = NSTextAlignmentRight;
             itemLbl.text = [converter convertArabic: donationType.Name];
         }
         else
@@ -215,10 +215,10 @@
         {
             amoutTF.text = @"";
             amoutTF.placeholder=@"0";
-            amoutTF.frame=CGRectMake(180,y+23,75,20);
+            amoutTF.frame=CGRectMake(200,y+23,120,20);
         }
         
-        amoutTF.textAlignment = UITextAlignmentCenter;
+        amoutTF.textAlignment = NSTextAlignmentCenter;
         amoutTF.font = boldFont2;
         amoutTF.returnKeyType=UIReturnKeyDefault;
         amoutTF.borderStyle = UITextBorderStyleNone;
@@ -249,8 +249,6 @@
 }
 
 - (void)updateLabelUsingContentsOfTextField:(id)sender {
-    
-     
     
     int value = [((UITextField *)sender).text intValue];
     int tag = ((UITextField *)sender).tag;
@@ -288,7 +286,7 @@
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
           ArabicConverter *converter = [[ArabicConverter alloc] init];
-        UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:16];
+        UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:14];
         NSString* myNewString = [NSString stringWithFormat:@"%li", total];
         NSString * temp = [myNewString stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
         self.totalCountLbl.text = [converter convertArabic:temp];
@@ -410,6 +408,16 @@
     //[AC stopLoading];
     returnResponse = response.AddAnonymiousDonationResult;
     NSLog(@"return URL %@",returnResponse);
+    
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.type = kCATransitionPush;
+    if ([appDelegate.culture isEqualToString:@"ar"])
+        transition.subtype = kCATransitionFromRight;
+    else
+        transition.subtype = kCATransitionFromLeft;
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController popViewControllerAnimated:YES];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:returnResponse]];
 //    [self viewWebview:returnResponse];
