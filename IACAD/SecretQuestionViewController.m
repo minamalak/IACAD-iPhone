@@ -80,7 +80,6 @@
     countriesList = response.GetCountriesResult;
     if ([countriesList count]>0)
         [self fillTable];
-    
 }
 
 -(void) fillTable

@@ -436,51 +436,14 @@
 {
     if (!cont)
     {
-        //       if ([projectNameTF.text isEqualToString:@""])
-        //       {
-        //           BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"project_name_msg",appDelegate.culture, @"")];
-        //           [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-        //           [alert show];
-        //       }
-        //     else if ([amoutTF.text isEqualToString:@""])
-        //       {
-        //           NSString * textString = @"";
-        //           if (quant == TRUE)
-        //               textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
-        //           else if (cont == TRUE)
-        //               textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
-        //
-        //           BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString];
-        //           [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-        //           [alert show];
-        //       }
-        //       else
-        //       {
         int value = 0;
         [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
-        //       }
     }
     else
     {
         if (![amoutTF.text isEqualToString:@""]) {
-        int value = [amoutTF.text intValue];
-        //        if ([projectNameTF.text isEqualToString:@""])
-        //        {
-        //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"project_name_msg",appDelegate.culture, @"")];
-        //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-        //            [alert show];
-        //        }
-        //        else if (value > remainingStocks)
-        //        {
-        //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"value_more_remaining_lbl",appDelegate.culture, @"")];
-        //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-        //            [alert show];
-        //        }
-        //        else
-        //        {
-        
-        [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
-        //        }
+            int value = [amoutTF.text intValue];
+            [delegate getTotalAmount:value:projectNameTF.text:projectNoteTF.text];
         }
         else {
             NSString * textString = @"";

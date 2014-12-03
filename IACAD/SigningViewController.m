@@ -19,6 +19,8 @@
 #import "IACADSendMailForgotPassword.h"
 #import "IACADSendMailForgotPasswordResponse.h"
 #import "IACADForgotPassword.h"
+#import "personalViewController.h"
+#import "constructionViewController.h"
 
 
 @interface SigningViewController ()
@@ -32,6 +34,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+-(id)init :(id) donateDelegate
+{
+    if(self = [super init])
+    {
+        delegate = donateDelegate;
     }
     return self;
 }
@@ -239,6 +250,9 @@
         appDelegate.countViews = 0;
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:count-x] animated:NO];
         
+        if (delegate) {
+            [delegate showConfrimPopover];
+        }
     }
     else
     {

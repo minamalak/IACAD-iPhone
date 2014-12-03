@@ -16,6 +16,8 @@
 {
     AppDelegate * appDelegate;
     CustomizedACView * AC;
+    
+    id delegate;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *tabbarImg;
 - (IBAction)forgotPassMethod:(id)sender;
@@ -33,4 +35,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 - (IBAction)loginMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+-(id)init :(id) donateDelegate;
 @end

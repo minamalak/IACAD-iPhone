@@ -12,6 +12,8 @@
 @interface LoginViewController : UIViewController
 {
     AppDelegate * appDelegate;
+    
+    id delegate;
     int type;
 }
 @property (weak, nonatomic) IBOutlet UILabel *labelLbl;
@@ -31,5 +33,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)openmenuMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
--(id)init :(int)ty;
+-(id)init :(int)ty :(id) donateDelegate;
 @end

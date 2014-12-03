@@ -57,5 +57,6 @@
 - (IBAction)donateMethod:(id)sender;
 -(void)hidePopover;
 -(void) getTotalAmount:(int)value :(NSString *)proName :(NSString *)proNote;
+-(void)showConfrimPopover;
 
 @end

@@ -253,7 +253,7 @@
         [self.langButton setBackgroundImage:transImage forState:UIControlStateNormal];
         
          [appDelegate.navControl popToRootViewControllerAnimated:NO];
-        LoginViewController * loginView = [[LoginViewController alloc]init:0];
+    LoginViewController * loginView = [[LoginViewController alloc]init:0 :nil];
         [appDelegate.navControl pushViewController:loginView animated:NO];
         if ([appDelegate.culture isEqualToString:@"ar"])
             [self.viewDeckController closeRightViewAnimated:YES];
@@ -410,47 +410,11 @@
     }
     else
     {
-//        UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:16];
-//        ArabicConverter *converter = [[ArabicConverter alloc] init];
         if ([appDelegate.culture isEqualToString:@"ar"])
-            [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton.png"] forState:UIControlStateNormal];
+            [self.loginButton setImage:[UIImage imageNamed:@"logout_editprofile.png"] forState:UIControlStateNormal];
         else
-            [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton_en.png"] forState:UIControlStateNormal];
-//        self.welcomeLbl.alpha = 1;
-//        self.welcomeString.alpha = 1;
-       
+            [self.loginButton setImage:[UIImage imageNamed:@"logout_editprofile.png"] forState:UIControlStateNormal];
         
-//        if ([appDelegate.culture isEqualToString:@"ar"])
-//        {
-//            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
-//            welcome = [welcome stringByAppendingString:appDelegate.lastName];
-//            self.welcomeLbl.text = [converter convertArabic:welcome];
-//            self.welcomeLbl.font = boldFont;
-//            self.welcomeString.text = [converter convertArabic:@"مرحبا، "];
-//            self.welcomeString.font = boldFont;
-//            
-//            self.welcomeString.frame = CGRectMake(239, self.welcomeString.frame.origin.y, 61, self.welcomeString.frame.size.height);
-//            self.welcomeString.textAlignment = NSTextAlignmentRight;
-//            
-//            self.welcomeLbl.frame = CGRectMake(58, self.welcomeLbl.frame.origin.y, self.welcomeLbl.frame.size.width, self.welcomeLbl.frame.size.height);
-//            self.welcomeLbl.textAlignment = NSTextAlignmentRight;
-//        }
-//        else
-//        {
-//            NSString * welcome = [appDelegate.firstName stringByAppendingString:@" "];
-//            welcome = [welcome stringByAppendingString:appDelegate.lastName];
-//            self.welcomeLbl.text = welcome;
-//            self.welcomeLbl.font = [UIFont systemFontOfSize:16];
-//            self.welcomeString.text = @"Welcome, ";
-//            self.welcomeString.font = [UIFont systemFontOfSize:16];
-//            
-//            self.welcomeString.frame = CGRectMake(20, self.welcomeString.frame.origin.y, 81, self.welcomeString.frame.size.height);
-//            self.welcomeString.textAlignment = NSTextAlignmentLeft;
-//            
-//            self.welcomeLbl.frame = CGRectMake(100, self.welcomeLbl.frame.origin.y, self.welcomeLbl.frame.size.width, self.welcomeLbl.frame.size.height);
-//            self.welcomeLbl.textAlignment = NSTextAlignmentLeft;
-//        }
-  
         [self updateGreenBar];
     }
 }

@@ -146,16 +146,24 @@
         [self addSubview:viewFiltersButtons];
         
         UIButton * btnOK =[[UIButton alloc]init];
-        [btnOK setTitle:@"start" forState:UIControlStateNormal];
-        btnOK.frame = CGRectMake(5,0,50,30);
-        //        [btnOK setBackgroundImage:trans2 forState:UIControlStateNormal];
+        btnOK.frame = CGRectMake(5,0,80,30);
+        if ([appDelegate.culture isEqualToString:@"ar"]) {
+            [btnOK setImage:[UIImage imageNamed:@"select_ar.png"] forState:UIControlStateNormal];
+        }
+        else {
+            [btnOK setImage:[UIImage imageNamed:@"select_en.png"] forState:UIControlStateNormal];
+        }
         [btnOK addTarget:self action:@selector(startFilteration) forControlEvents:UIControlEventTouchUpInside];
         [viewFiltersButtons addSubview:btnOK];
         
         UIButton * btnCancel =[[UIButton alloc]init];
-        [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal];
-        btnCancel.frame = CGRectMake(228,0,70,30);
-        //        [btnOK setBackgroundImage:trans2 forState:UIControlStateNormal];
+        btnCancel.frame = CGRectMake(208,0,80,30);
+        if ([appDelegate.culture isEqualToString:@"ar"]) {
+            [btnCancel setImage:[UIImage imageNamed:@"cancel_ar.png"] forState:UIControlStateNormal];
+        }
+        else {
+            [btnCancel setImage:[UIImage imageNamed:@"cancel_en.png"] forState:UIControlStateNormal];
+        }
         [btnCancel addTarget:self action:@selector(cancelFilteration) forControlEvents:UIControlEventTouchUpInside];
         [viewFiltersButtons addSubview:btnCancel];
         
@@ -406,6 +414,9 @@
         donationDesc.tag = 30;
         [cell.contentView addSubview:donationDesc];
         
+        UIImageView *imageSeparator = [[UIImageView alloc]initWithFrame:CGRectMake(0, 30, 285, 2)];
+        [imageSeparator setImage:[UIImage imageNamed:@"seperator.png"]];
+        [cell.contentView addSubview:imageSeparator];
     }
     
     UILabel *lbl5 = (UILabel *)[cell.contentView viewWithTag:30];

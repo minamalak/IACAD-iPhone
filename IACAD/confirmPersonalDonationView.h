@@ -18,6 +18,7 @@
 //    BOOL quant;
 //    BOOL cont;
     UILabel * totalAmount;
+    UILabel *lblTotal;
     double cost;
     AppDelegate * appDelegate;
 //    int remainingStocks;

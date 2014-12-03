@@ -36,6 +36,21 @@
 	return self;
 }
 
+-(id)init :(int)ty :(id) donateDelegate
+{
+    if(self = [super init])
+    {
+        type = ty;
+        delegate = donateDelegate;
+        /// type=0 -> Side menu
+        /// type=1 -> Donate
+        
+        appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.countViews = 1;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -226,7 +241,7 @@
     {
         if (appDelegate.login == 0)
         {
-            SigningViewController * signView = [[SigningViewController alloc]init];
+            SigningViewController * signView = [[SigningViewController alloc]init:delegate];
             CATransition* transition = [CATransition animation];
             transition.duration = 0.3;
             transition.type = kCATransitionReveal;

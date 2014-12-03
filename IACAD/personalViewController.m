@@ -1176,7 +1176,7 @@
     
     if (appDelegate.login == 0)
     {
-        LoginViewController * loginUser = [[LoginViewController alloc]init:1];
+        LoginViewController * loginUser = [[LoginViewController alloc]init:1 :self];
         CATransition* transition = [CATransition animation];
         transition.duration = 0.3;
         transition.type = kCATransitionReveal;
@@ -1188,8 +1188,6 @@
     {
         [self showConfrimPopover];
     }
-    
-    
 }
 
 - (void)showConfrimPopover

@@ -16,6 +16,12 @@
 		316FA8C41A12312100EDD8E6 /* green_one_text_field_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 316FA8C21A12312100EDD8E6 /* green_one_text_field_en.png */; };
 		316FA8C51A12312100EDD8E6 /* green_one_text_field.png in Resources */ = {isa = PBXBuildFile; fileRef = 316FA8C31A12312100EDD8E6 /* green_one_text_field.png */; };
 		317347261A1A1A5A00DA178C /* AppSettingCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 317347251A1A1A5A00DA178C /* AppSettingCache.m */; };
+		318389391A2F37B6003BFD80 /* seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 318389381A2F37B6003BFD80 /* seperator.png */; };
+		31922D501A2F7C7300F188B9 /* logout_editprofile.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D4F1A2F7C7300F188B9 /* logout_editprofile.png */; };
+		31922D551A2F7CA700F188B9 /* cancel_ar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D511A2F7CA700F188B9 /* cancel_ar.png */; };
+		31922D561A2F7CA700F188B9 /* cancel_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D521A2F7CA700F188B9 /* cancel_en.png */; };
+		31922D571A2F7CA700F188B9 /* select_ar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D531A2F7CA700F188B9 /* select_ar.png */; };
+		31922D581A2F7CA700F188B9 /* select_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D541A2F7CA700F188B9 /* select_en.png */; };
 		319C7D401A14EBFC00629529 /* DonationHistoryDetailsEN.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */; };
 		319E4C351A0FD9B600DF3D21 /* IACADGetDonorProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */; };
 		319E4C361A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C341A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m */; };
@@ -341,6 +347,12 @@
 		316FA8C31A12312100EDD8E6 /* green_one_text_field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_one_text_field.png; sourceTree = "<group>"; };
 		317347241A1A1A5A00DA178C /* AppSettingCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingCache.h; sourceTree = "<group>"; };
 		317347251A1A1A5A00DA178C /* AppSettingCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingCache.m; sourceTree = "<group>"; };
+		318389381A2F37B6003BFD80 /* seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seperator.png; sourceTree = "<group>"; };
+		31922D4F1A2F7C7300F188B9 /* logout_editprofile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_editprofile.png; sourceTree = "<group>"; };
+		31922D511A2F7CA700F188B9 /* cancel_ar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_ar.png; sourceTree = "<group>"; };
+		31922D521A2F7CA700F188B9 /* cancel_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_en.png; sourceTree = "<group>"; };
+		31922D531A2F7CA700F188B9 /* select_ar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_ar.png; sourceTree = "<group>"; };
+		31922D541A2F7CA700F188B9 /* select_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_en.png; sourceTree = "<group>"; };
 		319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHistoryDetailsEN.xib; sourceTree = "<group>"; };
 		319E4C311A0FD9B600DF3D21 /* IACADGetDonorProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetDonorProjects.h; sourceTree = "<group>"; };
 		319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetDonorProjects.m; sourceTree = "<group>"; };
@@ -933,6 +945,10 @@
 		F403D70817AFDAC1002FC37A /* General */ = {
 			isa = PBXGroup;
 			children = (
+				31922D511A2F7CA700F188B9 /* cancel_ar.png */,
+				31922D521A2F7CA700F188B9 /* cancel_en.png */,
+				31922D531A2F7CA700F188B9 /* select_ar.png */,
+				31922D541A2F7CA700F188B9 /* select_en.png */,
 				F4C0CA8317CD03C0001CFAF2 /* back_arButton.png */,
 				F4B201961862FEB9007FD9A7 /* back_enButton.png */,
 				F42C9AE917C61750007635D7 /* menuSeperator.png */,
@@ -1141,6 +1157,7 @@
 				F4D8713E17E637E200C7D9EC /* Reachability */,
 				F4C1BA9F17DCAA1D00EA408C /* Flurry */,
 				F4C1BA9317D8AFB300EA408C /* Scrollview */,
+				318389381A2F37B6003BFD80 /* seperator.png */,
 				F4C1BA7817D78BEB00EA408C /* Default-568h@2x.png */,
 				F4B36B96185089AE00D558F7 /* Default-568h.png */,
 				F4C1BA7917D78BEB00EA408C /* Default.png */,
@@ -1531,6 +1548,7 @@
 		F4C9E22417B12ECE009E0AAE /* login */ = {
 			isa = PBXGroup;
 			children = (
+				31922D4F1A2F7C7300F188B9 /* logout_editprofile.png */,
 				F4E9CE7518717CE300103C35 /* saveButton_en.png */,
 				F4E9CE7618717CE300103C35 /* saveButton.png */,
 				F44257E917BA3A4B0031674D /* listing_two.png */,
@@ -1695,6 +1713,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4ADFC8E1796E11E00439B6E /* InfoPlist.strings in Resources */,
+				31922D501A2F7C7300F188B9 /* logout_editprofile.png in Resources */,
 				F4ADFD0D1798223900439B6E /* FirstViewController.xib in Resources */,
 				F4B201991862FF23007FD9A7 /* loginReg_btn_en.png in Resources */,
 				F403D6F917AFC043002FC37A /* RightViewController.xib in Resources */,
@@ -1743,6 +1762,7 @@
 				F44257DF17B947320031674D /* alert-red-button@2x.png in Resources */,
 				F44257E417BA31B80031674D /* NewuserViewController.xib in Resources */,
 				F44257E817BA39AC0031674D /* registerButton.png in Resources */,
+				31922D561A2F7CA700F188B9 /* cancel_en.png in Resources */,
 				F44257EC17BA3A4B0031674D /* listing_two.png in Resources */,
 				F48529A7186B1FAE00B0AD25 /* general-listing_bg_gray_en.png in Resources */,
 				F44257ED17BA3A4B0031674D /* textfield_one.png in Resources */,
@@ -1767,6 +1787,7 @@
 				F44258A117C16A040031674D /* browseIcon.png in Resources */,
 				F44258A217C16A040031674D /* donnate2Icon.png in Resources */,
 				F44258A317C16A040031674D /* donnateIcon.png in Resources */,
+				31922D581A2F7CA700F188B9 /* select_en.png in Resources */,
 				F44B81CA17EF692B00F6BE4B /* topBar_ios7.png in Resources */,
 				F44258A417C16A040031674D /* eventsIcon.png in Resources */,
 				F4B201A618634C55007FD9A7 /* listing_two_en.png in Resources */,
@@ -1793,6 +1814,7 @@
 				F42C9AAE17C39857007635D7 /* charitiesListViewController.xib in Resources */,
 				F42C9AB317C3AD59007635D7 /* charityDetailsViewController.xib in Resources */,
 				F42C9AB917C4D8D9007635D7 /* eventListViewController.xib in Resources */,
+				318389391A2F37B6003BFD80 /* seperator.png in Resources */,
 				F4C7D1CA1882DDAD008AFBCA /* donnateButton_en2.png in Resources */,
 				F42C9ABC17C4E18C007635D7 /* eventlist_bg.png in Resources */,
 				F42C9AC117C503AB007635D7 /* timeIcon.png in Resources */,
@@ -1813,6 +1835,7 @@
 				F42C9AEF17C61A17007635D7 /* contactViewController.xib in Resources */,
 				F42C9AF417C61E43007635D7 /* aboutOfficeViewController.xib in Resources */,
 				F42C9AF917C61E55007635D7 /* aboutGateViewController.xib in Resources */,
+				31922D571A2F7CA700F188B9 /* select_ar.png in Resources */,
 				F48529AC186C7C9D00B0AD25 /* green_text_field_en.png in Resources */,
 				F4C0CA6817CB5FA9001CFAF2 /* constructionViewController.xib in Resources */,
 				F4C0CA6A17CB67AD001CFAF2 /* green_text_field.png in Resources */,
@@ -1828,6 +1851,7 @@
 				F4C1BA7B17D78BEB00EA408C /* Default-568h@2x.png in Resources */,
 				F4C1BA7C17D78BEB00EA408C /* Default.png in Resources */,
 				F4C1BA7D17D78BEB00EA408C /* Default@2x.png in Resources */,
+				31922D551A2F7CA700F188B9 /* cancel_ar.png in Resources */,
 				F4B2019F18630803007FD9A7 /* logoutbutton_en.png in Resources */,
 				F4C1BA8617D78E6A00EA408C /* GeneralDonationViewController.xib in Resources */,
 				F4C1BA8917D7918C00EA408C /* donnate_total_bar.png in Resources */,
