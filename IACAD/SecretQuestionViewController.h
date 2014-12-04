@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IACADServiceClient.h"
 #import "AppDelegate.h"
+
 @class AppDelegate;
 @class CustomizedACView;
 
@@ -17,12 +18,12 @@
     AppDelegate * appDelegate;
     id delegate;
     CustomizedACView * AC;
-    NSMutableArray * countriesList;
+    
 }
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 -(id)init :(id)del;
-- (IBAction)backMethod:(id)sender;
+@property (nonatomic, retain)NSMutableArray * questionsList;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UITableView *questionsListTable;
-
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+- (IBAction)backMethod:(id)sender;
 @end

@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 @class AppDelegate;
 @class CustomizedACView;
-@interface NewuserViewController : UIViewController <IACADServiceClientCaller,UITextFieldDelegate,UITextViewDelegate, UIAlertViewDelegate>
+@interface NewuserViewController : UIViewController <IACADServiceClientCaller,UITextFieldDelegate,UITextViewDelegate, UIAlertViewDelegate, UIGestureRecognizerDelegate>
 {
     int countryID;
     int countryIsSelected;
@@ -19,12 +19,15 @@
     CustomizedACView * AC;
     int cityID;
     AppDelegate * appDelegate;
+    
+    NSMutableArray *questionsList;
 }
 @property (weak, nonatomic) IBOutlet UITextField *answerTF;
 @property (weak, nonatomic) IBOutlet UITextField *questionTF;
 @property (weak, nonatomic) IBOutlet UILabel *answerLbl;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *listingBgImg;
+@property (weak, nonatomic) IBOutlet UIImageView *listingBgImgSecrets;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIImageView *tabbarImg;
@@ -45,6 +48,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *passwordLbl;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLbl;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTF;
+
+- (IBAction)questionMethod:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *questionButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *emailLbl;
 - (IBAction)backMethod:(id)sender;

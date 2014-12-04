@@ -413,7 +413,7 @@
         if ([appDelegate.culture isEqualToString:@"ar"])
             [self.loginButton setImage:[UIImage imageNamed:@"logout_editprofile.png"] forState:UIControlStateNormal];
         else
-            [self.loginButton setImage:[UIImage imageNamed:@"logout_editprofile.png"] forState:UIControlStateNormal];
+            [self.loginButton setImage:[UIImage imageNamed:@"logout_editprofile_en.png"] forState:UIControlStateNormal];
         
         [self updateGreenBar];
     }

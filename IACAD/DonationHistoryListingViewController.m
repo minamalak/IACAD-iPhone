@@ -19,6 +19,7 @@
 #import "ArabicConverter.h"
 #import "constructionViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LoginViewController.h"
 
 @interface DonationHistoryListingViewController ()
 
@@ -39,6 +40,22 @@
 	}
 	return self;
 }
+
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    if (appDelegate.login == 0) {
+//        LoginViewController * loginUser = [[LoginViewController alloc]init:1 :self];
+//        CATransition* transition = [CATransition animation];
+//        transition.duration = 0.3;
+//        transition.type = kCATransitionReveal;
+//        transition.subtype = kCATransitionFromTop;
+//        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+//        [self.navigationController pushViewController:loginUser animated:NO];
+//    }
+//    else {
+//        [self getDonationItemsAPI];
+//    }
+//}
 
 - (void)viewDidLoad
 {
@@ -176,9 +193,6 @@
                                                  alpha:1.0];
         donationDesc.tag = 30;
         [cell.contentView addSubview:donationDesc];
-        
-        
-        
     }
     else
     {

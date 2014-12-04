@@ -222,9 +222,32 @@
     }
     self.costString.font = boldFont2;
     self.costString.alpha = 1;
- 
-
 */
+    
+    // Mina
+    if ([appDelegate.culture isEqualToString:@"ar"])
+        self.typeLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"project_type_lbl",appDelegate.culture, @"")];
+    else
+    {
+        self.typeLbl.text = NSLocalizedStringFromTable(@"project_type_lbl",appDelegate.culture, @"");
+        self.typeLbl.frame = CGRectMake(24, self.typeLbl.frame.origin.y, self.typeLbl.frame.size.width, self.typeLbl.frame.size.height);
+        self.typeLbl.textAlignment = NSTextAlignmentLeft;
+    }
+    
+    self.typeLbl.font = boldFont2;
+    self.typeLbl.alpha = 1;
+    
+    if ([appDelegate.culture isEqualToString:@"ar"])
+        self.typeString.text = [converter convertArabic:itemDetails.DonationTypeName];
+    else
+    {
+        self.typeString.text = itemDetails.DonationTypeName;
+        self.typeString.textAlignment = NSTextAlignmentLeft;
+        self.typeString.frame = CGRectMake(120, self.typeLbl.frame.origin.y, self.typeString.frame.size.width, self.typeString.frame.size.height);
+    }
+    self.typeString.font = boldFont2;
+    self.typeString.alpha = 1;
+    
     
     NSString * costLabel = @"";
         if (itemDetails.IsContribution == TRUE)
@@ -236,19 +259,19 @@
         self.costLbl.text = [converter convertArabic:costLabel];
         
         if (itemDetails.IsContribution == TRUE)
-            self.costLbl.frame = CGRectMake(179, 208, 78+25, 29);
+            self.costLbl.frame = CGRectMake(179, 238, 78+25, 29);
         else
-        self.costLbl.frame = CGRectMake(204, 280,78, 29);
+        self.costLbl.frame = CGRectMake(204, 310,78, 29);
         
     }
     else
     {
         self.costLbl.text = costLabel;
         if (itemDetails.IsContribution == FALSE)
-            self.costLbl.frame = CGRectMake(24, 280, 78, 29);
+            self.costLbl.frame = CGRectMake(24, 310, 78, 29);
         else
-            self.costLbl.frame = CGRectMake(24, 280, 78+40, 29);
-        self.costLbl.frame = CGRectMake(24, 280,78, 29);
+            self.costLbl.frame = CGRectMake(24, 310, 78+40, 29);
+        self.costLbl.frame = CGRectMake(24, 310,78, 29);
         self.costLbl.textAlignment = NSTextAlignmentLeft;
     }
     self.costLbl.font = boldFont2;
@@ -259,15 +282,15 @@
     {
          self.costString.text = [converter convertArabic:[[NSNumber numberWithInt:itemDetails.Cost] stringValue]];
         if (itemDetails.IsContribution == TRUE)
-            self.costString.frame = CGRectMake(29-35, 280, 192, 29);
+            self.costString.frame = CGRectMake(29-35, 310, 192, 29);
         else
-        self.costString.frame = CGRectMake(29,280,162, 29);
+        self.costString.frame = CGRectMake(29,310,162, 29);
     }
     else
     {
         self.costString.text = [[NSNumber numberWithInt:itemDetails.Cost] stringValue];
         if (itemDetails.IsContribution == FALSE)
-            self.costString.frame= CGRectMake(100, 280, 192, 29);
+            self.costString.frame= CGRectMake(100, 310, 192, 29);
         else
             self.costString.frame= CGRectMake(145, 280, 192, 29);
         self.costString.textAlignment = NSTextAlignmentLeft;
@@ -279,12 +302,12 @@
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
         self.descLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"desc_lbl",appDelegate.culture, @"")];
-        self.descLbl.frame = CGRectMake(204, 317,78, 29);
+        self.descLbl.frame = CGRectMake(204, 347,78, 29);
     }
     else
     {
         self.descLbl.text = NSLocalizedStringFromTable(@"desc_lbl",appDelegate.culture, @"");;
-        self.descLbl.frame = CGRectMake(24, 317,100, 29);
+        self.descLbl.frame = CGRectMake(24, 347,100, 29);
         self.descLbl.textAlignment = NSTextAlignmentLeft;
     }
     self.descLbl.font = boldFont2;
@@ -300,30 +323,29 @@
     
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
-        labelsize=[desc sizeWithFont:self.descString.font constrainedToSize:CGSizeMake(192, 300) lineBreakMode:UILineBreakModeWordWrap];
-        self.descString.frame = CGRectMake(30, 321, 192, labelsize.height);
+        labelsize=[desc sizeWithFont:self.descString.font constrainedToSize:CGSizeMake(192, 300) lineBreakMode:NSLineBreakByWordWrapping];
+        self.descString.frame = CGRectMake(30, 353, 192, labelsize.height);
         self.descString.text = [converter convertArabic:desc];
     }
     else
     {
-        labelsize = [desc sizeWithFont:self.descString.font constrainedToSize:CGSizeMake(172, 300) lineBreakMode:UILineBreakModeWordWrap];
-        self.descString.frame = CGRectMake(110, 321, 172, labelsize.height);
+        labelsize = [desc sizeWithFont:self.descString.font constrainedToSize:CGSizeMake(172, 300) lineBreakMode:NSLineBreakByWordWrapping];
+        self.descString.frame = CGRectMake(110, 353, 172, labelsize.height);
         self.descString.text = desc;
         self.descString.textAlignment = NSTextAlignmentLeft;
     }
     
     
-    
     UILabel * lblTime = [[UILabel alloc]init];
     if([appDelegate.culture isEqualToString:@"ar"])
     {
-        lblTime.frame = CGRectMake(133,330 + labelsize.height,150,29);
+        lblTime.frame = CGRectMake(133,370 + labelsize.height,150,29);
         lblTime.text = [converter convertArabic:NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"")];
         lblTime.textAlignment = NSTextAlignmentRight;
     }
     else
     {
-        lblTime.frame = CGRectMake(24,330 + labelsize.height,150,29);
+        lblTime.frame = CGRectMake(24,370 + labelsize.height,150,29);
         lblTime.text = NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"");
         lblTime.textAlignment = NSTextAlignmentLeft;
     }
@@ -338,13 +360,13 @@
     UILabel * lblTimeString = [[UILabel alloc]init];
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
-        lblTimeString.frame = CGRectMake(24,330 + labelsize.height,120,29);
+        lblTimeString.frame = CGRectMake(24,370 + labelsize.height,120,29);
         lblTimeString.text = [converter convertArabic:[[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue]];
         lblTimeString.textAlignment = NSTextAlignmentRight;
     }
     else
     {
-        lblTimeString.frame = CGRectMake(155,330 + labelsize.height,120,29);
+        lblTimeString.frame = CGRectMake(155,370 + labelsize.height,120,29);
         lblTimeString.text = [[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue];
         
         //itemDetails.CharityName
@@ -355,6 +377,8 @@
     lblTimeString.backgroundColor=[UIColor clearColor];
     lblTimeString.textColor=[UIColor blackColor];
     [self.scrollView addSubview:lblTimeString];
+    
+    
     
     
     [self.scrollView setContentSize:CGSizeMake(307,450+labelsize.height)];
@@ -507,18 +531,66 @@
     self.descString.alpha = 1;
     
     CGSize labelsize;
-    labelsize=[desc sizeWithFont:self.descString.font constrainedToSize:CGSizeMake(192, 300) lineBreakMode:UILineBreakModeWordWrap];
+    
+     labelsize = [desc sizeWithFont:boldFont2 constrainedToSize:_descString.frame.size lineBreakMode:NSLineBreakByWordWrapping];
+    
+
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
-        self.descString.frame = CGRectMake(30, 432, 192, labelsize.height);
+        self.descString.frame = CGRectMake(30, self.descLbl.frame.origin.y, 192, labelsize.height + 10);
         self.descString.text = [converter convertArabic:desc];
+        [_descString setTextAlignment:NSTextAlignmentRight];
     }
     else
     {
-        self.descString.frame = CGRectMake(110, 432, 192, labelsize.height);
+        self.descString.frame = CGRectMake(110, self.descLbl.frame.origin.y, 192, labelsize.height + 10);
         self.descString.text = desc;
         self.descString.textAlignment = NSTextAlignmentLeft;
     }
+    
+//    if (!itemDetails.IsQuantitative && !itemDetails.IsContribution) {
+//        UILabel * lblTime = [[UILabel alloc]init];
+//        if([appDelegate.culture isEqualToString:@"ar"])
+//        {
+//            lblTime.frame = CGRectMake(133,440+labelsize.height,150,29);
+//            lblTime.text = [converter convertArabic:NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"")];
+//            lblTime.textAlignment = NSTextAlignmentRight;
+//        }
+//        else
+//        {
+//            lblTime.frame = CGRectMake(24,440+labelsize.height,150,29);
+//            lblTime.text = NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"");
+//            lblTime.textAlignment = NSTextAlignmentLeft;
+//        }
+//        lblTime.font = boldFont2;
+//        lblTime.backgroundColor=[UIColor clearColor];
+//        lblTime.textColor=[UIColor colorWithRed:28/255.f
+//                                          green:153/255.f
+//                                           blue:80/255.f
+//                                          alpha:1.0];
+//        [self.scrollView addSubview:lblTime];
+//        
+//        UILabel * lblTimeString = [[UILabel alloc]init];
+//        if ([appDelegate.culture isEqualToString:@"ar"])
+//        {
+//            lblTimeString.frame = CGRectMake(24,440+labelsize.height,120,29);
+//            lblTimeString.text = [converter convertArabic:[[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue]];
+//            lblTimeString.textAlignment = NSTextAlignmentRight;
+//        }
+//        else
+//        {
+//            lblTimeString.frame = CGRectMake(155,440+labelsize.height,120,29);
+//            lblTimeString.text = [[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue];
+//            
+//            //itemDetails.CharityName
+//            lblTimeString.textAlignment = NSTextAlignmentLeft;
+//        }
+//        
+//        lblTimeString.font = boldFont2;
+//        lblTimeString.backgroundColor=[UIColor clearColor];
+//        lblTimeString.textColor=[UIColor blackColor];
+//        [self.scrollView addSubview:lblTimeString];
+//    }
     
     
     [self.scrollView setContentSize:CGSizeMake(307,450+labelsize.height)];
@@ -534,6 +606,8 @@
 {
     float height;
     height = labelsize;
+    
+    float yPostion = 440.0;
     
     ArabicConverter *converter = [[ArabicConverter alloc] init];
     
@@ -553,6 +627,7 @@
    if (itemDetails.IsContribution == YES)
         
     {
+        yPostion = 519.0;
        UILabel * stockRemainLbl = [[UILabel alloc]init];
         if ([appDelegate.culture isEqualToString:@"ar"])
         {
@@ -675,18 +750,19 @@
         stockPriceString.backgroundColor=[UIColor clearColor];
         stockPriceString.textColor=[UIColor blackColor];
         [self.scrollView addSubview:stockPriceString]; */
-        
-        
+    }
+    
+    
         UILabel * lblTime = [[UILabel alloc]init];
         if([appDelegate.culture isEqualToString:@"ar"])
         {
-            lblTime.frame = CGRectMake(133,519+height+tempHeight,150,29);
+            lblTime.frame = CGRectMake(133,yPostion+height+tempHeight,150,29);
             lblTime.text = [converter convertArabic:NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"")];
             lblTime.textAlignment = NSTextAlignmentRight;
         }
         else
         {
-            lblTime.frame = CGRectMake(24,519+height+tempHeight,150,29);
+            lblTime.frame = CGRectMake(24,yPostion+height+tempHeight,150,29);
             lblTime.text = NSLocalizedStringFromTable(@"time_lbl",appDelegate.culture, @"");
             lblTime.textAlignment = NSTextAlignmentLeft;
         }
@@ -696,18 +772,20 @@
                                                 green:153/255.f
                                                  blue:80/255.f
                                                 alpha:1.0];
+    if (itemDetails.CategoryId != 3) {
         [self.scrollView addSubview:lblTime];
-        
+    }
+    
         UILabel * lblTimeString = [[UILabel alloc]init];
         if ([appDelegate.culture isEqualToString:@"ar"])
         {
-            lblTimeString.frame = CGRectMake(24,519+height+tempHeight,120,29);
+            lblTimeString.frame = CGRectMake(24,yPostion+height+tempHeight,120,29);
             lblTimeString.text = [converter convertArabic:[[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue]];
             lblTimeString.textAlignment = NSTextAlignmentRight;
         }
         else
         {
-            lblTimeString.frame = CGRectMake(155,519+height+tempHeight,120,29);
+            lblTimeString.frame = CGRectMake(155,yPostion+height+tempHeight,120,29);
             lblTimeString.text = [[NSNumber numberWithInt:itemDetails.InitialDuration] stringValue];
             
             //itemDetails.CharityName
@@ -717,13 +795,17 @@
         lblTimeString.font = boldFont2;
         lblTimeString.backgroundColor=[UIColor clearColor];
         lblTimeString.textColor=[UIColor blackColor];
+    if (itemDetails.CategoryId != 3) {
         [self.scrollView addSubview:lblTimeString];
-
-        
-        
-        [self.scrollView setContentSize:CGSizeMake(307,560+height+tempHeight)];
-        self.bgImage.frame = CGRectMake(0,35,307, 528+height+tempHeight);
     }
+
+        [self.scrollView setContentSize:CGSizeMake(307,yPostion+height+tempHeight + 40)];
+        self.bgImage.frame = CGRectMake(0,35,307, yPostion+height+tempHeight + 10);
+    
+    if (itemDetails.CategoryId == 3) {
+        self.bgImage.frame = CGRectMake(0,35,307, yPostion+height+tempHeight + 50);
+    }
+//    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -12,6 +12,7 @@
 //#import "AppDelegate.h"
 
 @class AppDelegate;
+@class CustomizedACView;
 
 @interface PersonalFilterView : UIView <UITableViewDelegate,UITableViewDataSource,IACADServiceClientCaller>
 {
@@ -35,6 +36,11 @@
  
     UIView *viewFiltersButtons;
     NSMutableArray *arraySelected;
+    
+    CustomizedACView * AC;
+    UITapGestureRecognizer * tap;
+    UIButton * copFilter;
+    UIButton * countryFilter;
     
     int charID;
     NSMutableArray * counID;

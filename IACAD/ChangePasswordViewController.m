@@ -25,6 +25,9 @@
 #import "IACADEditProfile.h"
 #import "IACADEditProfileResponse.h"
 #import "IACADEditProfileResult.h"
+#import "SecretQuestionViewController.h"
+#import "IACADListSecretQuestions.h"
+#import "IACADListSecretQuestionsResponse.h"
 
 @interface ChangePasswordViewController ()
 
@@ -96,14 +99,15 @@
         self.newpasswordTF.font = boldFont2;
         self.passwordTF.font = boldFont2;
         
+        _questionButton.titleLabel.font = boldFont2;
         
-        self.questionLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"question_lbl",appDelegate.culture, @"")];
-        self.questionLbl.font = boldFont2;
-        
+//        self.questionLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"question_lbl",appDelegate.culture, @"")];
+//        self.questionLbl.font = boldFont2;
+//        
         self.answerLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"answer_lbl",appDelegate.culture, @"")];
         self.answerLbl.font = boldFont2;
-        
-        self.questionTF.font = boldFont2;
+//
+//        self.questionTF.font = boldFont2;
         self.answerTF.font = boldFont2;
     }
     else
@@ -170,16 +174,19 @@
         self.newpasswordTF.frame = CGRectMake(181, self.newpasswordTF.frame.origin.y, self.newpasswordTF.frame.size.width, self.newpasswordTF.frame.size.height);
         self.newpasswordTF.textAlignment = NSTextAlignmentLeft;
         
-        self.questionLbl.text = NSLocalizedStringFromTable(@"question_lbl",appDelegate.culture, @"");
-        self.questionLbl.frame = CGRectMake(60, self.questionLbl.frame.origin.y, self.questionLbl.frame.size.width, self.questionLbl.frame.size.height);
-        self.questionLbl.textAlignment = NSTextAlignmentLeft;
+//        self.questionLbl.text = NSLocalizedStringFromTable(@"question_lbl",appDelegate.culture, @"");
+//        self.questionLbl.frame = CGRectMake(60, self.questionLbl.frame.origin.y, self.questionLbl.frame.size.width, self.questionLbl.frame.size.height);
+//        self.questionLbl.textAlignment = NSTextAlignmentLeft;
         
+        [_questionButton setFrame:CGRectMake(60, _questionButton.frame.origin.y, _questionButton.frame.size.width, _questionButton.frame.size.height)];
+        _questionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//        
         self.answerLbl.text = NSLocalizedStringFromTable(@"answer_lbl",appDelegate.culture, @"");
         self.answerLbl.frame = CGRectMake(60, self.answerLbl.frame.origin.y, self.answerLbl.frame.size.width, self.answerLbl.frame.size.height);
         self.answerLbl.textAlignment = NSTextAlignmentLeft;
-        
-        self.questionTF.frame = CGRectMake(181, self.questionTF.frame.origin.y, self.questionTF.frame.size.width, self.questionTF.frame.size.height);
-        self.questionTF.textAlignment = NSTextAlignmentLeft;
+//
+//        self.questionTF.frame = CGRectMake(181, self.questionTF.frame.origin.y, self.questionTF.frame.size.width, self.questionTF.frame.size.height);
+//        self.questionTF.textAlignment = NSTextAlignmentLeft;
         
         self.answerTF.frame = CGRectMake(181, self.answerTF.frame.origin.y, self.answerTF.frame.size.width, self.answerTF.frame.size.height);
         self.answerTF.textAlignment = NSTextAlignmentLeft;
@@ -191,7 +198,7 @@
         self.closeButton.frame = CGRectMake(7, self.closeButton.frame.origin.y, self.closeButton.frame.size.width, self.closeButton.frame.size.height);
         [self.closeButton setImage:[UIImage imageNamed:@"closeButton_en.png"] forState:UIControlStateNormal];
         
-        [self.listingBgImg setImage:[UIImage imageNamed:@"listing_two_en.png"]];
+        [self.listingBgImg setImage:[UIImage imageNamed:@"listing_one_one_en.png"]];
     }
     
 //    self.cityButton.enabled = FALSE;
@@ -226,9 +233,9 @@
     self.newpasswordTF.text = @"";
     self.newpasswordTF.keyboardAppearance = UIBarStyleBlack;
     
-    self.questionTF.delegate = self;
-    self.questionTF.text = @"";
-    self.questionTF.keyboardAppearance = UIBarStyleBlack;
+//    self.questionTF.delegate = self;
+//    self.questionTF.text = @"";
+//    self.questionTF.keyboardAppearance = UIBarStyleBlack;
     
     self.answerTF.delegate = self;
     self.answerTF.text = @"";
@@ -260,29 +267,46 @@
 
 -(void) GetProfileCallback:(IACADGetProfileResponse *)response error:(NSError *)error
 {
-    [AC stopLoading];
+//    [AC stopLoading];
     
-    IACADUser * profile = response.GetProfileResult;
+    profile = response.GetProfileResult;
     
-    self.emailTF.text = profile.Email;
-    self.firstnameTF.text = profile.FirstName;
-    self.familynameTF.text = profile.LastName;
-    self.mobilenumberTF.text = profile.Mobile;
-    self.countryLbl.text = profile.CountryName;
-    self.cityLbl.text = profile.CityName;
-    countryID = profile.CountryId;
-    self.questionTF.text = profile.PasswordQuestion;
+//    self.emailTF.text = profile.Email;
+//    self.firstnameTF.text = profile.FirstName;
+//    self.familynameTF.text = profile.LastName;
+//    self.mobilenumberTF.text = profile.Mobile;
+//    self.countryLbl.text = profile.CountryName;
+//    self.cityLbl.text = profile.CityName;
+//    countryID = profile.CountryId;
+//    self.questionTF.text = profile.PasswordQuestion;
     secretquestion = profile.PasswordQuestion;
-    cityID = profile.CityId;
-    countryIsSelected = 1;
-    cityIsSelected = 1;
+//    cityID = profile.CityId;
+//    countryIsSelected = 1;
+//    cityIsSelected = 1;
     userID = profile.Id;
-    self.countryButton.enabled = TRUE;
-    self.cityButton.enabled = TRUE;
+//    self.countryButton.enabled = TRUE;
+//    self.cityButton.enabled = TRUE;
     
     NSLog(@"");
     
+//    [AC startLoading];
+    IACADListSecretQuestions * request = [[IACADListSecretQuestions alloc]init];
+    request.culture = appDelegate.culture;
     
+    IACADServiceClient * client = [[IACADServiceClient alloc]init];
+    [client ListSecretQuestionsAsyncIsPost:YES input:request caller:self];
+}
+
+-(void)ListSecretQuestionsCallback:(IACADListSecretQuestionsResponse *)response error:(NSError *)error
+{
+    [AC stopLoading];
+    questionsList = response.ListSecretQuestionsResult;
+    if ([questionsList containsObject:secretquestion]) {
+        [_questionButton setTitle:secretquestion forState:UIControlStateNormal];
+    }
+    else {
+        [_questionButton setTitle:NSLocalizedStringFromTable(@"choose_question",appDelegate.culture, @"") forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -292,7 +316,7 @@
 }
 
 - (IBAction)saveMethod:(id)sender {
-//    [self dismissKeyboard];
+    //    [self dismissKeyboard];
     [self.view endEditing:YES];
     if ([self.viewDeckController isAnySideOpen])
     {
@@ -301,185 +325,52 @@
     }
     else
     {
-//        NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-//        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
         NSString * passwordRegEx = @"((?=.*\\d)(?=.*[a-zA-Z])(?=.*\\W).{7,})";
         NSPredicate *passwordTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegEx];
-//        if ([self.emailTF.text isEqualToString:@""])
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"")  message:NSLocalizedStringFromTable(@"enter_email",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_email",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else if ([emailTest evaluateWithObject:self.emailTF.text] == NO)
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"")  message:NSLocalizedStringFromTable(@"enter_correct_email",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_correct_email",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//            
-//            
-//        }
-//        else if ([self.firstnameTF.text isEqualToString:@""])
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_firstname",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_firstname",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else if ([self.familynameTF.text isEqualToString:@""])
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_familyname",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_familyname",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else if ([self.mobilenumberTF.text isEqualToString:@""])
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_mobile",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_mobile",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else if (countryIsSelected == 0)
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"select_country",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"select_country",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else if (cityIsSelected == 0)
-//        {
-//            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"select_city",appDelegate.culture, @"")];
-//            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            //            [alert show];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"select_city",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-         if ([self.questionTF.text isEqualToString:@""])
+        
+        if ([self.passwordTF.text isEqualToString:@""])
         {
-            //            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_question",appDelegate.culture, @"")];
-            //            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-            //            [alert show];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else  if ([self.newpasswordTF.text isEqualToString:@""])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+            [alert show];
             
+        }
+        else  if ([passwordTest evaluateWithObject:self.newpasswordTF.text] == NO)
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+        else if (self.newpasswordTF.text.length < 7)
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([[_questionButton titleForState:UIControlStateNormal] isEqualToString:NSLocalizedStringFromTable(@"choose_question",appDelegate.culture, @"")])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_secret_question",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([self.answerTF.text isEqualToString:@""])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_answer",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([[_questionButton titleForState:UIControlStateNormal] isEqualToString:@""])
+        {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_question",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if (![self.questionTF.text isEqualToString:secretquestion])
-        {
-            if ([self.passwordTF.text isEqualToString:@""])
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else if ([passwordTest evaluateWithObject:self.passwordTF.text] == NO)
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-                
-            }
-            else if (self.passwordTF.text.length < 7)
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else
-            {
-                NSLog(@"check question");
-                [self updateInfo];
-            }
-            
-        }
-        else if (![self.answerTF.text isEqualToString:@""])
-        {
-            if ([self.passwordTF.text isEqualToString:@""])
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else if ([passwordTest evaluateWithObject:self.passwordTF.text] == NO)
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-                
-            }
-            else
-            {
-                NSLog(@"check question");
-                [self updateInfo];
-            }
-            
-        }
-        else if (![self.newpasswordTF.text isEqualToString:@""])
-        {
-            if ([self.passwordTF.text isEqualToString:@""])
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_oldpassword",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else if ([passwordTest evaluateWithObject:self.passwordTF.text] == NO)
-            {
-                //                BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"")];
-                //                [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-                //                [alert show];
-                
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else
-            {
-                NSLog(@"check password");
-                [self updateInfo];
-            }
-        }
-        
         else
         {
-            NSLog(@"all done");
+            NSLog(@"check question");
             [self updateInfo];
         }
-        
     }
-    
 }
 
 -(void) updateInfo
@@ -493,16 +384,16 @@
     
     
     IACADEditProfile * request = [[IACADEditProfile alloc]init];
-    request.username = self.usernameTF.text;
+    request.username = profile.UserName;
     request.password = self.passwordTF.text;
     request.newpassword = self.newpasswordTF.text;
-    request.firstName = self.firstnameTF.text;
-    request.lastName = self.familynameTF.text;
-    request.email = self.emailTF.text;
-    request.mobile = self.mobilenumberTF.text;
-    request.cityId = cityID;
-    request.passwordQuestion = self.questionTF.text;
-    request.passwordAnswer = self.answerTF.text;
+    request.firstName = profile.FirstName;
+    request.lastName = profile.LastName;
+    request.email = profile.Email;
+    request.mobile = profile.Mobile;
+    request.cityId = profile.CityId;
+    request.passwordQuestion = [_questionButton titleForState:UIControlStateNormal];
+    request.passwordAnswer = _answerTF.text;
     request.culture = appDelegate.culture;
     
     IACADServiceClient * client = [[IACADServiceClient alloc]init];
@@ -517,31 +408,22 @@
     IACADEditProfileResult * result = response.EditProfileResult;
     if (result.EditProfileStatus == YES)
     {
-        appDelegate.firstName = self.firstnameTF.text;
-        appDelegate.lastName = self.familynameTF.text;
-        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        [prefs setObject:self.firstnameTF.text forKey:@"firstName"];
-        [prefs setObject:self.familynameTF.text forKey:@"lastName"];
-        [prefs synchronize];
+//        appDelegate.firstName = self.firstnameTF.text;
+//        appDelegate.lastName = self.familynameTF.text;
+//        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//        [prefs setObject:self.firstnameTF.text forKey:@"firstName"];
+//        [prefs setObject:self.familynameTF.text forKey:@"lastName"];
+//        [prefs synchronize];
         
         [appDelegate updateRightSideMenu];
-        
-        //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:result.FailureMessage];
-        //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:^{
-        //            [self messageAlertAction];
-        //        }];
-        //        [alert show];
         
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:result.FailureMessage delegate:self cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
         
+        [self closeMethod:nil];
     }
     else
     {
-        //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:result.FailureMessage];
-        //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-        //        [alert show];
-        
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:result.FailureMessage delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -634,14 +516,14 @@
     return YES;
 }
 
-//-(void)dismissKeyboard {
-//    if ([self.viewDeckController isAnySideOpen])
-//    {
-//        [self.viewDeckController closeRightView];
-//        [self.viewDeckController closeLeftView];
-//    }
-//    [self.theScrollview setContentSize:CGSizeMake(320, 530)];
-//    
+-(void)dismissKeyboard {
+    if ([self.viewDeckController isAnySideOpen])
+    {
+        [self.viewDeckController closeRightView];
+        [self.viewDeckController closeLeftView];
+    }
+    [self.theScrollview setContentSize:CGSizeMake(320, 530)];
+    
 //    if (self.usernameTF.isFirstResponder)
 //        [self.usernameTF resignFirstResponder];
 //    
@@ -656,24 +538,21 @@
 //    
 //    if (self.mobilenumberTF.isFirstResponder)
 //        [self.mobilenumberTF resignFirstResponder];
-//    
-//    if (self.passwordTF.isFirstResponder)
-//        [self.passwordTF resignFirstResponder];
-//    
-//    if (self.newpasswordTF.isFirstResponder)
-//        [self.newpasswordTF resignFirstResponder];
-//    
+    
+    if (self.passwordTF.isFirstResponder)
+        [self.passwordTF resignFirstResponder];
+    
+    if (self.newpasswordTF.isFirstResponder)
+        [self.newpasswordTF resignFirstResponder];
+    
 //    if (self.questionTF.isFirstResponder)
 //        [self.questionTF resignFirstResponder];
-//    
-//    if (self.answerTF.isFirstResponder)
-//        [self.answerTF resignFirstResponder];
-//    
-//    
-//    [self.theScrollview setContentOffset:CGPointMake(0, 0) animated:YES];
-//
-//    
-//}
+    
+    if (self.answerTF.isFirstResponder)
+        [self.answerTF resignFirstResponder];
+    
+    [self.theScrollview setContentOffset:CGPointMake(0, 0) animated:YES];
+}
 
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
@@ -692,48 +571,43 @@
 //    }
 //}
 
-//- (IBAction)countryMethod:(id)sender {
-//    if ([self.viewDeckController isAnySideOpen])
-//    {
-//        [self.viewDeckController closeRightView];
-//        [self.viewDeckController closeLeftView];
-//    }
-//    else
-//    {
-//        countrtyListViewController * countryList = [[countrtyListViewController alloc]init:self];
-//        CATransition* transition = [CATransition animation];
-//        transition.duration = 0.3;
-//        transition.type = kCATransitionPush;
-//        if ([appDelegate.culture isEqualToString:@"ar"])
-//            transition.subtype = kCATransitionFromLeft;
-//        else
-//            transition.subtype = kCATransitionFromRight;
-//        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-//        [self.navigationController pushViewController:countryList animated:NO];
-//        
-//    }
-//}
-//
-//-(void)countrySelected: (NSString *)countryname :(int)counid
-//{
-//    ArabicConverter *converter = [[ArabicConverter alloc] init];
-//    self.cityButton.enabled = TRUE;
-//    self.cityLbl.textColor = [UIColor blackColor];
-//    if ([appDelegate.culture isEqualToString:@"ar"])
-//    {
-//        self.countryLbl.text = [converter convertArabic:countryname];
-//        self.cityLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"city_lbl",appDelegate.culture, @"")];
-//    }
-//    else
-//    {
-//        self.countryLbl.text = countryname;
-//        self.cityLbl.text = NSLocalizedStringFromTable(@"city_lbl",appDelegate.culture, @"");
-//    }
-//    countryID = counid;
-//    countryIsSelected = 1;
-//    cityIsSelected = 0;
-//    
-//}
+- (IBAction)questionMethod:(id)sender {
+    if ([self.viewDeckController isAnySideOpen])
+    {
+        [self.viewDeckController closeRightView];
+        [self.viewDeckController closeLeftView];
+    }
+    else
+    {
+        SecretQuestionViewController * questionList = [[SecretQuestionViewController alloc]init:self];
+        [questionList setQuestionsList:questionsList];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionPush;
+        if ([appDelegate.culture isEqualToString:@"ar"])
+            transition.subtype = kCATransitionFromLeft;
+        else
+            transition.subtype = kCATransitionFromRight;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController pushViewController:questionList animated:NO];
+        
+    }
+}
+
+-(void)questionSelected: (NSString *)questionName
+{
+    ArabicConverter *converter = [[ArabicConverter alloc] init];
+    if ([appDelegate.culture isEqualToString:@"ar"])
+    {
+        [_questionButton setTitle:questionName forState:UIControlStateNormal];
+//        self.countryLbl.text = [converter convertArabic:questionName];
+    }
+    else
+    {
+        [_questionButton setTitle:questionName forState:UIControlStateNormal];
+//        self.countryLbl.text = questionName;
+    }
+}
 //
 //-(void)citySelected: (NSString *)cityname :(int)cityid
 //{

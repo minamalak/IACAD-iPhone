@@ -17,6 +17,7 @@
 #import "IACADGetCharitiesByDonationTypeResponse.h"
 #import "IACADGetCatalogCountries.h"
 #import "IACADGetCatalogCountriesResponse.h"
+#import "CustomizedACView.h"
 
 
 
@@ -116,14 +117,14 @@
         
         
         UIImage *trans1= [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trans" ofType:@"png"]];
-        UIButton * copFilter =[[UIButton alloc]init];
+        copFilter =[[UIButton alloc]init];
         copFilter.frame = CGRectMake(0,10,152,60);
         [copFilter setBackgroundImage:trans1 forState:UIControlStateNormal];
         [copFilter addTarget:self action:@selector(loadCopFilter) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:copFilter];
         
         UIImage *trans2= [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trans" ofType:@"png"]];
-        UIButton * countryFilter =[[UIButton alloc]init];
+        countryFilter =[[UIButton alloc]init];
         countryFilter.frame = CGRectMake(152,10,152,60);
         [countryFilter setBackgroundImage:trans2 forState:UIControlStateNormal];
         [countryFilter addTarget:self action:@selector(loadCountryFilter) forControlEvents:UIControlEventTouchUpInside];
@@ -189,7 +190,14 @@
         [rtable.layer setCornerRadius:10.0];
         
         
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+        // Mina
+        AC =[[CustomizedACView alloc]initWithFrame:CGRectMake(self.center.x, self.center.y, 100, 68)];
+        AC.center=self.center;
+        AC.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+        [AC stopLoading];
+        [self addSubview:AC];
+        
+        tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                action:@selector(detectTapGesture)];
         tap.numberOfTapsRequired = 1;
         tap.numberOfTouchesRequired = 1;
@@ -215,7 +223,7 @@
     [delegate reloadTableview:charID :counID :charityName :countryName];
 }
 
--(void) loadCopFilter
+-(IBAction) loadCopFilter
 {
     filterType = @"org";
     rtable.alpha = 0;
@@ -229,15 +237,20 @@
     [arrowright setImage:[UIImage imageNamed:@"filter_arrow_down.png"]];
     [firstcellImage setImage:[UIImage imageNamed:@"filter_list_01.png"]];
     
+    [copFilter setEnabled:NO];
+    [countryFilter setEnabled:NO];
+//    [self addGestureRecognizer:tap];
+    [self removeGestureRecognizer:tap];
+    
+    [AC startLoading];
     IACADServiceClient *client = [[IACADServiceClient alloc] init];
     [client GetCharitiesByDonationTypeAsyncIsPost:YES input:request caller:self];
 }
 
 
 
--(void) loadCountryFilter
+-(IBAction) loadCountryFilter
 {
-    
     filterType = @"con";
     rtable.alpha = 0;
     firstcellImage.alpha = 0;
@@ -250,6 +263,11 @@
     [arrowright setImage:[UIImage imageNamed:@"filter_arrow_up.png"]];
     [firstcellImage setImage:[UIImage imageNamed:@"filter_list_10.png"]];
     
+    [copFilter setEnabled:NO];
+    [countryFilter setEnabled:NO];
+    [self removeGestureRecognizer:tap];
+    
+    [AC startLoading];
     IACADServiceClient *client = [[IACADServiceClient alloc] init];
     [client GetCatalogCountriesAsyncIsPost:YES input:request caller:self];
 }
@@ -268,6 +286,11 @@
     
     if ([charitiesList count]>0)
         [self viewTable];
+    
+    [copFilter setEnabled:YES];
+    [countryFilter setEnabled:YES];
+    [self addGestureRecognizer:tap];
+    [AC stopLoading];
 }
 
 
@@ -285,11 +308,31 @@
     
     if ([charitiesList count]>0)
         [self viewTable];
+    
+    [copFilter setEnabled:YES];
+    [countryFilter setEnabled:YES];
+    [self addGestureRecognizer:tap];
+    [AC stopLoading];
 }
 
 -(void) viewTable
 {
     rtable.alpha = 1;
+    
+//    [rtable removeFromSuperview];
+//    rtable = [[UITableView alloc] initWithFrame:CGRectMake(3,90,298,self.frame.size.height-100)];
+//    rtable.backgroundColor = [UIColor colorWithRed:69/255.f
+//                                             green:68/255.f
+//                                              blue:68/255.f
+//                                             alpha:1.0];
+//    
+//    rtable.showsVerticalScrollIndicator = NO;
+//    [rtable setTintColor:[UIColor grayColor]];
+//    rtable.separatorStyle = NO;
+//    [self addSubview:rtable];
+//    [rtable.layer setCornerRadius:10.0];
+    
+    
     firstcellImage.alpha = 1;
     rtable.dataSource = self;
     rtable.delegate = self;
@@ -414,7 +457,7 @@
         donationDesc.tag = 30;
         [cell.contentView addSubview:donationDesc];
         
-        UIImageView *imageSeparator = [[UIImageView alloc]initWithFrame:CGRectMake(0, 30, 285, 2)];
+        UIImageView *imageSeparator = [[UIImageView alloc]initWithFrame:CGRectMake(0, 29, 285, 2)];
         [imageSeparator setImage:[UIImage imageNamed:@"seperator.png"]];
         [cell.contentView addSubview:imageSeparator];
     }

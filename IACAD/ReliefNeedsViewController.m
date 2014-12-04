@@ -370,9 +370,8 @@
     //[AC stopLoading];
     returnResponse = response.AddReliefDonationResult;
     NSLog(@"return URL %@",returnResponse);
-    
+    [self backMethod:nil];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:returnResponse]];
-    //    [self viewWebview:returnResponse];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch

@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 @class AppDelegate;
+@class CustomizedACView;
 @interface FilterView : UIView <UITableViewDelegate,UITableViewDataSource,IACADServiceClientCaller>
 {
     id delegate;
@@ -36,7 +37,11 @@
     NSMutableArray *arraySelected;
     int charID;
     NSMutableArray * counID;
- 
+    
+    CustomizedACView *AC;
+    UIButton * copFilter;
+    UIButton * countryFilter;
+    UITapGestureRecognizer * tap;
 }
 
 - (id)initWithFrame:(CGRect)frame  :(id)del :(int)charityid :(NSMutableArray *)countryid :(int)donateid :(NSString *)charIndex :(NSString *)counIndex;

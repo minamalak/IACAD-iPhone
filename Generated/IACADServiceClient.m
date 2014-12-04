@@ -1,4 +1,6 @@
 
+
+
 #import <Foundation/Foundation.h>
 #import "IACADServiceClient.h"
 #import "WebServiceResponse.h"
@@ -77,9 +79,10 @@
 #import "IACADGetReliefNeedForDisasterResponse.h"
 #import "IACADAddReliefDonation.h"
 #import "IACADAddReliefDonationResponse.h"
+#import "IACADListSecretQuestions.h"
+#import "IACADListSecretQuestionsResponse.h"
 
 #define serviceURL @"http://iacadcld.linkdev.com/services/MobileService.svc/"
-//#define serviceURL @"http://www.ecp.ae/services/MobileService.svc/"
 
 
 @implementation IACADServiceClient
@@ -176,14 +179,26 @@
 				IACADGetDonationItemsByCharityAndDonationTypeResponse *output = nil;
 				if(!response.error) {
 					NSError *jsonParsingError = nil;
-//                    NSString *log = [[NSString alloc] initWithData:response.content encoding:NSUTF8StringEncoding];
-//                    NSLog(@"%@", log);
 					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
 					//NSDictionary *deserializedData = [response.content objectFromJSONData];
 					output = [[IACADGetDonationItemsByCharityAndDonationTypeResponse alloc] initWithData:deserializedData];
 				}
 				if(caller && [caller respondsToSelector:@selector(GetDonationItemsByCharityAndDonationTypeCallback:error:)]) {
 					[caller GetDonationItemsByCharityAndDonationTypeCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallGetDonationItemsByCharityAndDonationTypeAndContries:
+			{
+				IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetDonationItemsByCharityAndDonationTypeAndContriesCallback:error:)]) {
+					[caller GetDonationItemsByCharityAndDonationTypeAndContriesCallback:output error:response.error];
 				}
 				break;
 			}
@@ -208,7 +223,6 @@
 					NSError *jsonParsingError = nil;
 					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
 					//NSDictionary *deserializedData = [response.content objectFromJSONData];
-                    NSString *x = [[NSString alloc] initWithData:response.content encoding:NSUTF8StringEncoding];
 					output = [[IACADLoginResponse alloc] initWithData:deserializedData];
 				}
 				if(caller && [caller respondsToSelector:@selector(LoginCallback:error:)]) {
@@ -244,6 +258,20 @@
 				}
 				break;
 			}
+		case IACADMethodCallGetRegex:
+			{
+				IACADGetRegexResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetRegexResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetRegexCallback:error:)]) {
+					[caller GetRegexCallback:output error:response.error];
+				}
+				break;
+			}
 		case IACADMethodCallGetEvents:
 			{
 				IACADGetEventsResponse *output = nil;
@@ -259,19 +287,19 @@
 				break;
 			}
 //		case IACADMethodCallGetIPADImages:
-//        {
-//            IACADGetIPADImagesResponse *output = nil;
-//            if(!response.error) {
-//                NSError *jsonParsingError = nil;
-//                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-//                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-//                output = [[IACADGetIPADImagesResponse alloc] initWithData:deserializedData];
-//            }
-//            if(caller && [caller respondsToSelector:@selector(GetIPADImagesCallback:error:)]) {
-//                [caller GetIPADImagesCallback:output error:response.error];
-//            }
-//            break;
-//        }
+//			{
+//				IACADGetIPADImagesResponse *output = nil;
+//				if(!response.error) {
+//					NSError *jsonParsingError = nil;
+//					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+//					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+//					output = [[IACADGetIPADImagesResponse alloc] initWithData:deserializedData];
+//				}
+//				if(caller && [caller respondsToSelector:@selector(GetIPADImagesCallback:error:)]) {
+//					[caller GetIPADImagesCallback:output error:response.error];
+//				}
+//				break;
+//			}
 		case IACADMethodCallGetEventDetails:
 			{
 				IACADGetEventDetailsResponse *output = nil;
@@ -440,6 +468,20 @@
 				}
 				break;
 			}
+		case IACADMethodCallGetPersonsByCharityAndDonationTypeAndContries:
+			{
+				IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetPersonsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetPersonsByCharityAndDonationTypeAndContriesCallback:error:)]) {
+					[caller GetPersonsByCharityAndDonationTypeAndContriesCallback:output error:response.error];
+				}
+				break;
+			}
 		case IACADMethodCallGetCatalogPersonDetails:
 			{
 				IACADGetCatalogPersonDetailsResponse *output = nil;
@@ -464,139 +506,109 @@
 					output = [[IACADDonateToCatalogPersonResponse alloc] initWithData:deserializedData];
 				}
 				if(caller && [caller respondsToSelector:@selector(DonateToCatalogPersonCallback:error:)]) {
-                    [caller DonateToCatalogPersonCallback:output error:response.error];
-                }
-                break;
-            }
-        case IACADMethodCallGetDonorProjects:
-        {
-            IACADGetDonorProjectsResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetDonorProjectsResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetDonorProjectsCallback:error:)]) {
-                [caller GetDonorProjectsCallback:output error:response.error];
-            }
-            break;
-        }
-        case IACADMethodCallGetProject:
-        {
-            IACADGetProjectResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetProjectResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetProjectCallback:error:)]) {
-                [caller GetProjectCallback:output error:response.error];
+					[caller DonateToCatalogPersonCallback:output error:response.error];
 				}
 				break;
 			}
-            
-		case IACADMethodCallGetDonationItemsByCharityAndDonationTypeAndContries:
-        {
-            IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetDonationItemsByCharityAndDonationTypeAndContriesCallback:error:)]) {
-                [caller GetDonationItemsByCharityAndDonationTypeAndContriesCallback:output error:response.error];
-            }
-            break;
-        }
-            
-		case IACADMethodCallGetPersonsByCharityAndDonationTypeAndContries:
-        {
-            IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetPersonsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetPersonsByCharityAndDonationTypeAndContriesCallback:error:)]) {
-                [caller GetPersonsByCharityAndDonationTypeAndContriesCallback:output error:response.error];
-            }
-            break;
-        }
-		case IACADMethodCallGetRegex:
-        {
-            IACADGetRegexResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetRegexResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetRegexCallback:error:)]) {
-                [caller GetRegexCallback:output error:response.error];
-            }
-            break;
-        }
-        case IACADMethodCallGetReliefCharities:
-        {
-            IACADGetReliefCharitiesResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetReliefCharitiesResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetReliefCharitiesCallback:error:)]) {
-                [caller GetReliefCharitiesCallback:output error:response.error];
-            }
-            break;
-        }
-        case IACADMethodCallGetReliefDisasterForCharity:
-        {
-            IACADGetReliefDisasterForCharityResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetReliefDisasterForCharityResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetReliefDisasterForCharityCallback:error:)]) {
-                [caller GetReliefDisasterForCharityCallback:output error:response.error];
-            }
-            break;
-        }
-        case IACADMethodCallGetReliefNeedForDisaster:
-        {
-            IACADGetReliefNeedForDisasterResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADGetReliefNeedForDisasterResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(GetReliefNeedForDisasterCallback:error:)]) {
-                [caller GetReliefNeedForDisasterCallback:output error:response.error];
-            }
-            break;
-        }
-        case IACADMethodCallAddReliefDonation:
-        {
-            IACADAddReliefDonationResponse *output = nil;
-            if(!response.error) {
-                NSError *jsonParsingError = nil;
-                NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
-                //NSDictionary *deserializedData = [response.content objectFromJSONData];
-                output = [[IACADAddReliefDonationResponse alloc] initWithData:deserializedData];
-            }
-            if(caller && [caller respondsToSelector:@selector(AddReliefDonationCallback:error:)]) {
-                [caller AddReliefDonationCallback:output error:response.error];
-            }
-            break;
-        }
-    }
+		case IACADMethodCallGetDonorProjects:
+			{
+				IACADGetDonorProjectsResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetDonorProjectsResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetDonorProjectsCallback:error:)]) {
+					[caller GetDonorProjectsCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallGetProject:
+			{
+				IACADGetProjectResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetProjectResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetProjectCallback:error:)]) {
+					[caller GetProjectCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallGetReliefCharities:
+			{
+				IACADGetReliefCharitiesResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetReliefCharitiesResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetReliefCharitiesCallback:error:)]) {
+					[caller GetReliefCharitiesCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallGetReliefDisasterForCharity:
+			{
+				IACADGetReliefDisasterForCharityResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetReliefDisasterForCharityResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetReliefDisasterForCharityCallback:error:)]) {
+					[caller GetReliefDisasterForCharityCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallGetReliefNeedForDisaster:
+			{
+				IACADGetReliefNeedForDisasterResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADGetReliefNeedForDisasterResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(GetReliefNeedForDisasterCallback:error:)]) {
+					[caller GetReliefNeedForDisasterCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallAddReliefDonation:
+			{
+				IACADAddReliefDonationResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADAddReliefDonationResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(AddReliefDonationCallback:error:)]) {
+					[caller AddReliefDonationCallback:output error:response.error];
+				}
+				break;
+			}
+		case IACADMethodCallListSecretQuestions:
+			{
+				IACADListSecretQuestionsResponse *output = nil;
+				if(!response.error) {
+					NSError *jsonParsingError = nil;
+					NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:response.content options:0 error:&jsonParsingError];
+					//NSDictionary *deserializedData = [response.content objectFromJSONData];
+					output = [[IACADListSecretQuestionsResponse alloc] initWithData:deserializedData];
+				}
+				if(caller && [caller respondsToSelector:@selector(ListSecretQuestionsCallback:error:)]) {
+					[caller ListSecretQuestionsCallback:output error:response.error];
+				}
+				break;
+			}
+	}
 }
 
 - (IACADGetAllDonationTypesResponse *)GetAllDonationTypesIsPost:(BOOL)isPost input: (IACADGetAllDonationTypes *)input error:(NSError **)error {
@@ -863,13 +875,48 @@
 		//request.body = [[input JSONDictionary] JSONData];
 		NSError *writeError = nil; 
 		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-        
-        
-        NSString *log = [[NSString alloc] initWithData:request.body encoding:NSUTF8StringEncoding];
-        NSLog(@"request %@", log);
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationType%@", serviceURL, [input requestGETParams]];
+    }
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
+}
+
+- (IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *)GetDonationItemsByCharityAndDonationTypeAndContriesIsPost:(BOOL)isPost input: (IACADGetDonationItemsByCharityAndDonationTypeAndContries *)input error:(NSError **)error {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
+    }
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *output = [[IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
+	return output;
+}
+- (void)GetDonationItemsByCharityAndDonationTypeAndContriesAsyncIsPost:(BOOL)isPost input: (IACADGetDonationItemsByCharityAndDonationTypeAndContries *)input caller:(id<IACADServiceClientCaller>)caller {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallGetDonationItemsByCharityAndDonationTypeAndContries;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
     }
 
 	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
@@ -984,8 +1031,6 @@
 		//request.body = [[input JSONDictionary] JSONData];
 		NSError *writeError = nil; 
 		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-        NSString *requestStr = [[NSString alloc] initWithData:request.body encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", requestStr);
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@Register%@", serviceURL, [input requestGETParams]];
@@ -1028,6 +1073,45 @@
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetMobileContent%@", serviceURL, [input requestGETParams]];
+    }
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
+}
+
+- (IACADGetRegexResponse *)GetRegexIsPost:(BOOL)isPost input: (IACADGetRegex *)input error:(NSError **)error {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetRegex", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@GetRegex%@", serviceURL, [input requestGETParams]];
+    }
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADGetRegexResponse *output = [[IACADGetRegexResponse alloc] initWithData:deserializedData];
+	return output;
+}
+- (void)GetRegexAsyncIsPost:(BOOL)isPost input: (IACADGetRegex *)input caller:(id<IACADServiceClientCaller>)caller {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallGetRegex;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetRegex", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@GetRegex%@", serviceURL, [input requestGETParams]];
     }
 
 	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
@@ -1078,7 +1162,7 @@
 //	if (isPost) {
 //		request.url = [[NSString alloc] initWithFormat:@"%@GetIPADImages", serviceURL];
 //		//request.body = [[input JSONDictionary] JSONData];
-//		NSError *writeError = nil;
+//		NSError *writeError = nil; 
 //		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
 //    }
 //    else {
@@ -1101,13 +1185,13 @@
 //	if (isPost) {
 //		request.url = [[NSString alloc] initWithFormat:@"%@GetIPADImages", serviceURL];
 //		//request.body = [[input JSONDictionary] JSONData];
-//		NSError *writeError = nil;
+//		NSError *writeError = nil; 
 //		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
 //    }
 //    else {
 //        request.url = [[NSString alloc] initWithFormat:@"%@GetIPADImages%@", serviceURL, [input requestGETParams]];
 //    }
-//    
+//
 //	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
 //	[service dataWithContentAsyncIsPost:isPost];
 //}
@@ -1580,6 +1664,45 @@
 	[service dataWithContentAsyncIsPost:isPost];
 }
 
+- (IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *)GetPersonsByCharityAndDonationTypeAndContriesIsPost:(BOOL)isPost input: (IACADGetPersonsByCharityAndDonationTypeAndContries *)input error:(NSError **)error {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
+    }
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *output = [[IACADGetPersonsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
+	return output;
+}
+- (void)GetPersonsByCharityAndDonationTypeAndContriesAsyncIsPost:(BOOL)isPost input: (IACADGetPersonsByCharityAndDonationTypeAndContries *)input caller:(id<IACADServiceClientCaller>)caller {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallGetPersonsByCharityAndDonationTypeAndContries;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
+    }
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
+}
+
 - (IACADGetCatalogPersonDetailsResponse *)GetCatalogPersonDetailsIsPost:(BOOL)isPost input: (IACADGetCatalogPersonDetails *)input error:(NSError **)error {
 	WebServiceRequest *request = [[WebServiceRequest alloc] init];
 	if (isPost) {
@@ -1736,279 +1859,200 @@
 	[service dataWithContentAsyncIsPost:isPost];
 }
 
-
-- (IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *)GetDonationItemsByCharityAndDonationTypeAndContriesIsPost:(BOOL)isPost input: (IACADGetDonationItemsByCharityAndDonationTypeAndContries *)input error:(NSError **)error {
-	WebServiceRequest *request = [[WebServiceRequest alloc] init];
-	if (isPost) {
-		request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries", serviceURL];
-		//request.body = [[input JSONDictionary] JSONData];
-		NSError *writeError = nil;
-		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-    }
-    else {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
-    }
-	
-	WebService *service = [[WebService alloc] initWithRequest:request];
-	NSURLResponse *response = nil;
-	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-	//NSDictionary *deserializedData = [data objectFromJSONData];
-	NSError *jsonParsingError = nil;
-	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-	IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse *output = [[IACADGetDonationItemsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
-	return output;
-}
-- (void)GetDonationItemsByCharityAndDonationTypeAndContriesAsyncIsPost:(BOOL)isPost input: (IACADGetDonationItemsByCharityAndDonationTypeAndContries *)input caller:(id<IACADServiceClientCaller>)caller {
-	WebServiceRequest *request = [[WebServiceRequest alloc] init];
-	request.caller = caller;
-	request.call = IACADMethodCallGetDonationItemsByCharityAndDonationTypeAndContries;
-	if (isPost) {
-		request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries", serviceURL];
-		//request.body = [[input JSONDictionary] JSONData];
-		NSError *writeError = nil;
-		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-    }
-    else {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetDonationItemsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
-    }
-    
-	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-	[service dataWithContentAsyncIsPost:isPost];
-}
-
-- (IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *)GetPersonsByCharityAndDonationTypeAndContriesIsPost:(BOOL)isPost input: (IACADGetPersonsByCharityAndDonationTypeAndContries *)input error:(NSError **)error {
-	WebServiceRequest *request = [[WebServiceRequest alloc] init];
-	if (isPost) {
-		request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries", serviceURL];
-		//request.body = [[input JSONDictionary] JSONData];
-		NSError *writeError = nil;
-		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-    }
-    else {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
-    }
-	
-	WebService *service = [[WebService alloc] initWithRequest:request];
-	NSURLResponse *response = nil;
-	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-	//NSDictionary *deserializedData = [data objectFromJSONData];
-	NSError *jsonParsingError = nil;
-	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-	IACADGetPersonsByCharityAndDonationTypeAndContriesResponse *output = [[IACADGetPersonsByCharityAndDonationTypeAndContriesResponse alloc] initWithData:deserializedData];
-	return output;
-}
-- (void)GetPersonsByCharityAndDonationTypeAndContriesAsyncIsPost:(BOOL)isPost input: (IACADGetPersonsByCharityAndDonationTypeAndContries *)input caller:(id<IACADServiceClientCaller>)caller {
-	WebServiceRequest *request = [[WebServiceRequest alloc] init];
-	request.caller = caller;
-	request.call = IACADMethodCallGetPersonsByCharityAndDonationTypeAndContries;
-	if (isPost) {
-		request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries", serviceURL];
-		//request.body = [[input JSONDictionary] JSONData];
-		NSError *writeError = nil;
-		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-    }
-    else {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetPersonsByCharityAndDonationTypeAndContries%@", serviceURL, [input requestGETParams]];
-    }
-    
-	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-	[service dataWithContentAsyncIsPost:isPost];
-}
-- (IACADGetRegexResponse *)GetRegexIsPost:(BOOL)isPost input: (IACADGetRegex *)input error:(NSError **)error {
-	WebServiceRequest *request = [[WebServiceRequest alloc] init];
-	if (isPost) {
-		request.url = [[NSString alloc] initWithFormat:@"%@GetRegex", serviceURL];
-		//request.body = [[input JSONDictionary] JSONData];
-		NSError *writeError = nil;
-		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-    }
-    else {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetRegex%@", serviceURL, [input requestGETParams]];
-    }
-	
-	WebService *service = [[WebService alloc] initWithRequest:request];
-	NSURLResponse *response = nil;
-	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-	//NSDictionary *deserializedData = [data objectFromJSONData];
-	NSError *jsonParsingError = nil;
-	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-	IACADGetRegexResponse *output = [[IACADGetRegexResponse alloc] initWithData:deserializedData];
-	return output;
-}
-- (void)GetRegexAsyncIsPost:(BOOL)isPost input: (IACADGetRegex *)input caller:(id<IACADServiceClientCaller>)caller {
-	WebServiceRequest *request = [[WebServiceRequest alloc] init];
-	request.caller = caller;
-	request.call = IACADMethodCallGetRegex;
-	if (isPost) {
-		request.url = [[NSString alloc] initWithFormat:@"%@GetRegex", serviceURL];
-		//request.body = [[input JSONDictionary] JSONData];
-		NSError *writeError = nil;
-		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
-    }
-    else {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetRegex%@", serviceURL, [input requestGETParams]];
-    }
-    
-	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-	[service dataWithContentAsyncIsPost:isPost];
-}
-
 - (IACADGetReliefCharitiesResponse *)GetReliefCharitiesIsPost:(BOOL)isPost input: (IACADGetReliefCharities *)input error:(NSError **)error {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetReliefCharities", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetReliefCharities", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetReliefCharities%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request];
-    NSURLResponse *response = nil;
-    NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-    //NSDictionary *deserializedData = [data objectFromJSONData];
-    NSError *jsonParsingError = nil;
-    NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-    IACADGetReliefCharitiesResponse *output = [[IACADGetReliefCharitiesResponse alloc] initWithData:deserializedData];
-    return output;
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADGetReliefCharitiesResponse *output = [[IACADGetReliefCharitiesResponse alloc] initWithData:deserializedData];
+	return output;
 }
 - (void)GetReliefCharitiesAsyncIsPost:(BOOL)isPost input: (IACADGetReliefCharities *)input caller:(id<IACADServiceClientCaller>)caller {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    request.caller = caller;
-    request.call = IACADMethodCallGetReliefCharities;
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetReliefCharities", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallGetReliefCharities;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetReliefCharities", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetReliefCharities%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-    [service dataWithContentAsyncIsPost:isPost];
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
 }
 
 - (IACADGetReliefDisasterForCharityResponse *)GetReliefDisasterForCharityIsPost:(BOOL)isPost input: (IACADGetReliefDisasterForCharity *)input error:(NSError **)error {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetReliefDisasterForCharity", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetReliefDisasterForCharity", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetReliefDisasterForCharity%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request];
-    NSURLResponse *response = nil;
-    NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-    //NSDictionary *deserializedData = [data objectFromJSONData];
-    NSError *jsonParsingError = nil;
-    NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-    IACADGetReliefDisasterForCharityResponse *output = [[IACADGetReliefDisasterForCharityResponse alloc] initWithData:deserializedData];
-    return output;
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADGetReliefDisasterForCharityResponse *output = [[IACADGetReliefDisasterForCharityResponse alloc] initWithData:deserializedData];
+	return output;
 }
 - (void)GetReliefDisasterForCharityAsyncIsPost:(BOOL)isPost input: (IACADGetReliefDisasterForCharity *)input caller:(id<IACADServiceClientCaller>)caller {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    request.caller = caller;
-    request.call = IACADMethodCallGetReliefDisasterForCharity;
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetReliefDisasterForCharity", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallGetReliefDisasterForCharity;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetReliefDisasterForCharity", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetReliefDisasterForCharity%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-    [service dataWithContentAsyncIsPost:isPost];
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
 }
 
 - (IACADGetReliefNeedForDisasterResponse *)GetReliefNeedForDisasterIsPost:(BOOL)isPost input: (IACADGetReliefNeedForDisaster *)input error:(NSError **)error {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetReliefNeedForDisaster", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetReliefNeedForDisaster", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetReliefNeedForDisaster%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request];
-    NSURLResponse *response = nil;
-    NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-    //NSDictionary *deserializedData = [data objectFromJSONData];
-    NSError *jsonParsingError = nil;
-    NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-    IACADGetReliefNeedForDisasterResponse *output = [[IACADGetReliefNeedForDisasterResponse alloc] initWithData:deserializedData];
-    return output;
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADGetReliefNeedForDisasterResponse *output = [[IACADGetReliefNeedForDisasterResponse alloc] initWithData:deserializedData];
+	return output;
 }
 - (void)GetReliefNeedForDisasterAsyncIsPost:(BOOL)isPost input: (IACADGetReliefNeedForDisaster *)input caller:(id<IACADServiceClientCaller>)caller {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    request.caller = caller;
-    request.call = IACADMethodCallGetReliefNeedForDisaster;
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@GetReliefNeedForDisaster", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallGetReliefNeedForDisaster;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@GetReliefNeedForDisaster", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@GetReliefNeedForDisaster%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-    [service dataWithContentAsyncIsPost:isPost];
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
 }
 
 - (IACADAddReliefDonationResponse *)AddReliefDonationIsPost:(BOOL)isPost input: (IACADAddReliefDonation *)input error:(NSError **)error {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@AddReliefDonation", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@AddReliefDonation", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@AddReliefDonation%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request];
-    NSURLResponse *response = nil;
-    NSData *data = [service dataContentIsPost:isPost response:&response error:error];
-    //NSDictionary *deserializedData = [data objectFromJSONData];
-    NSError *jsonParsingError = nil;
-    NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-    IACADAddReliefDonationResponse *output = [[IACADAddReliefDonationResponse alloc] initWithData:deserializedData];
-    return output;
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADAddReliefDonationResponse *output = [[IACADAddReliefDonationResponse alloc] initWithData:deserializedData];
+	return output;
 }
 - (void)AddReliefDonationAsyncIsPost:(BOOL)isPost input: (IACADAddReliefDonation *)input caller:(id<IACADServiceClientCaller>)caller {
-    WebServiceRequest *request = [[WebServiceRequest alloc] init];
-    request.caller = caller;
-    request.call = IACADMethodCallAddReliefDonation;
-    if (isPost) {
-        request.url = [[NSString alloc] initWithFormat:@"%@AddReliefDonation", serviceURL];
-        //request.body = [[input JSONDictionary] JSONData];
-        NSError *writeError = nil;
-        request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallAddReliefDonation;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@AddReliefDonation", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
     }
     else {
         request.url = [[NSString alloc] initWithFormat:@"%@AddReliefDonation%@", serviceURL, [input requestGETParams]];
     }
-    
-    WebService *service = [[WebService alloc] initWithRequest:request caller:self];
-    [service dataWithContentAsyncIsPost:isPost];
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
 }
 
+- (IACADListSecretQuestionsResponse *)ListSecretQuestionsIsPost:(BOOL)isPost input: (IACADListSecretQuestions *)input error:(NSError **)error {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@ListSecretQuestions", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@ListSecretQuestions%@", serviceURL, [input requestGETParams]];
+    }
+	
+	WebService *service = [[WebService alloc] initWithRequest:request];
+	NSURLResponse *response = nil;
+	NSData *data = [service dataContentIsPost:isPost response:&response error:error];
+	//NSDictionary *deserializedData = [data objectFromJSONData];
+	NSError *jsonParsingError = nil;
+	NSDictionary *deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+	IACADListSecretQuestionsResponse *output = [[IACADListSecretQuestionsResponse alloc] initWithData:deserializedData];
+	return output;
+}
+- (void)ListSecretQuestionsAsyncIsPost:(BOOL)isPost input: (IACADListSecretQuestions *)input caller:(id<IACADServiceClientCaller>)caller {
+	WebServiceRequest *request = [[WebServiceRequest alloc] init];
+	request.caller = caller;
+	request.call = IACADMethodCallListSecretQuestions;
+	if (isPost) {
+		request.url = [[NSString alloc] initWithFormat:@"%@ListSecretQuestions", serviceURL];
+		//request.body = [[input JSONDictionary] JSONData];
+		NSError *writeError = nil; 
+		request.body = [NSJSONSerialization dataWithJSONObject:[input JSONDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    }
+    else {
+        request.url = [[NSString alloc] initWithFormat:@"%@ListSecretQuestions%@", serviceURL, [input requestGETParams]];
+    }
+
+	WebService *service = [[WebService alloc] initWithRequest:request caller:self];
+	[service dataWithContentAsyncIsPost:isPost];
+}
 
 @end
 

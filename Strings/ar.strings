@@ -54,6 +54,7 @@
 "answer_lbl" = "الجواب السري";
 "registered_title_lbl" = "";
 "change_password" = "تغيير كلمة السر";
+"choose_question" = "اختار السؤال";
 
 ////Message box
 "done_lbl" = "تم";
@@ -73,9 +74,10 @@
 "complex_password" = " لابد أن تحتوي كلمة السر على حروف صغيرة و حروف كبيرة و أرقام و رموز و لا تقل عن سبعة أحرف";
 "enter_donation" = "أدخل قيمة التبرع";
 "remaining_share_message" = "أسهم قمت بإدخال أكثر من الأسهم المتبقية";
+"stocks_empty" = "من فضلك ادخل عدد الاسهم";
 "project_name_msg" = "أدخل اسم المشروع";
 "project_note_msg" = "أدخل مذكرة المشروع";
-
+"enter_secret_question" = "اختار السؤال السري";
 "value_more_remaining_lbl" = "أدخل قيمة أقل من الأسهم المتبقية";
 
 "registrationdone_msg" = "لقد تم تسجيلك بنجاح";

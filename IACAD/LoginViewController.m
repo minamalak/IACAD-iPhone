@@ -87,6 +87,7 @@
             self.titleLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"registered_title_lbl",appDelegate.culture, @"")];
         }
         
+        _labelLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"register_or_login_lbl",appDelegate.culture, @"")];
     }
     else
     {
@@ -102,7 +103,7 @@
         if (appDelegate.login == 1) {
             self.titleLbl.text = NSLocalizedStringFromTable(@"registered_title_lbl",appDelegate.culture, @"");
         }
-        
+        _labelLbl.text = NSLocalizedStringFromTable(@"register_or_login_lbl",appDelegate.culture, @"");
     }
     
     
@@ -158,6 +159,7 @@
             
             [_lblChangePassword setAlpha:0];
             [_btnChangePassword setAlpha:0];
+            [_labelLbl setAlpha:1];
             
         }
         else
@@ -173,6 +175,7 @@
             _lblChangePassword.text = [converter convertArabic:NSLocalizedStringFromTable(@"change_password", appDelegate.culture, @"")];
             [_lblChangePassword setAlpha:1];
             [_btnChangePassword setAlpha:1];
+            [_labelLbl setAlpha:0];
         }
         
     }
@@ -188,6 +191,7 @@
             
             [_lblChangePassword setAlpha:0];
             [_btnChangePassword setAlpha:0];
+             [_labelLbl setAlpha:1];
         }
         else
         {
@@ -203,6 +207,7 @@
             _lblChangePassword.text = NSLocalizedStringFromTable(@"change_password", appDelegate.culture, @"");
             [_lblChangePassword setAlpha:1];
             [_btnChangePassword setAlpha:1];
+             [_labelLbl setAlpha:0];
         }
     }
 }

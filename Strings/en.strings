@@ -22,7 +22,7 @@
 "event_lbl" = "Events";
 "general_lbl" = "Donation";
 "special_donate_lbl" = "Special Donation";
-"rescue_lbl" = "Rescue";
+"rescue_lbl" = "Relief";
 
 
 ////About
@@ -52,6 +52,7 @@
 "answer_lbl" = "Secret Answer";
 "registered_title_lbl" = "";
 "change_password" = "Change Password";
+"choose_question" = "Choose Question";
 
 
 ////Message box
@@ -72,10 +73,11 @@
 "complex_password" = "Your password must contains lowercase letters, uppercase letters, numbers, symbols and must be 7 characters or more";
 "enter_donation" = "Enter the donation value";
 "remaining_share_message" = "Stocks you have entered are more than remaining stocks";
+"stocks_empty" = "Enter number of stocks";
 "project_name_msg" = "Enter project name";
 "project_note_msg" = "Enter project note";
 "value_more_remaining_lbl" = "Enter value less than remaining stock";
-
+"enter_secret_question" = "Choose secret question";
 "registrationdone_msg" = "You have been successfully registered";
 
 

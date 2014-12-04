@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tabbarImg;
 - (IBAction)forgotPassMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *forgotPassButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *btnRegistration;
 @property (weak, nonatomic) IBOutlet UILabel *forgetpassLbl;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *passwordLbl;
 
 - (IBAction)forgetpassMethod:(id)sender;
+- (IBAction)registrationMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 - (IBAction)closeMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;

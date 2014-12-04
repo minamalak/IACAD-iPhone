@@ -19,6 +19,9 @@
 #import "IIViewDeckController.h"
 #import "IACADUser.h"
 #import "AppSettingCache.h"
+#import "SecretQuestionViewController.h"
+#import "IACADListSecretQuestions.h"
+#import "IACADListSecretQuestionsResponse.h"
 
 @interface NewuserViewController ()
 
@@ -50,7 +53,8 @@
     appDelegate.countViews = appDelegate.countViews +1;
     
     NSString * required = NSLocalizedStringFromTable(@"required_lbl",appDelegate.culture, @"");
-
+    [_questionButton setTitle:NSLocalizedStringFromTable(@"choose_question",appDelegate.culture, @"") forState:UIControlStateNormal];
+    
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
         UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:18];
@@ -115,7 +119,6 @@
     }
     else
     {
-        
         self.titleLbl.text = NSLocalizedStringFromTable(@"register_title_lbl",appDelegate.culture, @"");
         
         self.usernameLbl.text = NSLocalizedStringFromTable(@"username_lbl",appDelegate.culture, @"");
@@ -203,6 +206,10 @@
         
         
         [self.listingBgImg setImage:[UIImage imageNamed:@"listing_two_en.png"]];
+        
+        [_listingBgImgSecrets setImage:[UIImage imageNamed:@"listing_one_one_en.png"]];
+        [_questionButton setFrame:CGRectMake(60, _questionButton.frame.origin.y, _questionButton.frame.size.width, _questionButton.frame.size.height)];
+        _questionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
     }
    
@@ -393,28 +400,21 @@
         }
         else if (self.passwordTF.text.length < 7)
         {
-//            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"")];
-//            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            [alert show];
-            
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"complex_password",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if ([self.questionTF.text isEqualToString:@""])
-        {
-//            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_question",appDelegate.culture, @"")];
-//            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
+//        else if ([self.questionTF.text isEqualToString:@""])
+//        {
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_question",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
 //            [alert show];
-            
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_question",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
+//        }
+        else if ([[_questionButton titleForState:UIControlStateNormal] isEqualToString:NSLocalizedStringFromTable(@"choose_question",appDelegate.culture, @"")])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_secret_question",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([self.answerTF.text isEqualToString:@""])
         {
-//            BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_answer",appDelegate.culture, @"")];
-//            [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
-//            [alert show];
-            
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:NSLocalizedStringFromTable(@"enter_answer",appDelegate.culture, @"") delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];
         }
@@ -435,7 +435,7 @@
             request.mobile = self.mobilenumberTF.text;
             request.cityId = cityID;
             request.password = self.passwordTF.text;
-            request.passwordQuestion = self.questionTF.text;
+            request.passwordQuestion = [_questionButton titleForState:UIControlStateNormal];
             request.passwordAnswer = self.answerTF.text;
             
             IACADServiceClient * client = [[IACADServiceClient alloc]init];
@@ -577,6 +577,55 @@
             [self.theScrollview setContentOffset:CGPointMake(0, 280) animated:YES];
     }
   
+}
+
+-(void)ListSecretQuestionsCallback:(IACADListSecretQuestionsResponse *)response error:(NSError *)error
+{
+    [AC stopLoading];
+    questionsList = response.ListSecretQuestionsResult;
+    
+    if ([self.viewDeckController isAnySideOpen])
+    {
+        [self.viewDeckController closeRightView];
+        [self.viewDeckController closeLeftView];
+    }
+    else
+    {
+        SecretQuestionViewController * questionList = [[SecretQuestionViewController alloc]init:self];
+        [questionList setQuestionsList:questionsList];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionPush;
+        if ([appDelegate.culture isEqualToString:@"ar"])
+            transition.subtype = kCATransitionFromLeft;
+        else
+            transition.subtype = kCATransitionFromRight;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController pushViewController:questionList animated:NO];
+        
+    }
+}
+
+- (IBAction)questionMethod:(id)sender {
+    
+    [AC startLoading];
+    IACADListSecretQuestions * request = [[IACADListSecretQuestions alloc]init];
+    request.culture = appDelegate.culture;
+    
+    IACADServiceClient * client = [[IACADServiceClient alloc]init];
+    [client ListSecretQuestionsAsyncIsPost:YES input:request caller:self];
+}
+
+-(void)questionSelected: (NSString *)questionName
+{
+    if ([appDelegate.culture isEqualToString:@"ar"])
+    {
+        [_questionButton setTitle:questionName forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_questionButton setTitle:questionName forState:UIControlStateNormal];
+    }
 }
 
 

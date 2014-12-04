@@ -21,6 +21,7 @@
 #import "IACADForgotPassword.h"
 #import "personalViewController.h"
 #import "constructionViewController.h"
+#import "NewuserViewController.h"
 
 
 @interface SigningViewController ()
@@ -91,6 +92,7 @@
         
         self.forgetpassLbl.text = NSLocalizedStringFromTable(@"forgot_password_lbl",appDelegate.culture, @"");
         self.forgetpassLbl.textAlignment = NSTextAlignmentLeft;
+        self.forgetpassLbl.frame = CGRectMake(20, self.forgetpassLbl.frame.origin.y, self.forgetpassLbl.frame.size.width, self.forgetpassLbl.frame.size.height);
         self.forgotPassButton.frame = CGRectMake(20, self.forgotPassButton.frame.origin.y, self.forgotPassButton.frame.size.width, self.forgotPassButton.frame.size.height);
         
         self.titleLbl.text = NSLocalizedStringFromTable(@"register_title_lbl",appDelegate.culture, @"");
@@ -116,7 +118,8 @@
         self.closeButton.frame = CGRectMake(7, self.closeButton.frame.origin.y, self.closeButton.frame.size.width, self.closeButton.frame.size.height);
         [self.closeButton setImage:[UIImage imageNamed:@"closeButton_en.png"] forState:UIControlStateNormal];
         
-        
+        [_btnRegistration setFrame:CGRectMake(180, _btnRegistration.frame.origin.y, _btnRegistration.frame.size.width, _btnRegistration.frame.size.height)];
+        [_btnRegistration setTitle:@"Registration >" forState:UIControlStateNormal];
     }
     
     
@@ -265,6 +268,24 @@
         //        BlockAlertView * alert = [BlockAlertView alertWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:loginResult.FailureMessage];
         //        [alert setCancelButtonWithTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") block:nil];
         //        [alert show];
+    }
+}
+
+- (IBAction)registrationMethod:(id)sender {
+    if ([self.viewDeckController isAnySideOpen])
+    {
+        [self.viewDeckController closeRightView];
+        [self.viewDeckController closeLeftView];
+    }
+    else
+    {
+        NewuserViewController * newuser = [[NewuserViewController alloc]init];
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionReveal;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+        [self.navigationController pushViewController:newuser animated:NO];
     }
 }
 

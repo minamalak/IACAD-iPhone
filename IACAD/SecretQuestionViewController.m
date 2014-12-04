@@ -11,10 +11,13 @@
 #import "ArabicConverter.h"
 #import "CustomizedACView.h"
 #import "IIViewDeckController.h"
-#import "IACADCountry.h"
-#import "IACADGetCountries.h"
-#import "IACADGetCountriesResponse.h"
+//#import "IACADCountry.h"
+//#import "IACADGetCountries.h"
+//#import "IACADGetCountriesResponse.h"
+#import "IACADListSecretQuestions.h"
+#import "IACADListSecretQuestionsResponse.h"
 #import "NewuserViewController.h"
+#import "ChangePasswordViewController.h"
 
 @interface SecretQuestionViewController ()
 
@@ -40,22 +43,23 @@
     {
         UIFont *boldFont=[UIFont fontWithName:@"GESSTwoMedium-Medium" size:18];
         ArabicConverter *converter = [[ArabicConverter alloc] init];
-        self.titleLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"select_country",appDelegate.culture, @"")];
+        self.titleLbl.text = [converter convertArabic:NSLocalizedStringFromTable(@"choose_question",appDelegate.culture, @"")];
         self.titleLbl.font = boldFont;
     }
     else
     {
-        self.titleLbl.text = NSLocalizedStringFromTable(@"select_country",appDelegate.culture, @"");
+        self.titleLbl.text = NSLocalizedStringFromTable(@"choose_question",appDelegate.culture, @"");
+        
         self.backButton.frame = CGRectMake(5, self.backButton.frame.origin.y, self.backButton.frame.size.width, self.backButton.frame.size.height);
         UIImage *buttonImage = [UIImage imageNamed:@"back_enButton.png"];
         [self.backButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
     }
     
-    AC =[[CustomizedACView alloc]initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 100, 68)];
-    AC.center=self.view.center;
-    AC.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
-    [AC startLoading];
-    [self.view addSubview:AC];
+//    AC =[[CustomizedACView alloc]initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 100, 68)];
+//    AC.center=self.view.center;
+//    AC.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+//    [AC startLoading];
+//    [self.view addSubview:AC];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(detectTapGesture)];
@@ -64,23 +68,25 @@
     tap.delegate = self;
     [self.view addGestureRecognizer:tap];
     
-    IACADGetCountries * request = [[IACADGetCountries alloc]init];
-    request.culture = appDelegate.culture;
+    [self fillTable];
     
-    IACADServiceClient * client = [[IACADServiceClient alloc]init];
-    [client GetCountriesAsyncIsPost:YES input:request caller:self];
+//    IACADListSecretQuestions * request = [[IACADListSecretQuestions alloc]init];
+//    request.culture = appDelegate.culture;
+//    
+//    IACADServiceClient * client = [[IACADServiceClient alloc]init];
+//    [client ListSecretQuestionsAsyncIsPost:YES input:request caller:self];
 }
 
--(void) GetCountriesCallback:(IACADGetCountriesResponse *)response error:(NSError *)error
-{
-    [AC stopLoading];
-    [countriesList removeAllObjects];
-    countriesList = nil;
-    countriesList = [[NSMutableArray alloc]init];
-    countriesList = response.GetCountriesResult;
-    if ([countriesList count]>0)
-        [self fillTable];
-}
+//-(void)ListSecretQuestionsCallback:(IACADListSecretQuestionsResponse *)response error:(NSError *)error
+//{
+//    [AC stopLoading];
+//    [questionsList removeAllObjects];
+//    questionsList = nil;
+//    questionsList = [[NSMutableArray alloc]init];
+//    questionsList = response.ListSecretQuestionsResult;
+//    if ([questionsList count]>0)
+//        [self fillTable];
+//}
 
 -(void) fillTable
 {
@@ -98,7 +104,7 @@
     static NSString *MyIdentifier = @"MyIdentifier";
     
     
-    IACADCountry * item = [countriesList objectAtIndex:indexPath.row];
+    NSString * item = [_questionsList objectAtIndex:indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
@@ -127,29 +133,25 @@
         else
             donationDesc.textAlignment = NSTextAlignmentLeft;
         [cell.contentView addSubview:donationDesc];
-        
-        
-        
     }
     
     UILabel *lbl5 = (UILabel *)[cell.contentView viewWithTag:30];
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
         ArabicConverter *converter = [[ArabicConverter alloc] init];
-        lbl5.text = [converter convertArabic: item.Name];
+        lbl5.text = [converter convertArabic: item];
     }
     else
-        lbl5.text = item.Name;
+        lbl5.text = item;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
     
     return cell;
-    
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [countriesList count];
+    return [_questionsList count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -168,8 +170,8 @@
     }
     else
     {
-        IACADCountry * item  = [countriesList objectAtIndex:indexPath.row];
-        [delegate countrySelected:item.Name:item.Id];
+        NSString * item  = [_questionsList objectAtIndex:indexPath.row];
+        [delegate questionSelected:item];
         CATransition* transition = [CATransition animation];
         transition.duration = 0.3;
         transition.type = kCATransitionPush;
@@ -180,14 +182,18 @@
         [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
         [self.navigationController popViewControllerAnimated:NO];
     }
-    
 }
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return ![NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"];
+    
 }
 
 - (IBAction)backMethod:(id)sender {
@@ -205,16 +211,9 @@
             transition.subtype = kCATransitionFromRight;
         else
             transition.subtype = kCATransitionFromLeft;
-        
         [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
         [self.navigationController popViewControllerAnimated:NO];
     }
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    return ![NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"];
-    
 }
 
 

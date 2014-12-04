@@ -450,7 +450,7 @@
             if (quant == TRUE)
                 textString = NSLocalizedStringFromTable(@"enter_number_units",appDelegate.culture, @"");
             else if (cont == TRUE)
-                textString = NSLocalizedStringFromTable(@"enter_value",appDelegate.culture, @"");
+                textString = NSLocalizedStringFromTable(@"stocks_empty",appDelegate.culture, @"");
             
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedStringFromTable(@"message_title",appDelegate.culture, @"") message:textString delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"done_lbl",appDelegate.culture, @"") otherButtonTitles:nil, nil];
             [alert show];

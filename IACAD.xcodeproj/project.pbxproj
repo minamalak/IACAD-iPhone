@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3135A4EB1A11495C00586C69 /* listtablecellWithoutImage_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */; };
 		3135A4EC1A11495C00586C69 /* listtablecellWithoutImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */; };
+		315DE69D1A308DD2003C8679 /* new_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 315DE69C1A308DD2003C8679 /* new_btn.png */; };
 		31616CAD1A2E54EF00CB23D4 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31616CAB1A2E54EF00CB23D4 /* ChangePasswordViewController.m */; };
 		31616CAE1A2E54EF00CB23D4 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31616CAC1A2E54EF00CB23D4 /* ChangePasswordViewController.xib */; };
 		31616CB21A2E63A800CB23D4 /* SecretQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31616CB01A2E63A800CB23D4 /* SecretQuestionViewController.m */; };
@@ -22,6 +23,11 @@
 		31922D561A2F7CA700F188B9 /* cancel_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D521A2F7CA700F188B9 /* cancel_en.png */; };
 		31922D571A2F7CA700F188B9 /* select_ar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D531A2F7CA700F188B9 /* select_ar.png */; };
 		31922D581A2F7CA700F188B9 /* select_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D541A2F7CA700F188B9 /* select_en.png */; };
+		31922D5D1A2F8A2500F188B9 /* IACADListSecretQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 31922D5A1A2F8A2500F188B9 /* IACADListSecretQuestions.m */; };
+		31922D5E1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 31922D5C1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.m */; };
+		31922D601A2F8D3800F188B9 /* logout_editprofile_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D5F1A2F8D3800F188B9 /* logout_editprofile_en.png */; };
+		31922D631A2F8FA300F188B9 /* listing_one_one_ar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D611A2F8FA300F188B9 /* listing_one_one_ar.png */; };
+		31922D641A2F8FA300F188B9 /* listing_one_one_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 31922D621A2F8FA300F188B9 /* listing_one_one_en.png */; };
 		319C7D401A14EBFC00629529 /* DonationHistoryDetailsEN.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */; };
 		319E4C351A0FD9B600DF3D21 /* IACADGetDonorProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */; };
 		319E4C361A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 319E4C341A0FD9B600DF3D21 /* IACADGetDonorProjectsResponse.m */; };
@@ -337,6 +343,7 @@
 /* Begin PBXFileReference section */
 		3135A4E91A11495C00586C69 /* listtablecellWithoutImage_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listtablecellWithoutImage_en.png; sourceTree = "<group>"; };
 		3135A4EA1A11495C00586C69 /* listtablecellWithoutImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listtablecellWithoutImage.png; sourceTree = "<group>"; };
+		315DE69C1A308DD2003C8679 /* new_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_btn.png; sourceTree = "<group>"; };
 		31616CAA1A2E54EF00CB23D4 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		31616CAB1A2E54EF00CB23D4 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		31616CAC1A2E54EF00CB23D4 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
@@ -353,6 +360,13 @@
 		31922D521A2F7CA700F188B9 /* cancel_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_en.png; sourceTree = "<group>"; };
 		31922D531A2F7CA700F188B9 /* select_ar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_ar.png; sourceTree = "<group>"; };
 		31922D541A2F7CA700F188B9 /* select_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_en.png; sourceTree = "<group>"; };
+		31922D591A2F8A2500F188B9 /* IACADListSecretQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADListSecretQuestions.h; sourceTree = "<group>"; };
+		31922D5A1A2F8A2500F188B9 /* IACADListSecretQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADListSecretQuestions.m; sourceTree = "<group>"; };
+		31922D5B1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADListSecretQuestionsResponse.h; sourceTree = "<group>"; };
+		31922D5C1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADListSecretQuestionsResponse.m; sourceTree = "<group>"; };
+		31922D5F1A2F8D3800F188B9 /* logout_editprofile_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_editprofile_en.png; sourceTree = "<group>"; };
+		31922D611A2F8FA300F188B9 /* listing_one_one_ar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listing_one_one_ar.png; sourceTree = "<group>"; };
+		31922D621A2F8FA300F188B9 /* listing_one_one_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listing_one_one_en.png; sourceTree = "<group>"; };
 		319C7D3F1A14EBFC00629529 /* DonationHistoryDetailsEN.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHistoryDetailsEN.xib; sourceTree = "<group>"; };
 		319E4C311A0FD9B600DF3D21 /* IACADGetDonorProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IACADGetDonorProjects.h; sourceTree = "<group>"; };
 		319E4C321A0FD9B600DF3D21 /* IACADGetDonorProjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IACADGetDonorProjects.m; sourceTree = "<group>"; };
@@ -1244,6 +1258,10 @@
 		F4ADFCB81796E2B400439B6E /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				31922D591A2F8A2500F188B9 /* IACADListSecretQuestions.h */,
+				31922D5A1A2F8A2500F188B9 /* IACADListSecretQuestions.m */,
+				31922D5B1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.h */,
+				31922D5C1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.m */,
 				31A588581A235BA900A228B9 /* IACADAddReliefDonation.h */,
 				31A588591A235BA900A228B9 /* IACADAddReliefDonation.m */,
 				31A5885A1A235BA900A228B9 /* IACADAddReliefDonationResponse.h */,
@@ -1548,6 +1566,10 @@
 		F4C9E22417B12ECE009E0AAE /* login */ = {
 			isa = PBXGroup;
 			children = (
+				315DE69C1A308DD2003C8679 /* new_btn.png */,
+				31922D611A2F8FA300F188B9 /* listing_one_one_ar.png */,
+				31922D621A2F8FA300F188B9 /* listing_one_one_en.png */,
+				31922D5F1A2F8D3800F188B9 /* logout_editprofile_en.png */,
 				31922D4F1A2F7C7300F188B9 /* logout_editprofile.png */,
 				F4E9CE7518717CE300103C35 /* saveButton_en.png */,
 				F4E9CE7618717CE300103C35 /* saveButton.png */,
@@ -1685,7 +1707,7 @@
 				ORGANIZATIONNAME = "Ahmed Azab";
 				TargetAttributes = {
 					F4ADFC7F1796E11D00439B6E = {
-						DevelopmentTeam = EKK9M2H3G4;
+						DevelopmentTeam = 38726ZL3C8;
 					};
 				};
 			};
@@ -1757,6 +1779,7 @@
 				F44257DC17B947320031674D /* alert-gray-button.png in Resources */,
 				31616CAE1A2E54EF00CB23D4 /* ChangePasswordViewController.xib in Resources */,
 				F44257DD17B947320031674D /* alert-gray-button@2x.png in Resources */,
+				31922D631A2F8FA300F188B9 /* listing_one_one_ar.png in Resources */,
 				F44257DE17B947320031674D /* alert-red-button.png in Resources */,
 				3135A4EC1A11495C00586C69 /* listtablecellWithoutImage.png in Resources */,
 				F44257DF17B947320031674D /* alert-red-button@2x.png in Resources */,
@@ -1792,6 +1815,7 @@
 				F44258A417C16A040031674D /* eventsIcon.png in Resources */,
 				F4B201A618634C55007FD9A7 /* listing_two_en.png in Resources */,
 				F44258A517C16A040031674D /* homebigItem_bg.png in Resources */,
+				31922D641A2F8FA300F188B9 /* listing_one_one_en.png in Resources */,
 				F44258A617C16A040031674D /* homeitems_bg.png in Resources */,
 				F44258A717C16A040031674D /* rescueIcon.png in Resources */,
 				50C9CEB018E32636003F223F /* personalViewController.xib in Resources */,
@@ -1841,11 +1865,13 @@
 				F4C0CA6A17CB67AD001CFAF2 /* green_text_field.png in Resources */,
 				F4C0CA8417CD03C0001CFAF2 /* back_arButton.png in Resources */,
 				F4C0CB1817D378C0001CFAF2 /* cityListViewController.xib in Resources */,
+				315DE69D1A308DD2003C8679 /* new_btn.png in Resources */,
 				F4C0CB1D17D37A0F001CFAF2 /* countrtyListViewController.xib in Resources */,
 				F4E305891854BF5A00E40231 /* ar.strings in Resources */,
 				F4C0CB2217D4BB11001CFAF2 /* donate-confirm_btn.png in Resources */,
 				F4C0CB2317D4BB11001CFAF2 /* donate-popup_bg.png in Resources */,
 				F4C0CB2417D4BB11001CFAF2 /* donate-textfield_bg.png in Resources */,
+				31922D601A2F8D3800F188B9 /* logout_editprofile_en.png in Resources */,
 				F4C1BA7217D78ADB00EA408C /* icon.png in Resources */,
 				F4C1BA7717D78B4F00EA408C /* icon@2x.png in Resources */,
 				F4C1BA7B17D78BEB00EA408C /* Default-568h@2x.png in Resources */,
@@ -1963,6 +1989,7 @@
 				507816A218F45309005531A6 /* IACADRegisterResult.m in Sources */,
 				5078168F18F45309005531A6 /* IACADGetEvents.m in Sources */,
 				5078166C18F45309005531A6 /* IACADDonateToCatalogPersonResponse.m in Sources */,
+				31922D5E1A2F8A2500F188B9 /* IACADListSecretQuestionsResponse.m in Sources */,
 				F442589717C0F6C20031674D /* CustomizedACView.m in Sources */,
 				5078168218F45309005531A6 /* IACADGetCharityDetailsResponse.m in Sources */,
 				5078168518F45309005531A6 /* IACADGetCitiesByCountry.m in Sources */,
@@ -2008,6 +2035,7 @@
 				F4C0CA6717CB5FA9001CFAF2 /* constructionViewController.m in Sources */,
 				503CD01B18EB19B70040E998 /* donateGridListViewController.m in Sources */,
 				5078167118F45309005531A6 /* IACADEditProfileResponse.m in Sources */,
+				31922D5D1A2F8A2500F188B9 /* IACADListSecretQuestions.m in Sources */,
 				F4C0CB1717D378C0001CFAF2 /* cityListViewController.m in Sources */,
 				5078166318F45309005531A6 /* IACADAnonymiousDonationItem.m in Sources */,
 				5078166518F45309005531A6 /* IACADCatalogPerson.m in Sources */,
