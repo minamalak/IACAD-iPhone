@@ -1707,7 +1707,7 @@
 				ORGANIZATIONNAME = "Ahmed Azab";
 				TargetAttributes = {
 					F4ADFC7F1796E11D00439B6E = {
-						DevelopmentTeam = 38726ZL3C8;
+						DevelopmentTeam = EKK9M2H3G4;
 					};
 				};
 			};
@@ -2172,7 +2172,7 @@
 		F4ADFCB31796E11E00439B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LINK Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LINK Development";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IACAD/IACAD-Prefix.pch";
@@ -2193,7 +2193,7 @@
 		F4ADFCB41796E11E00439B6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LINK Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LINK Development";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IACAD/IACAD-Prefix.pch";

@@ -281,15 +281,16 @@
     return ! ([touch.view isKindOfClass:[UIControl class]]);
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    float currentVersion = 7.0;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
-        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
-        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
-    }
-    [super viewDidAppear:animated];
-}
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    float currentVersion = 7.0;
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
+//        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
+//        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
+//    }
+//}
 
 -(void)detectTapGesture {
     if ([self.viewDeckController isAnySideOpen])

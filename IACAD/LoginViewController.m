@@ -24,16 +24,16 @@
 
 -(id)init :(int)ty
 {
-	if(self = [super init])
-	{
+    if(self = [super init])
+    {
         type = ty;
         /// type=0 -> Side menu
         /// type=1 -> Donate
         
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.countViews = 1;
-	}
-	return self;
+    }
+    return self;
 }
 
 -(id)init :(int)ty :(id) donateDelegate
@@ -191,7 +191,7 @@
             
             [_lblChangePassword setAlpha:0];
             [_btnChangePassword setAlpha:0];
-             [_labelLbl setAlpha:1];
+            [_labelLbl setAlpha:1];
         }
         else
         {
@@ -207,7 +207,7 @@
             _lblChangePassword.text = NSLocalizedStringFromTable(@"change_password", appDelegate.culture, @"");
             [_lblChangePassword setAlpha:1];
             [_btnChangePassword setAlpha:1];
-             [_labelLbl setAlpha:0];
+            [_labelLbl setAlpha:0];
         }
     }
 }
@@ -351,16 +351,28 @@
     return ! ([touch.view isKindOfClass:[UIControl class]]);
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    float currentVersion = 7.0;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
-        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
-        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
-    }
-}
+//-(void)viewDidAppear:(BOOL)animated
+//{
+//    
+//    
+//    float currentVersion = 7.0;
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
+//        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
+//        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
+//    }
+//    [super viewDidAppear:animated];
+//}
+//
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    float currentVersion = 7.0;
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
+//        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
+//        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
+//    }
+//}
 
 -(void)detectTapGesture {
     if ([self.viewDeckController isAnySideOpen])

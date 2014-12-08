@@ -100,46 +100,25 @@
 {
     [super viewWillAppear:animated];
     
-  //  [self.viewDeckController openLeftViewAnimated:NO];
-    
-    
-    
-    /*Vertical spacing of icons*/
-//    CGSize mainScreenSize = self.theScrollview.frame.size;
-//    int verticalMargin = (mainScreenSize.height - (157 * 2) - 10) / 2;
-//    verticalMargin -= 12;
-//    
-//    CGRect oldFrame = _vwBrowse.frame;
-//    _vwBrowse.frame = CGRectMake(oldFrame.origin.x, verticalMargin, oldFrame.size.width, oldFrame.size.height);
-//    
-//    oldFrame = _vwSpecialDonation.frame;
-//    _vwSpecialDonation.frame = CGRectMake(oldFrame.origin.x, verticalMargin, oldFrame.size.width, oldFrame.size.height);
-//    
-//    
-//    
-//    int secondLineY = _vwBrowse.frame.origin.y + _vwBrowse.frame.size.height + 10;
-//    
-//    oldFrame = _vwEvents.frame;
-//    _vwEvents.frame = CGRectMake(oldFrame.origin.x, secondLineY, oldFrame.size.width, oldFrame.size.height);
-//    
-//    oldFrame = _vwGeneralDonation.frame;
-//    _vwGeneralDonation.frame = CGRectMake(oldFrame.origin.x, secondLineY, oldFrame.size.width, oldFrame.size.height);
+//    float currentVersion = 7.0;
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
+//        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
+//        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
+//    }
     
     [_theScrollview setContentSize:CGSizeMake(320, 524)];
-    
-    /*End vertical spacing of icons*/
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    
-    float currentVersion = 7.0;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
-        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
-        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
-    }
+//    float currentVersion = 7.0;
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
+//        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
+//        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
+//    }
+
     
     if ([appDelegate.culture isEqualToString:@"ar"])
     {

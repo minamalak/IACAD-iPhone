@@ -30,11 +30,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="topBar.png" id="18">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="القائمة الرئسية" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17">
-                    <rect key="frame" x="0.0" y="2" width="320" height="46"/>
+                    <rect key="frame" x="0.0" y="22" width="320" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <gestureRecognizers/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -42,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="14">
-                    <rect key="frame" x="272" y="2" width="48" height="39"/>
+                    <rect key="frame" x="272" y="25" width="48" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal">
@@ -57,11 +57,11 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="menu_btn.png" id="74">
-                    <rect key="frame" x="286" y="16" width="25" height="15"/>
+                    <rect key="frame" x="286" y="39" width="25" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="20">
-                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                    <rect key="frame" x="0.0" y="68" width="320" height="500"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="Tq4-mu-tkC">

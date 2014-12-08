@@ -55,9 +55,6 @@
     self.tableView.scrollsToTop = NO;
     self.pushButton.enabled = NO;
     self.pushButton.layer.opacity = 0.2;
-  
-    
-   
     
     if ([appDelegate.culture isEqualToString:@"ar"])
     {
@@ -105,11 +102,7 @@
         self.langLbl.text = NSLocalizedStringFromTable(@"side_language",appDelegate.culture, @"");
         self.lblDonationHistory.text = NSLocalizedStringFromTable(@"side_history",appDelegate.culture, @"");
     }
-    
-    
-    
     [self updateSideMenu];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -407,6 +400,8 @@
         self.welcomeLbl.alpha = 0;
         self.welcomeString.alpha = 0;
         
+        [_btnDonationHistory setAlpha:0];
+        [_lblDonationHistory setAlpha:0];
     }
     else
     {
@@ -415,6 +410,8 @@
         else
             [self.loginButton setImage:[UIImage imageNamed:@"logout_editprofile_en.png"] forState:UIControlStateNormal];
         
+        [_btnDonationHistory setAlpha:1];
+        [_lblDonationHistory setAlpha:1];
         [self updateGreenBar];
     }
 }
