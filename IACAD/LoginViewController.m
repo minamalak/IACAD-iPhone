@@ -167,6 +167,7 @@
             NSString * welcome;
             welcome = [NSString stringWithFormat:@"مرحبا، %@ %@", appDelegate.firstName, appDelegate.lastName];
             _titleLbl.text = [converter convertArabic:welcome];
+            [_titleLbl setFrame:CGRectMake(16, 22, 262, 46)];
             
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton.png"] forState:UIControlStateNormal];
             
@@ -199,6 +200,7 @@
             welcome = [welcome stringByAppendingString:appDelegate.lastName];
             welcome = [@"Welcome, " stringByAppendingString:welcome];
             _titleLbl.text = welcome;
+            [_titleLbl setFrame:CGRectMake(47, 22, 262, 46)];
             
             [self.loginButton setImage:[UIImage imageNamed:@"logoutbutton_en.png"] forState:UIControlStateNormal];
             
@@ -322,8 +324,6 @@
             [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
             [self.navigationController pushViewController:editprofile animated:NO];
         }
-        
-        
     }
 }
 

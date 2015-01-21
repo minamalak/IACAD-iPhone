@@ -33,6 +33,8 @@
     int itemsCount;
     BOOL isQuant;
     AppDelegate * appDelegate;
+    
+    IBOutlet NSLayoutConstraint *constraintRight;
 }
 
 

@@ -148,13 +148,13 @@
             // Mina
             itemLbl.frame = CGRectMake(120, y+0, 170, 60);
             itemLbl.textAlignment = NSTextAlignmentRight;
-            itemLbl.text = [converter convertArabic: reliefNeeds.NeedCause];
+            itemLbl.text = [converter convertArabic: reliefNeeds.StrNeedType];
         }
         else
         {
             itemLbl.frame = CGRectMake(10, y+0, 170, 60);
             itemLbl.textAlignment = NSTextAlignmentLeft;
-            itemLbl.text = reliefNeeds.NeedCause;
+            itemLbl.text = reliefNeeds.StrNeedType;
         }
         
         itemLbl.font = boldFont;
@@ -341,7 +341,7 @@
             IACADReliefNeeds * donationType = [donateList objectAtIndex:i];
 //            NSLog(@"donate id %i",donationType.Id);
             IACADReliefDonationItem * donationItem = [[IACADReliefDonationItem alloc]init];
-            donationItem.ReliefNeedId = donationType.Id;
+            donationItem.ReliefNeedId = donationType.NeedTypeId;
             donationItem.Amount = [NSNumber numberWithInt: counttemp];
             [finalDonataionList addObject:donationItem];
         }
@@ -401,8 +401,18 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (range.location>4)
+    NSString *numericRegex = @"^[0-9]*";
+    NSPredicate *numericTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numericRegex];
+    BOOL isValid = [numericTest evaluateWithObject:string];
+    
+    if (!isValid) {
+        return NO;
+    }
+    else if (range.location>4)
     {
+        return NO;
+    }
+    else if (string.length > 5) {
         return NO;
     }
     else

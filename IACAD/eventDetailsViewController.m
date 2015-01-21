@@ -234,16 +234,17 @@
     return ! ([touch.view isKindOfClass:[UIControl class]]);
 }
 
-//-(void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    
-//    float currentVersion = 7.0;
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= currentVersion) {
-//        self.view.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-40);
-//        self.tabbarImg.frame  =  CGRectMake(0, -20,320,66);
-//    }
-//}
+- (IBAction)openMapView:(id)sender {
+    
+    IACADLocation * location = [[IACADLocation alloc]init];
+    location = itemDetails.EventLocation;
+    
+    //IACADIACADEvent *Event = [[IACADIACADEvent alloc]init];
+    NSString *adressURL = [NSString stringWithFormat: @"http://maps.apple.com/maps?q=%f,%f",  location.Latitude, location.Longitude];
+    NSURL *url = [NSURL URLWithString:adressURL];
+    [[UIApplication sharedApplication]openURL:url];
+    
+}
 
 -(void)detectTapGesture {
     if ([self.viewDeckController isAnySideOpen])

@@ -77,9 +77,10 @@
     else
     {
         self.titleLbl.text =NSLocalizedStringFromTable(@"side_history",appDelegate.culture, @"");;
-        self.menuButton.frame = CGRectMake(0, self.menuButton.frame.origin.y, self.menuButton.frame.size.width, self.menuButton.frame.size.height);
         
         self.nodataTitle.text = NSLocalizedStringFromTable(@"no_info_lbl",appDelegate.culture, @"");
+        
+        [constraintRight setConstant:280];
     }
     
     pagesize = 10;

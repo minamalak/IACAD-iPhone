@@ -18,6 +18,8 @@
     IACADIACADEvent * itemDetails;
     AppDelegate * appDelegate;
 }
+@property (weak, nonatomic) IBOutlet UIButton *btnMap;
+
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIImageView *calImg;
 @property (weak, nonatomic) IBOutlet UIImageView *tabbarImg;

@@ -11,10 +11,9 @@
 "side_about" = "About Us";
 "side_contact" = "Contact Us";
 "side_language" = "Language";
-"side_history" = "Browse Project";
+"side_history" = "Listing Projects";
 
 "noconnection_lbl" = "Sorry, no internet connection; please try again later....";
-
 
 ///FirstView
 "browse_lbl" = "Browse";

@@ -495,12 +495,22 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-        if (range.location>4)
-        {
-            return NO;
-        }
-        else
-            return YES;
+    NSString *numericRegex = @"^[0-9]*";
+    NSPredicate *numericTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numericRegex];
+    BOOL isValid = [numericTest evaluateWithObject:string];
+    
+    if (!isValid) {
+        return NO;
+    }
+    else if (range.location>4)
+    {
+        return NO;
+    }
+    else if (string.length > 5) {
+        return NO;
+    }
+    else
+        return YES;
 }
 
 - (void)viewDidUnload {

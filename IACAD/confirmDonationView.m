@@ -382,46 +382,49 @@
 }
 
 - (void)updateLabelUsingContentsOfTextField:(id)sender {
-    if (((UITextField *)sender).text.length < 8) {
+    
+    NSString *numericRegex = @"^[0-9]*";
+    NSPredicate *numericTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numericRegex];
+    BOOL isValid = [numericTest evaluateWithObject:((UITextField *)sender).text];
+    
+    if (isValid) {
+        if (((UITextField *)sender).text.length < 8) {
+            if (quant == TRUE)
+            {
+                //        ArabicConverter *converter = [[ArabicConverter alloc] init];
+                double value = [((UITextField *)sender).text doubleValue];
+                double total = value * cost;
+                NSString* myNewString = [NSString stringWithFormat:@"%.2f", total];
+                
+                if ([appDelegate.culture isEqualToString:@"ar"]) {
+                    [lblTotal setText:[NSString stringWithFormat:@"مجموع: %@ درهم إماراتي", myNewString]];
+                }
+                else {
+                    [lblTotal setText:[NSString stringWithFormat:@"total: %@ AED", myNewString]];
+                }
+            }
+            else if (cont) {
+                double value = [((UITextField *)sender).text floatValue];
+                double total = value * cost;
+                NSString* myNewString = [NSString stringWithFormat:@"%.2f", total];
+                if ([appDelegate.culture isEqualToString:@"ar"]) {
+                    [lblTotal setText:[NSString stringWithFormat:@"مجموع: %@ درهم إماراتي", myNewString]];
+                }
+                else {
+                    [lblTotal setText:[NSString stringWithFormat:@"total: %@ AED", myNewString]];
+                }
+            }
+        }
+        else {
+            UITextField *txt = ((UITextField *)sender);
+            txt.text = [txt.text substringToIndex:7];
+        }
         
-        if (quant == TRUE)
-        {
-            //        ArabicConverter *converter = [[ArabicConverter alloc] init];
-            double value = [((UITextField *)sender).text doubleValue];
-            double total = value * cost;
-            NSString* myNewString = [NSString stringWithFormat:@"%.2f", total];
-            //        NSString * temp = [myNewString stringByAppendingString:NSLocalizedStringFromTable(@"dirham_lbl",appDelegate.culture, @"")];
-            //        if ([appDelegate.culture isEqualToString:@"ar"]) {
-            //            totalAmount.text = [converter convertArabic:temp];
-            //        }
-            //        else {
-            //            totalAmount.text = temp;
-            //        }
-            
-            if ([appDelegate.culture isEqualToString:@"ar"]) {
-                [lblTotal setText:[NSString stringWithFormat:@"مجموع: %@ درهم إماراتي", myNewString]];
-            }
-            else {
-                [lblTotal setText:[NSString stringWithFormat:@"total: %@ AED", myNewString]];
-            }
-        }
-        else if (cont) {
-            double value = [((UITextField *)sender).text floatValue];
-            double total = value * cost;
-            NSString* myNewString = [NSString stringWithFormat:@"%.2f", total];
-            if ([appDelegate.culture isEqualToString:@"ar"]) {
-                [lblTotal setText:[NSString stringWithFormat:@"مجموع: %@ درهم إماراتي", myNewString]];
-            }
-            else {
-                [lblTotal setText:[NSString stringWithFormat:@"total: %@ AED", myNewString]];
-            }
-        }
     }
     else {
         UITextField *txt = ((UITextField *)sender);
-        txt.text = [txt.text substringToIndex:[txt.text length]-1];
+        txt.text = @"";
     }
-    
 }
 
 -(void) confirmAction
